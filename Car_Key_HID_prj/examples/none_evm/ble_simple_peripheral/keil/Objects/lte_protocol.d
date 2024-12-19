@@ -21,3 +21,7 @@
 .\objects\lte_protocol.o: ..\..\..\..\components\ble\include\gatt\gatt_api.h
 .\objects\lte_protocol.o: ..\..\..\..\components\modules\os\include\os_msg_q.h
 .\objects\lte_protocol.o: ..\..\..\..\components\ble\include\gatt\gatt_sig_uuid.h
+.\objects\lte_protocol.o: ..\..\..\..\components\driver\include\driver_system.h
+.\objects\lte_protocol.o: ..\..\..\..\components\driver\include\driver_iomux.h
+.\objects\lte_protocol.o: ..\..\..\..\components\modules\os\include\os_task.h
+.\objects\lte_protocol.o: ..\..\..\..\components\driver\include\driver_rtc.h

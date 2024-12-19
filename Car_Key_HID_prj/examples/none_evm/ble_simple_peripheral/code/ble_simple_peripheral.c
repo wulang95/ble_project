@@ -25,6 +25,7 @@
 #include "hid_service.h"
 #include "driver_uart.h"
 #include "lte_protocol.h"
+#include "os_task.h"
 /*
  * MACROS (宏定义)
  */
@@ -166,7 +167,6 @@ os_timer_t sp_timer;
 /** @function group ble peripheral device APIs (ble外设相关的API)
  * @{
  */
-
 void param_timer_func(void *arg)
 {
     co_printf("param_timer_func\r\n");
@@ -176,7 +176,7 @@ void param_timer_func(void *arg)
 		ble_adv_con_param.adv_con_param.slave_latency,\
 		ble_adv_con_param.adv_con_param.timeout);
 }
-__attribute__((section("ram_code"))) void gap_rssi_ind(int8_t rssi, uint8_t conidx)
+__attribute__((section("ram_code"))) void gap_rssi_ind(int8_t rssi, uint8_t conidx)  /* 15ms  */
 {
     int rssi_t;
 
@@ -185,11 +185,11 @@ __attribute__((section("ram_code"))) void gap_rssi_ind(int8_t rssi, uint8_t coni
     
     static uint16_t cnt = 0;
     cnt++;
-    if(cnt > 39)
+    if(cnt > 10)  
     {
         cnt = 0;
-        //co_printf("rssi: link=%d, rssi=%d.\r\n", conidx, rssi_t);
-   //     co_printf("r:%d  ",rssi_t);
+  //      co_printf("rssi: link=%d, rssi=%d.\r\n", conidx, rssi_t);
+ //       co_printf("r:%d  ",rssi_t);
         //if(rssi_t > check_rssi)
         //    co_printf("==rssi ok==\r\n");
     }
@@ -232,6 +232,7 @@ void app_gap_evt_cb(gap_event_t *p_event)
             //gatt_mtu_exchange_req(p_event->param.slave_connect.conidx);
             os_timer_start(&update_param_timer,2000,0);
 						pmu_set_gpio_value(GPIO_PORT_D, BIT(5), 1);
+					
             //gap_security_req(p_event->param.slave_connect.conidx);
         }
         break;
@@ -420,15 +421,15 @@ void simple_peripheral_init(void)
     
     mac_addr_t addr;
     gap_address_get(&addr);
-    co_printf("Local BDADDR: 0x%02X%02X%02X%02X%02X%02X\r\n", addr.addr[0], addr.addr[1], addr.addr[2], addr.addr[3], addr.addr[4], addr.addr[5]);
-		sprintf(mac_str, "mac:%02X%02X%02X%02X%02X%02X", addr.addr[0], addr.addr[1], addr.addr[2], addr.addr[3], addr.addr[4], addr.addr[5]);
+    co_printf("Local BDADDR: 0x%02X%02X%02X%02X%02X%02X\r\n", addr.addr[5], addr.addr[4], addr.addr[3], addr.addr[2], addr.addr[1], addr.addr[0]);
+		sprintf(mac_str, "mac:%02X%02X%02X%02X%02X%02X", addr.addr[5], addr.addr[4], addr.addr[3], addr.addr[2], addr.addr[1], addr.addr[0]);
     co_printf(mac_str);
 		uart_put_data_noint(UART0, mac_str, sizeof(mac_str));
 		dev_ble_protocol_init();
     // Adding services to database
     sp_gatt_add_service();  
     hid_gatt_add_service();
-	//	sp_start_adv();
+//		sp_start_adv();
 }
 
 

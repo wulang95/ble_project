@@ -1,34 +1,121 @@
-
-T09AC 001:020 SEGGER J-Link V6.10i Log File (0000ms, 0060ms total)
-T09AC 001:020 DLL Compiled: Oct 25 2016 19:31:51 (0000ms, 0060ms total)
-T09AC 001:020 Logging started @ 2022-08-16 12:16 (0000ms, 0060ms total)
-T09AC 001:020 JLINK_SetWarnOutHandler(...) (0000ms, 0060ms total)
-T09AC 001:020 JLINK_OpenEx(...)
-Firmware: J-Link V9 compiled Dec 13 2019 11:14:50
-Hardware: V9.20
-Feature(s): RDI, FlashBP, FlashDL, JFlash, GDBWEBSRV Webserver running on local port 19080 (0054ms, 0114ms total)
-T09AC 001:020   returns O.K. (0054ms, 0114ms total)
-T09AC 001:074 JLINK_SetErrorOutHandler(...) (0000ms, 0114ms total)
-T09AC 001:074 JLINK_ExecCommand("ProjectFile = "D:\Project_E\FR801xH_prj\羽阳\先智\Car_Key\Car_Key_prj\examples\none_evm\ble_simple_peripheral\keil\JLinkSettings.ini"", ...).   returns 0x00 (0078ms, 0192ms total)
-T09AC 001:152 JLINK_ExecCommand("Device = ARMCM3", ...). Device "CORTEX-M3" selected.  returns 0x00 (0000ms, 0192ms total)
-T09AC 001:152 JLINK_ExecCommand("DisableConnectionTimeout", ...).   returns 0x01 (0000ms, 0192ms total)
-T09AC 001:152 JLINK_GetHardwareVersion()  returns 0x16760 (0000ms, 0192ms total)
-T09AC 001:152 JLINK_GetDLLVersion()  returns 61009 (0000ms, 0192ms total)
-T09AC 001:152 JLINK_GetFirmwareString(...) (0000ms, 0192ms total)
-T09AC 001:152 JLINK_GetDLLVersion()  returns 61009 (0000ms, 0192ms total)
-T09AC 001:152 JLINK_GetCompileDateTime() (0000ms, 0192ms total)
-T09AC 001:152 JLINK_GetFirmwareString(...) (0000ms, 0192ms total)
-T09AC 001:152 JLINK_GetHardwareVersion()  returns 0x16760 (0000ms, 0192ms total)
-T09AC 001:152 JLINK_TIF_Select(JLINKARM_TIF_SWD)  returns 0x00 (0001ms, 0193ms total)
-T09AC 001:153 JLINK_SetSpeed(2000) (0000ms, 0193ms total)
-T09AC 001:167 JLINK_SetResetType(JLINKARM_RESET_TYPE_NORMAL)  returns JLINKARM_RESET_TYPE_NORMAL (0000ms, 0193ms total)
-T09AC 001:167 JLINK_Reset() >0x108 TIF>Found SWD-DP with ID 0x2BA01477 >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x21 TIF> >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x21 TIF> >0x0D TIF> >0x21 TIF> >0x0D TIF> >0x21 TIF>AP-IDR: 0x24770011, Type: AHB-AP >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x21 TIF> >0x0D TIF> >0x21 TIF> >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x21 TIF> >0x0D TIF> >0x21 TIF>
-Found Cortex-M3 r2p1, Little endian. -- CPU_ReadMem(4 bytes @ 0xE000EDF0) -- CPU_WriteMem(4 bytes @ 0xE000EDF0) -- CPU_ReadMem(4 bytes @ 0xE0002000)FPUnit: 14 code (BP) slots and 2 literal slots -- CPU_ReadMem(4 bytes @ 0xE000EDFC) -- CPU_ReadMem(4 bytes @ 0xE0001000) -- CPU_WriteMem(4 bytes @ 0xE0001000) -- CPU_ReadMem(4 bytes @ 0xE000ED88) -- CPU_WriteMem(4 bytes @ 0xE000ED88) -- CPU_ReadMem(4 bytes @ 0xE000ED88) -- CPU_WriteMem(4 bytes @ 0xE000ED88)CoreSight components:ROMTbl 0 @ E00FF000
- -- CPU_ReadMem(16 bytes @ 0xE00FF000) -- CPU_ReadMem(16 bytes @ 0xE000EFF0) -- CPU_ReadMem(16 bytes @ 0xE000EFE0)ROMTbl 0 [0]: FFF0F000, CID: B105E00D, PID: 000BB000 SCS -- CPU_ReadMem(16 bytes @ 0xE0001FF0) -- CPU_ReadMem(16 bytes @ 0xE0001FE0)ROMTbl 0 [1]: FFF02000, CID: B105E00D, PID: 003BB002 DWT -- CPU_ReadMem(16 bytes @ 0xE0002FF0) -- CPU_ReadMem(16 bytes @ 0xE0002FE0)ROMTbl 0 [2]: FFF03000, CID: B105E00D, PID: 002BB003 FPB -- CPU_ReadMem(16 bytes @ 0xE0000FF0)
- -- CPU_ReadMem(16 bytes @ 0xE0000FE0)ROMTbl 0 [3]: FFF01000, CID: B105E00D, PID: 003BB001 ITM -- CPU_ReadMem(16 bytes @ 0xE00FF010) -- CPU_ReadMem(16 bytes @ 0xE0040FF0) -- CPU_ReadMem(16 bytes @ 0xE0040FE0)ROMTbl 0 [4]: FFF41000, CID: B105900D, PID: 003BB923 TPIU-Lite -- CPU is running -- CPU_WriteMem(4 bytes @ 0xE000EDF0) -- CPU is running -- CPU_WriteMem(4 bytes @ 0xE000EDFC) >0x35 TIF> -- CPU is running -- CPU_WriteMem(4 bytes @ 0xE000ED0C) -- CPU is running -- CPU_ReadMem(4 bytes @ 0xE000EDF0)
- -- CPU is running -- CPU_ReadMem(4 bytes @ 0xE000EDF0) -- CPU is running -- CPU_WriteMem(4 bytes @ 0xE000EDF0) -- CPU is running -- CPU_WriteMem(4 bytes @ 0xE000EDFC) -- CPU is running -- CPU_ReadMem(4 bytes @ 0xE000EDF0) -- CPU_WriteMem(4 bytes @ 0xE0002000) -- CPU_ReadMem(4 bytes @ 0xE000EDFC) -- CPU_ReadMem(4 bytes @ 0xE0001000) (0033ms, 0226ms total)
-T09AC 001:201 JLINK_GetId() >0x0D TIF> >0x21 TIF>  returns 0x2BA01477 (0000ms, 0226ms total)
-T09AC 001:242 JLINK_GetFirmwareString(...) (0000ms, 0226ms total)
-T09AC 002:626 JLINK_Close() -- CPU_ReadMem(4 bytes @ 0xE0001000) -- CPU_WriteMem(4 bytes @ 0xE0001004) >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x28 TIF> >0x0D TIF> >0x21 TIF> >0x0D TIF> >0x28 TIF> (0009ms, 0235ms total)
-T09AC 002:626  (0009ms, 0235ms total)
-T09AC 002:626 Closed (0009ms, 0235ms total)
+T75B4 000:327.084   SEGGER J-Link V7.90 Log File
+T75B4 000:327.183   DLL Compiled: Aug  2 2023 15:18:43
+T75B4 000:327.195   Logging started @ 2024-12-19 06:23
+T75B4 000:327.206 - 327.211ms
+T75B4 000:327.220 JLINK_SetWarnOutHandler(...)
+T75B4 000:327.232 - 0.018ms
+T75B4 000:327.245 JLINK_OpenEx(...)
+T75B4 000:328.181   Firmware: J-Link V9 compiled Dec  8 2023 20:16:22
+T75B4 000:328.519   Firmware: J-Link V9 compiled Dec  8 2023 20:16:22
+T75B4 000:328.649   Decompressing FW timestamp took 105 us
+T75B4 000:334.839   Hardware: V9.70
+T75B4 000:334.864   S/N: 602712544
+T75B4 000:334.881   OEM: SEGGER
+T75B4 000:334.897   Feature(s): GDB, RDI, FlashBP, FlashDL, JFlash
+T75B4 000:335.483   Bootloader: (Could not read)
+T75B4 000:336.109   TELNET listener socket opened on port 19021
+T75B4 000:336.314   WEBSRV WEBSRV_Init(): Starting webserver thread(s)
+T75B4 000:336.395   WEBSRV Webserver running on local port 19080
+T75B4 000:336.536   Looking for J-Link GUI Server exe at: C:\Keil_v5\ARM\Segger\JLinkGUIServer.exe
+T75B4 000:336.614   Looking for J-Link GUI Server exe at: C:\Program Files\SEGGER\JLink\JLinkGUIServer.exe
+T75B4 000:336.668   Forking J-Link GUI Server: C:\Program Files\SEGGER\JLink\JLinkGUIServer.exe
+T75B4 000:342.550   J-Link GUI Server info: "J-Link GUI server V7.90 "
+T75B4 000:342.729 - 15.499ms returns "O.K."
+T75B4 000:342.762 JLINK_SetErrorOutHandler(...)
+T75B4 000:342.773 - 0.017ms
+T75B4 000:342.797 JLINK_ExecCommand("ProjectFile = "D:\wulang\IOT软件开发\ENG_IOT\ble\ble稳定版加无感解锁\Car_Key_HID_prj\examples\none_evm\ble_simple_peripheral\keil\JLinkSettings.ini"", ...). 
+T75B4 000:353.556   Ref file found at: C:\Keil_v5\ARM\Segger\JLinkDevices.ref
+T75B4 000:353.659   REF file references invalid XML file: C:\Program Files\SEGGER\JLink\JLinkDevices.xml
+T75B4 000:353.792 - 11.001ms returns 0x00
+T75B4 000:353.816 JLINK_ExecCommand("Device = ARMCM3", ...). 
+T75B4 000:353.842   Device "CORTEX-M3" selected.
+T75B4 000:354.054 - 0.231ms returns 0x00
+T75B4 000:354.069 JLINK_ExecCommand("DisableConnectionTimeout", ...). 
+T75B4 000:354.082 - 0.006ms returns 0x01
+T75B4 000:354.095 JLINK_GetHardwareVersion()
+T75B4 000:354.107 - 0.017ms returns 97000
+T75B4 000:354.119 JLINK_GetDLLVersion()
+T75B4 000:354.131 - 0.017ms returns 79000
+T75B4 000:354.142 JLINK_GetOEMString(...)
+T75B4 000:354.155 JLINK_GetFirmwareString(...)
+T75B4 000:354.167 - 0.016ms
+T75B4 000:354.180 JLINK_GetDLLVersion()
+T75B4 000:354.191 - 0.016ms returns 79000
+T75B4 000:354.203 JLINK_GetCompileDateTime()
+T75B4 000:354.214 - 0.016ms
+T75B4 000:354.226 JLINK_GetFirmwareString(...)
+T75B4 000:354.237 - 0.016ms
+T75B4 000:354.249 JLINK_GetHardwareVersion()
+T75B4 000:354.260 - 0.016ms returns 97000
+T75B4 000:354.272 JLINK_GetSN()
+T75B4 000:354.283 - 0.016ms returns 602712544
+T75B4 000:354.296 JLINK_GetOEMString(...)
+T75B4 000:354.309 JLINK_TIF_Select(JLINKARM_TIF_SWD)
+T75B4 000:354.783 - 0.484ms returns 0x00
+T75B4 000:354.802 JLINK_HasError()
+T75B4 000:354.818 JLINK_SetSpeed(2000)
+T75B4 000:354.879 - 0.066ms
+T75B4 000:355.104 JLINK_HasError()
+T75B4 000:355.120 JLINK_SetResetType(JLINKARM_RESET_TYPE_NORMAL)
+T75B4 000:355.130 - 0.015ms returns JLINKARM_RESET_TYPE_NORMAL
+T75B4 000:355.141 JLINK_Reset()
+T75B4 000:355.869   Found SW-DP with ID 0x0BC11477
+T75B4 000:358.567   DPIDR: 0x0BC11477
+T75B4 000:358.589   CoreSight SoC-400 or earlier
+T75B4 000:358.606   Scanning AP map to find all available APs
+T75B4 000:359.303   AP[1]: Stopped AP scan as end of AP map has been reached
+T75B4 000:359.324   AP[0]: AHB-AP (IDR: 0x04770031)
+T75B4 000:359.359   Iterating through AP map to find AHB-AP to use
+T75B4 000:360.381   AP[0]: Core found
+T75B4 000:360.416   AP[0]: AHB-AP ROM base: 0xE00FF000
+T75B4 000:361.031   CPUID register: 0x410CC601. Implementer code: 0x41 (ARM)
+T75B4 000:361.053   Found Cortex-M0 r0p1, Little endian.
+T75B4 000:361.077   
+  ***** Warning: 
+T75B4 000:361.095   Identified core does not match configuration. (Found: Cortex-M0, Configured: Cortex-M3)
+T75B4 000:361.361   -- Max. mem block: 0x00010A80
+T75B4 000:361.716   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T75B4 000:362.101   CPU_WriteMem(4 bytes @ 0xE000EDF0)
+T75B4 000:362.507   CPU_ReadMem(4 bytes @ 0xE0002000)
+T75B4 000:362.816   FPUnit: 4 code (BP) slots and 0 literal slots
+T75B4 000:362.853   CPU_ReadMem(4 bytes @ 0xE000EDFC)
+T75B4 000:363.228   CPU_WriteMem(4 bytes @ 0xE000EDFC)
+T75B4 000:363.614   CPU_ReadMem(4 bytes @ 0xE0001000)
+T75B4 000:364.005   CPU_WriteMem(4 bytes @ 0xE0001000)
+T75B4 000:364.401   CoreSight components:
+T75B4 000:364.433   ROMTbl[0] @ E00FF000
+T75B4 000:364.449   CPU_ReadMem(64 bytes @ 0xE00FF000)
+T75B4 000:365.284   CPU_ReadMem(32 bytes @ 0xE000EFE0)
+T75B4 000:365.920   [0][0]: E000E000 CID B105E00D PID 000BB008 SCS
+T75B4 000:365.947   CPU_ReadMem(32 bytes @ 0xE0001FE0)
+T75B4 000:366.525   [0][1]: E0001000 CID B105E00D PID 000BB00A DWT
+T75B4 000:366.554   CPU_ReadMem(32 bytes @ 0xE0002FE0)
+T75B4 000:367.142   [0][2]: E0002000 CID B105E00D PID 000BB00B FPB
+T75B4 000:367.206   CPU is running
+T75B4 000:367.223   CPU_WriteMem(4 bytes @ 0xE000EDF0)
+T75B4 000:367.628   CPU is running
+T75B4 000:367.659   CPU_WriteMem(4 bytes @ 0xE000EDFC)
+T75B4 000:368.086   Reset: Halt core after reset via DEMCR.VC_CORERESET.
+T75B4 000:368.433   Reset: Reset device via AIRCR.SYSRESETREQ.
+T75B4 000:368.450   CPU is running
+T75B4 000:368.467   CPU_WriteMem(4 bytes @ 0xE000ED0C)
+T75B4 000:421.553   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T75B4 000:421.886   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T75B4 000:425.876   CPU_WriteMem(4 bytes @ 0xE000EDFC)
+T75B4 000:431.684   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T75B4 000:435.898   CPU_WriteMem(4 bytes @ 0xE0002000)
+T75B4 000:436.484   CPU_ReadMem(4 bytes @ 0xE000EDFC)
+T75B4 000:436.913   CPU_ReadMem(4 bytes @ 0xE0001000)
+T75B4 000:437.333   CPU_WriteMem(4 bytes @ 0xE0001000)
+T75B4 000:437.809 - 82.712ms
+T75B4 000:437.883 JLINK_GetId()
+T75B4 000:438.173 - 0.305ms returns 0x0BC11477
+T75B4 000:446.763 JLINK_GetFirmwareString(...)
+T75B4 000:446.818 - 0.070ms
+T75B4 001:376.774 JLINK_Close()
+T75B4 001:377.076   CPU_ReadMem(4 bytes @ 0xE0001000)
+T75B4 001:377.384   CPU_WriteMem(4 bytes @ 0xE0001000)
+T75B4 001:377.761   CPU_WriteMem(4 bytes @ 0xE0001004)
+T75B4 001:387.866 - 11.113ms
+T75B4 001:387.894   
+T75B4 001:387.906   Closed

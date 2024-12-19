@@ -10,12 +10,12 @@
       <TargetName>ble_simple_peripheral</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060422::V5.06 update 4 (build 422)::ARMCC</pCCUsed>
+      <pCCUsed>5060300::V5.06 update 3 (build 300)::ARMCC</pCCUsed>
       <TargetOption>
         <TargetCommonOption>
           <Device>ARMCM3</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.0.0</PackID>
+          <PackID>ARM.CMSIS.4.5.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M3") CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -408,6 +408,11 @@
               <FileName>car_key_protocol.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\code\car_key_protocol.c</FilePath>
+            </File>
+            <File>
+              <FileName>lte_protocol.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\code\lte_protocol.c</FilePath>
             </File>
           </Files>
         </Group>

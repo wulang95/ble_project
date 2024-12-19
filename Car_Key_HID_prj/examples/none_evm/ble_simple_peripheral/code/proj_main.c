@@ -28,6 +28,11 @@
 #include "simple_gatt_service.h"
 #include "version.h"
 #include "lte_protocol.h"
+#include "os_task.h"
+#include "os_timer.h"
+void user_loop_callback(void *arg);
+void user_entry_before_ble_init(void);
+uint8_t week_flag;
 /*
  * LOCAL VARIABLES
  */
@@ -45,7 +50,14 @@ const struct jump_table_image_t _jump_table_image __attribute__((section("jump_t
 
 __attribute__((section("ram_code"))) void pmu_gpio_isr_ram(void)
 {
-
+		
+//		if(pmu_get_gpio_value(GPIO_PORT_D,GPIO_BIT_4) == 1){
+//			
+//		}
+		week_flag = 1;
+		os_user_loop_event_set(&user_loop_callback);
+		pmu_port_wakeup_func_clear(GPIO_PD4);
+		rtc_disalarm(RTC_A);
 }
 
 /*********************************************************************
@@ -95,6 +107,9 @@ void user_custom_parameters(void)
 __attribute__((section("ram_code"))) void user_entry_before_sleep_imp(void)
 {
 	uart_putc_noint_no_wait(UART1, 's');
+	pmu_set_pin_pull(GPIO_PORT_D, (1<<GPIO_BIT_4), true);
+	pmu_port_wakeup_func_set(GPIO_PD4);
+	wdt_feed();
 }
 
 /*********************************************************************
@@ -121,7 +136,7 @@ __attribute__((section("ram_code"))) void user_entry_after_sleep_imp(void)
     //NVIC_EnableIRQ(UART1_IRQn);
 		uart_putc_noint_no_wait(UART1, 'w');
     // Do some things here, can be uart print
-
+		wdt_feed();
     NVIC_EnableIRQ(PMU_IRQn);
 }
 
@@ -157,13 +172,14 @@ void user_entry_before_ble_init(void)
     pmu_set_pin_dir(GPIO_PORT_D, BIT(5), GPIO_DIR_OUT);
     pmu_set_pin_pull(GPIO_PORT_D, BIT(5), false);
 		pmu_set_gpio_value(GPIO_PORT_D, BIT(5), 0);  //表示已连接。
-		wdt_init(WDT_ACT_RST_CHIP, 4);
+		wdt_init(WDT_ACT_RST_CHIP, 16);
 		wdt_start();
 		
 	  system_set_port_pull(GPIO_PA0, true);
     system_set_port_mux(GPIO_PORT_A, GPIO_BIT_0, PORTA0_FUNC_UART0_RXD);
     system_set_port_mux(GPIO_PORT_A, GPIO_BIT_1, PORTA1_FUNC_UART0_TXD);
 		uart_init(UART0, BAUD_RATE_115200);  
+		rtc_init();
 //		
 //		NVIC_EnableIRQ(UART0_IRQn);
     // Enable UART print.
@@ -175,14 +191,21 @@ void user_entry_before_ble_init(void)
 }
 
 uint32_t cur_time = 0;
-uint8_t BUF[20];
-void user_loop_callback(void)
+void user_loop_callback(void *arg)
 {
+		if(week_flag == 1){
+				week_flag = 0;
+				system_set_port_pull(GPIO_PA0, true);
+				system_set_port_mux(GPIO_PORT_A, GPIO_BIT_0, PORTA0_FUNC_UART0_RXD);
+				system_set_port_mux(GPIO_PORT_A, GPIO_BIT_1, PORTA1_FUNC_UART0_TXD);
+				uart_init(UART0, BAUD_RATE_115200); 
+				printf("cat1 is week");
+		}
 		ble_rcv_parse();	
-//		if(system_get_curr_time() - cur_time > 2000) {
-//			co_printf("ble heart\r\n");
-//			cur_time = system_get_curr_time();
-//		}
+		if(system_get_curr_time() - cur_time > 2000) {
+			co_printf("ble heart\r\n");
+			cur_time = system_get_curr_time();
+		}
 		if(car_key_con.flag== 1){   //Open
 			if(system_get_curr_time() - car_key_con.cur_time > car_key_con.time) {
 					car_key_con.cur_time = system_get_curr_time();
@@ -242,10 +265,10 @@ void user_entry_after_ble_init(void)
 #endif
     // User task initialization, for buttons.
     user_task_init();
-		
+		week_flag = 0;
     // Application layer initialization, can included bond manager init, 
     // advertising parameters init, scanning parameter init, GATT service adding, etc.    
     simple_peripheral_init();
-//		wdt_feed();
+		wdt_feed();
 		os_user_loop_event_set(&user_loop_callback);
 }

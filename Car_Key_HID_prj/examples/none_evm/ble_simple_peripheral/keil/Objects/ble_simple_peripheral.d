@@ -33,3 +33,4 @@
 .\objects\ble_simple_peripheral.o: ..\..\..\..\components\ble\profiles\ble_hid\hid_service.h
 .\objects\ble_simple_peripheral.o: ..\..\..\..\components\driver\include\driver_uart.h
 .\objects\ble_simple_peripheral.o: ..\code\lte_protocol.h
+.\objects\ble_simple_peripheral.o: ..\..\..\..\components\modules\os\include\os_task.h

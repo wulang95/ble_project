@@ -9,6 +9,9 @@
 #include "car_key_protocol.h"
 #include "ble_simple_peripheral.h"
 #include "simple_gatt_service.h"
+#include "driver_system.h"
+#include "os_task.h"
+#include "driver_rtc.h"
 #if DEBUG_EN == 0
 #define BLE_DEBUG(a, b, c)	print_data(a, b, c)
 #else
@@ -107,6 +110,7 @@ void ble_send_cmd(uint8_t cmd, uint8_t ok)
 			case LTE_ADV_PARAM:
 			case LTE_CON_PARAM:
 			case LTE_DELETE_BONDE:
+			case LTE_ENTER_SLEEP:
 				data[lenth++] = 0x00;
 				data[lenth++] = 0x01;
 				if(ok == R_OK)
@@ -140,7 +144,6 @@ void ble_send_cmd(uint8_t cmd, uint8_t ok)
 		BLE_DEBUG("ble_send", data, lenth);
 		uart_put_data_noint(UART0, data, lenth);
 }
-
 void ble_protol_process(uint8_t cmd, uint8_t *data, uint16_t len)
 {
 		co_printf("cmd:%02x\r\n", cmd);
@@ -172,7 +175,7 @@ void ble_protol_process(uint8_t cmd, uint8_t *data, uint16_t len)
 			case LTE_GET_VER:
 				res = R_OK;
 				ble_send_cmd(LTE_GET_VER, res);
-			break;
+			break; 
 			case LTE_START_ADV:
 				sp_start_adv();
 				res = R_OK;
@@ -240,16 +243,24 @@ void ble_protol_process(uint8_t cmd, uint8_t *data, uint16_t len)
 				res = R_OK;
 				ble_send_cmd(LTE_DELETE_BONDE, res);
 			break;
+			case LTE_ENTER_SLEEP:
+				res = R_OK;
+				ble_send_cmd(LTE_ENTER_SLEEP, res);
+				system_sleep_enable();
+				os_user_loop_event_clear();
+				rtc_alarm(RTC_A,12000);
 		}
 }
 
 void ble_rcv_parse()
 {
 		uint8_t res;
+		static uint32_t ble_proto_time;
 		static uint16_t len, i;
 		static uint16_t check_sum = 0,rcv_check = 0;
-		static uint8_t buf[256], cmd;
+		static uint8_t buf[256], cmd, data[256],data_len;
 		static uint8_t step = 0;
+		
 		if(uart_get_data_nodelay_noint(UART0, &res, 1) == 1){
 				switch(step){
 					case 0:
@@ -259,6 +270,9 @@ void ble_rcv_parse()
 								check_sum = 0;
 								len = 0;
 								memset(buf, 0, sizeof(buf));
+								ble_proto_time = system_get_curr_time();
+								data_len = 0;
+								data[data_len++] = res;
 						}
 						break;
 					case 1:
@@ -267,6 +281,7 @@ void ble_rcv_parse()
 						} else {
 							step = 0;
 						}
+						data[data_len++] = res;
 						break;
 					case 2:
 						cmd = res;
@@ -277,6 +292,7 @@ void ble_rcv_parse()
 						len = res << 8;
 						step = 4;
 						check_sum += res;
+						data[data_len++] = res;
 						break;
 					case 4:
 						len |= res;
@@ -284,26 +300,38 @@ void ble_rcv_parse()
 							step = 5;
 						else step = 6;
 						check_sum += res;
+						data[data_len++] = res;
 						break;
 					case 5:
 						buf[i++] = res;
 						check_sum += res;
 						if(i == len) step = 6;
+						data[data_len++] = res;
 						break;
 					case 6:
 						rcv_check = res;
 						step = 7;
+						data[data_len++] = res;
 						break;
 					case 7:
+						data[data_len++] = res;
 						rcv_check |= res << 8;
 						check_sum = check_sum ^ 0xFFFF; 
 						if(check_sum == rcv_check)
 							ble_protol_process(cmd, &buf[0], len);
-						else co_printf("check_sum:%04x, rcv_check:%04x\r\n", check_sum, rcv_check);
+						else {
+							for(i = 0; i < data_len; i++)
+								co_printf("%02x\t", data[i]);
+							co_printf("\r\n");
+							co_printf("check_sum:%04x, rcv_check:%04x\r\n", check_sum, rcv_check);
+						}
 						step = 0;
 						break;
 				}
-	}
+		}
+				if(system_get_curr_time() - ble_proto_time > 2000) {
+						step = 0;
+				}
 }
 
 
