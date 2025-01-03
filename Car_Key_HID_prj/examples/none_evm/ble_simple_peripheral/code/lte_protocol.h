@@ -7,7 +7,7 @@
 #define R_FAIL  -1
 #define BLE_VER "1.0"
 
-#define  DEBUG_EN  1
+#define  DEBUG_EN  0
 
 
 struct adv_param_s {

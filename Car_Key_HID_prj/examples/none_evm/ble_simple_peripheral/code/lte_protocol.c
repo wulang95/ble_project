@@ -291,7 +291,7 @@ void ble_protol_process(uint8_t cmd, uint8_t *data, uint16_t len)
 				app_otas_flash_read(ble_ota_control.ota_adress, ble_ota_control.data_save,256);
         flash_erase(ble_ota_control.ota_adress, 0x1000);
         app_otas_save_data(ble_ota_control.ota_adress, ble_ota_control.data_save, 256);
-				app_ota_erase();	
+				app_ota_erase(ble_ota_control.ota_adress + 0x1000, ble_ota_config.total - 0x1000);
 				ble_send_cmd(LTE_OTA_START, res);
 			break;
 			case LTE_OTA_DATA:
@@ -329,8 +329,6 @@ void ble_protol_process(uint8_t cmd, uint8_t *data, uint16_t len)
 						ble_send_cmd(LTE_OTA_END, res);
 						wdt_feed();
 						co_delay_100us(1000);
-						app_set_ota_state(0);
-						uart_finish_transfers(UART1_BASE);
 						app_otas_save_first_pkt(ble_ota_control.ota_adress, ble_ota_control.data_save, 256);
 						
 				} else {

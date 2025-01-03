@@ -1,4 +1,4 @@
-;#<FEEDBACK># ARM Linker, 5060300: Last Updated: Fri Jan 03 11:31:06 2025
+;#<FEEDBACK># ARM Linker, 5060300: Last Updated: Fri Jan 03 17:56:14 2025
 ;VERSION 0.2
 ;FILE adv_check_mode.o
 __asm___16_adv_check_mode_c_9741a236____REV16 <= USED 0
@@ -43,6 +43,7 @@ mesh_info_store_into_flash <= USED 0
 __asm___9_app_ota_c_1a1fab23____REV16 <= USED 0
 __asm___9_app_ota_c_1a1fab23____REVSH <= USED 0
 __asm___9_app_ota_c_1a1fab23____RRX <= USED 0
+ota_test <= USED 0
 ;FILE app_prf.o
 ;FILE app_proj_event.o
 ;FILE app_sec.o
@@ -291,6 +292,7 @@ l2cc_dbg_pdu_unpack <= USED 0
 __asm___14_lte_protocol_c_79fcb127____REV16 <= USED 0
 __asm___14_lte_protocol_c_79fcb127____REVSH <= USED 0
 __asm___14_lte_protocol_c_79fcb127____RRX <= USED 0
+print_data <= USED 0
 test_protol <= USED 0
 ;FILE m_al_activity.o
 gapm_activity_created_ind_handler <= USED 0

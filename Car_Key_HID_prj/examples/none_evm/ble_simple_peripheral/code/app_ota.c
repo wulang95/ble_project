@@ -212,17 +212,26 @@ __attribute__((section("ram_code"))) void app_otas_save_data(uint32_t dest, uint
     GLOBAL_INT_RESTORE();
 }
 
-void app_ota_erase()
+void app_ota_erase(uint32_t adr, uint32_t len)
 {
-		uint32_t adress, image_size,offset = 0;
-		adress = app_otas_get_storage_address();
-		image_size = app_otas_get_image_size();
-		adress += 0x1000;
-		while(image_size > 0){
-			flash_erase(adress + offset, 0x1000);
-			image_size -= 0x1000;
+		uint32_t offset = 0;
+		while(len > 0){
+			flash_erase(adr + offset, 0x1000);
+			len -= 0x1000;
 			offset += 0x1000;
-		}			
+			if(len <= 0x1000){
+				break;
+			}
+		}	
+		flash_erase(adr + offset, 0x1000);		
 }
-
+void ota_test()
+{
+		uint8_t ota;
+		flash_read(0x56000,1,&ota);
+		flash_erase(0x56000, 0x1000);
+		ota++;
+		flash_write(0x56000, 1, &ota);
+	co_printf("==============================ota:%0x\r\n", ota);
+}
 

@@ -30,6 +30,7 @@
 #include "lte_protocol.h"
 #include "os_task.h"
 #include "os_timer.h"
+#include "app_ota.h"
 void user_loop_callback(void *arg);
 void user_entry_before_ble_init(void);
 uint8_t week_flag;
@@ -44,7 +45,7 @@ const struct jump_table_version_t _jump_table_version __attribute__((section("ju
 const struct jump_table_image_t _jump_table_image __attribute__((section("jump_table_1"))) =
 {
     .image_type = IMAGE_TYPE_APP,
-    .image_size = 0x20000,    // 128K  
+    .image_size = 0x24000,    // 128K  
 };
 
 
@@ -248,6 +249,7 @@ void user_entry_after_ble_init(void)
     co_printf("SDK Version:%s,%s\r\n",data,time);
 	//	test_protol();
 		co_printf("DATA TIME:%s_%s", __DATE__, __TIME__);
+		co_printf("ver:%0x\r\n", app_otas_get_curr_firmwave_version());
 #if 1
     system_sleep_disable();		//disable sleep 
 #else

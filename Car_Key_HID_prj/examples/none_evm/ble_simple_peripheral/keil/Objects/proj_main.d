@@ -41,3 +41,4 @@
 .\objects\proj_main.o: ..\..\..\..\components\modules\platform\include\version.h
 .\objects\proj_main.o: ..\code\lte_protocol.h
 .\objects\proj_main.o: ..\..\..\..\components\modules\os\include\os_task.h
+.\objects\proj_main.o: ..\code\app_ota.h
