@@ -400,11 +400,6 @@
               <FilePath>..\code\user_task.c</FilePath>
             </File>
             <File>
-              <FileName>button.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\components\modules\button\button.c</FilePath>
-            </File>
-            <File>
               <FileName>car_key_protocol.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\code\car_key_protocol.c</FilePath>
@@ -413,6 +408,11 @@
               <FileName>lte_protocol.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\code\lte_protocol.c</FilePath>
+            </File>
+            <File>
+              <FileName>app_ota.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\code\app_ota.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -428,16 +428,6 @@
               <FileName>simple_gatt_service.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\..\..\..\components\ble\profiles\ble_simple_profile\simple_gatt_service.h</FilePath>
-            </File>
-            <File>
-              <FileName>ota.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\components\ble\profiles\ble_ota\ota.c</FilePath>
-            </File>
-            <File>
-              <FileName>ota_service.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\components\ble\profiles\ble_ota\ota_service.c</FilePath>
             </File>
             <File>
               <FileName>dev_info_service.c</FileName>

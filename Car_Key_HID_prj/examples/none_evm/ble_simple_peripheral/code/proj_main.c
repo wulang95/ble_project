@@ -240,7 +240,6 @@ void user_loop_callback(void *arg)
  *
  * @return  None.
  */
-
 void user_entry_after_ble_init(void)
 {
     co_printf("BLE Peripheral\r\n");

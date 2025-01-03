@@ -1,121 +1,2996 @@
-T75B4 000:327.084   SEGGER J-Link V7.90 Log File
-T75B4 000:327.183   DLL Compiled: Aug  2 2023 15:18:43
-T75B4 000:327.195   Logging started @ 2024-12-19 06:23
-T75B4 000:327.206 - 327.211ms
-T75B4 000:327.220 JLINK_SetWarnOutHandler(...)
-T75B4 000:327.232 - 0.018ms
-T75B4 000:327.245 JLINK_OpenEx(...)
-T75B4 000:328.181   Firmware: J-Link V9 compiled Dec  8 2023 20:16:22
-T75B4 000:328.519   Firmware: J-Link V9 compiled Dec  8 2023 20:16:22
-T75B4 000:328.649   Decompressing FW timestamp took 105 us
-T75B4 000:334.839   Hardware: V9.70
-T75B4 000:334.864   S/N: 602712544
-T75B4 000:334.881   OEM: SEGGER
-T75B4 000:334.897   Feature(s): GDB, RDI, FlashBP, FlashDL, JFlash
-T75B4 000:335.483   Bootloader: (Could not read)
-T75B4 000:336.109   TELNET listener socket opened on port 19021
-T75B4 000:336.314   WEBSRV WEBSRV_Init(): Starting webserver thread(s)
-T75B4 000:336.395   WEBSRV Webserver running on local port 19080
-T75B4 000:336.536   Looking for J-Link GUI Server exe at: C:\Keil_v5\ARM\Segger\JLinkGUIServer.exe
-T75B4 000:336.614   Looking for J-Link GUI Server exe at: C:\Program Files\SEGGER\JLink\JLinkGUIServer.exe
-T75B4 000:336.668   Forking J-Link GUI Server: C:\Program Files\SEGGER\JLink\JLinkGUIServer.exe
-T75B4 000:342.550   J-Link GUI Server info: "J-Link GUI server V7.90 "
-T75B4 000:342.729 - 15.499ms returns "O.K."
-T75B4 000:342.762 JLINK_SetErrorOutHandler(...)
-T75B4 000:342.773 - 0.017ms
-T75B4 000:342.797 JLINK_ExecCommand("ProjectFile = "D:\wulang\IOT软件开发\ENG_IOT\ble\ble稳定版加无感解锁\Car_Key_HID_prj\examples\none_evm\ble_simple_peripheral\keil\JLinkSettings.ini"", ...). 
-T75B4 000:353.556   Ref file found at: C:\Keil_v5\ARM\Segger\JLinkDevices.ref
-T75B4 000:353.659   REF file references invalid XML file: C:\Program Files\SEGGER\JLink\JLinkDevices.xml
-T75B4 000:353.792 - 11.001ms returns 0x00
-T75B4 000:353.816 JLINK_ExecCommand("Device = ARMCM3", ...). 
-T75B4 000:353.842   Device "CORTEX-M3" selected.
-T75B4 000:354.054 - 0.231ms returns 0x00
-T75B4 000:354.069 JLINK_ExecCommand("DisableConnectionTimeout", ...). 
-T75B4 000:354.082 - 0.006ms returns 0x01
-T75B4 000:354.095 JLINK_GetHardwareVersion()
-T75B4 000:354.107 - 0.017ms returns 97000
-T75B4 000:354.119 JLINK_GetDLLVersion()
-T75B4 000:354.131 - 0.017ms returns 79000
-T75B4 000:354.142 JLINK_GetOEMString(...)
-T75B4 000:354.155 JLINK_GetFirmwareString(...)
-T75B4 000:354.167 - 0.016ms
-T75B4 000:354.180 JLINK_GetDLLVersion()
-T75B4 000:354.191 - 0.016ms returns 79000
-T75B4 000:354.203 JLINK_GetCompileDateTime()
-T75B4 000:354.214 - 0.016ms
-T75B4 000:354.226 JLINK_GetFirmwareString(...)
-T75B4 000:354.237 - 0.016ms
-T75B4 000:354.249 JLINK_GetHardwareVersion()
-T75B4 000:354.260 - 0.016ms returns 97000
-T75B4 000:354.272 JLINK_GetSN()
-T75B4 000:354.283 - 0.016ms returns 602712544
-T75B4 000:354.296 JLINK_GetOEMString(...)
-T75B4 000:354.309 JLINK_TIF_Select(JLINKARM_TIF_SWD)
-T75B4 000:354.783 - 0.484ms returns 0x00
-T75B4 000:354.802 JLINK_HasError()
-T75B4 000:354.818 JLINK_SetSpeed(2000)
-T75B4 000:354.879 - 0.066ms
-T75B4 000:355.104 JLINK_HasError()
-T75B4 000:355.120 JLINK_SetResetType(JLINKARM_RESET_TYPE_NORMAL)
-T75B4 000:355.130 - 0.015ms returns JLINKARM_RESET_TYPE_NORMAL
-T75B4 000:355.141 JLINK_Reset()
-T75B4 000:355.869   Found SW-DP with ID 0x0BC11477
-T75B4 000:358.567   DPIDR: 0x0BC11477
-T75B4 000:358.589   CoreSight SoC-400 or earlier
-T75B4 000:358.606   Scanning AP map to find all available APs
-T75B4 000:359.303   AP[1]: Stopped AP scan as end of AP map has been reached
-T75B4 000:359.324   AP[0]: AHB-AP (IDR: 0x04770031)
-T75B4 000:359.359   Iterating through AP map to find AHB-AP to use
-T75B4 000:360.381   AP[0]: Core found
-T75B4 000:360.416   AP[0]: AHB-AP ROM base: 0xE00FF000
-T75B4 000:361.031   CPUID register: 0x410CC601. Implementer code: 0x41 (ARM)
-T75B4 000:361.053   Found Cortex-M0 r0p1, Little endian.
-T75B4 000:361.077   
+T20A0 000:201.381   SEGGER J-Link V7.90 Log File
+T20A0 000:201.502   DLL Compiled: Aug  2 2023 15:18:43
+T20A0 000:201.514   Logging started @ 2024-12-25 09:29
+T20A0 000:201.524 - 201.530ms
+T20A0 000:201.539 JLINK_SetWarnOutHandler(...)
+T20A0 000:201.551 - 0.017ms
+T20A0 000:201.563 JLINK_OpenEx(...)
+T20A0 000:202.324   Firmware: J-Link V9 compiled Dec  8 2023 20:16:22
+T20A0 000:202.660   Firmware: J-Link V9 compiled Dec  8 2023 20:16:22
+T20A0 000:202.774   Decompressing FW timestamp took 95 us
+T20A0 000:208.687   Hardware: V9.70
+T20A0 000:208.746   S/N: 602712544
+T20A0 000:208.762   OEM: SEGGER
+T20A0 000:208.777   Feature(s): GDB, RDI, FlashBP, FlashDL, JFlash
+T20A0 000:209.329   Bootloader: (Could not read)
+T20A0 000:209.987   TELNET listener socket opened on port 19021
+T20A0 000:210.248   WEBSRV WEBSRV_Init(): Starting webserver thread(s)
+T20A0 000:210.322   WEBSRV Webserver running on local port 19080
+T20A0 000:210.438   Looking for J-Link GUI Server exe at: C:\Keil_v5\ARM\Segger\JLinkGUIServer.exe
+T20A0 000:210.506   Looking for J-Link GUI Server exe at: C:\Program Files\SEGGER\JLink\JLinkGUIServer.exe
+T20A0 000:210.552   Forking J-Link GUI Server: C:\Program Files\SEGGER\JLink\JLinkGUIServer.exe
+T20A0 000:214.150   J-Link GUI Server info: "J-Link GUI server V7.90 "
+T20A0 000:214.311 - 12.759ms returns "O.K."
+T20A0 000:214.337 JLINK_SetErrorOutHandler(...)
+T20A0 000:214.347 - 0.015ms
+T20A0 000:214.367 JLINK_ExecCommand("ProjectFile = "D:\wulang\IOT软件开发\ENG_IOT\ble\ble稳定版加无感解锁\Car_Key_HID_prj\examples\none_evm\ble_simple_peripheral\keil\JLinkSettings.ini"", ...). 
+T20A0 000:228.890   XML file found at: C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\HDSC-JLinkDevices.xml
+T20A0 000:229.370   C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\HDSC-JLinkDevices.xml evaluated successfully.
+T20A0 000:229.390     Device entry created:  CYCLONE V
+T20A0 000:229.403       ChipInfo:
+T20A0 000:229.420         Vendor:          Altera
+T20A0 000:229.437         Name:            CYCLONE V
+T20A0 000:229.454         Core:            JLINK_CORE_CORTEX_A9
+T20A0 000:229.516         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Altera\Cyclone_V\Altera_Cyclone_V.JLinkScript
+T20A0 000:229.537     Device entry modified: AMA3B1KK-KBR
+T20A0 000:229.584       ChipInfo:
+T20A0 000:229.601         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\AmbiqMicro\AmbiqMicro_Apollo3.pex
+T20A0 000:229.619     Device entry modified: AMA3B1KK-KCR
+T20A0 000:229.660       ChipInfo:
+T20A0 000:229.677         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\AmbiqMicro\AmbiqMicro_Apollo3.pex
+T20A0 000:229.695     Device entry modified: AMAPH1KK-KBR
+T20A0 000:229.735       ChipInfo:
+T20A0 000:229.752         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\AmbiqMicro\AmbiqMicro_Apollo2.pex
+T20A0 000:229.770     Device entry modified: AMAPH1KK-KCR
+T20A0 000:229.810       ChipInfo:
+T20A0 000:229.827         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\AmbiqMicro\AmbiqMicro_Apollo2.pex
+T20A0 000:229.845     Device entry modified: MSP3_AN524_M33
+T20A0 000:229.890       ChipInfo:
+T20A0 000:229.907         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ARM\SSE200-MPS3\ARM_SSE-200-MPS3_Core0.pex
+T20A0 000:229.925     Device entry modified: MSP3_AN524_M33_0
+T20A0 000:229.967       ChipInfo:
+T20A0 000:229.984         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ARM\SSE200-MPS3\ARM_SSE-200-MPS3_Core0.pex
+T20A0 000:230.001     Device entry modified: MSP3_AN524_M33_1
+T20A0 000:230.042       ChipInfo:
+T20A0 000:230.059         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ARM\SSE200-MPS3\ARM_SSE-200-MPS3_Core1.pex
+T20A0 000:230.077     Device entry modified: ATSAMA5D21C
+T20A0 000:230.121       ChipInfo:
+T20A0 000:230.137         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\Atmel_ATSAMA5D2x.pex
+T20A0 000:230.185     Device entry modified: ATSAMA5D22C
+T20A0 000:230.227       ChipInfo:
+T20A0 000:230.244         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\Atmel_ATSAMA5D2x.pex
+T20A0 000:230.261     Device entry modified: ATSAMA5D23C
+T20A0 000:230.301       ChipInfo:
+T20A0 000:230.318         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\Atmel_ATSAMA5D2x.pex
+T20A0 000:230.336     Device entry modified: ATSAMA5D24C
+T20A0 000:230.376       ChipInfo:
+T20A0 000:230.392         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\Atmel_ATSAMA5D2x.pex
+T20A0 000:230.411     Device entry modified: ATSAMA5D25C
+T20A0 000:230.451       ChipInfo:
+T20A0 000:230.468         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\Atmel_ATSAMA5D2x.pex
+T20A0 000:230.487     Device entry modified: ATSAMA5D26C
+T20A0 000:230.527       ChipInfo:
+T20A0 000:230.544         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\Atmel_ATSAMA5D2x.pex
+T20A0 000:230.561     Device entry modified: ATSAMA5D27C
+T20A0 000:230.604       ChipInfo:
+T20A0 000:230.621         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\Atmel_ATSAMA5D2x.pex
+T20A0 000:230.637       FlashBankInfo:
+T20A0 000:230.654         Name:            QSPI Flash
+T20A0 000:230.671         BaseAddr:        0xD0000000
+T20A0 000:230.746     Device entry modified: ATSAMA5D28C
+T20A0 000:230.788       ChipInfo:
+T20A0 000:230.805         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\Atmel_ATSAMA5D2x.pex
+T20A0 000:230.823     Device entry modified: ATSAMB11G18A
+T20A0 000:230.836       FlashBankInfo:
+T20A0 000:230.852         Name:            QSPI Flash
+T20A0 000:230.869         BaseAddr:        0x60000000
+T20A0 000:230.935     Device entry modified: ATSAMD51G18A
+T20A0 000:230.979       ChipInfo:
+T20A0 000:230.995         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\SAME5x\Atmel_SAME54.pex
+T20A0 000:231.013     Device entry modified: ATSAMD51G19A
+T20A0 000:231.054       ChipInfo:
+T20A0 000:231.070         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\SAME5x\Atmel_SAME54.pex
+T20A0 000:231.088     Device entry modified: ATSAMD51J18A
+T20A0 000:231.127       ChipInfo:
+T20A0 000:231.145         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\SAME5x\Atmel_SAME54.pex
+T20A0 000:231.162     Device entry modified: ATSAMD51J19A
+T20A0 000:231.203       ChipInfo:
+T20A0 000:231.220         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\SAME5x\Atmel_SAME54.pex
+T20A0 000:231.237     Device entry modified: ATSAMD51J20A
+T20A0 000:231.277       ChipInfo:
+T20A0 000:231.294         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\SAME5x\Atmel_SAME54.pex
+T20A0 000:231.311     Device entry modified: ATSAMD51N19A
+T20A0 000:231.351       ChipInfo:
+T20A0 000:231.367         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\SAME5x\Atmel_SAME54.pex
+T20A0 000:231.385     Device entry modified: ATSAMD51N20A
+T20A0 000:231.425       ChipInfo:
+T20A0 000:231.442         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\SAME5x\Atmel_SAME54.pex
+T20A0 000:231.460     Device entry modified: ATSAMD51P19A
+T20A0 000:231.499       ChipInfo:
+T20A0 000:231.515         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\SAME5x\Atmel_SAME54.pex
+T20A0 000:231.533     Device entry modified: ATSAMD51P20A
+T20A0 000:231.572       ChipInfo:
+T20A0 000:231.589         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\SAME5x\Atmel_SAME54.pex
+T20A0 000:231.607     Device entry modified: ATSAME51J18A
+T20A0 000:231.646       ChipInfo:
+T20A0 000:231.665         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\SAME5x\Atmel_SAME54.pex
+T20A0 000:231.682     Device entry modified: ATSAME51J19A
+T20A0 000:231.721       ChipInfo:
+T20A0 000:231.738         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\SAME5x\Atmel_SAME54.pex
+T20A0 000:231.756     Device entry modified: ATSAME51N19A
+T20A0 000:231.795       ChipInfo:
+T20A0 000:231.813         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\SAME5x\Atmel_SAME54.pex
+T20A0 000:231.831     Device entry modified: ATSAME51N20A
+T20A0 000:231.873       ChipInfo:
+T20A0 000:231.889         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\SAME5x\Atmel_SAME54.pex
+T20A0 000:231.908     Device entry modified: ATSAME53J18A
+T20A0 000:231.949       ChipInfo:
+T20A0 000:231.966         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\SAME5x\Atmel_SAME54.pex
+T20A0 000:231.984     Device entry modified: ATSAME53J19A
+T20A0 000:232.024       ChipInfo:
+T20A0 000:232.040         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\SAME5x\Atmel_SAME54.pex
+T20A0 000:232.058     Device entry modified: ATSAME53J20A
+T20A0 000:232.098       ChipInfo:
+T20A0 000:232.115         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\SAME5x\Atmel_SAME54.pex
+T20A0 000:232.132     Device entry modified: ATSAME53N19A
+T20A0 000:232.172       ChipInfo:
+T20A0 000:232.188         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\SAME5x\Atmel_SAME54.pex
+T20A0 000:232.206     Device entry modified: ATSAME53N20A
+T20A0 000:232.246       ChipInfo:
+T20A0 000:232.263         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\SAME5x\Atmel_SAME54.pex
+T20A0 000:232.281     Device entry modified: ATSAME54N19A
+T20A0 000:232.320       ChipInfo:
+T20A0 000:232.337         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\SAME5x\Atmel_SAME54.pex
+T20A0 000:232.354     Device entry modified: ATSAME54N20A
+T20A0 000:232.394       ChipInfo:
+T20A0 000:232.411         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\SAME5x\Atmel_SAME54.pex
+T20A0 000:232.428     Device entry modified: ATSAME54P19A
+T20A0 000:232.467       ChipInfo:
+T20A0 000:232.484         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\SAME5x\Atmel_SAME54.pex
+T20A0 000:232.501     Device entry modified: ATSAME54P20A
+T20A0 000:232.540       ChipInfo:
+T20A0 000:232.557         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\SAME5x\Atmel_SAME54.pex
+T20A0 000:232.575     Device entry modified: ATSAME70J19A
+T20A0 000:232.615       ChipInfo:
+T20A0 000:232.632         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\Atmel_SAME70.pex
+T20A0 000:232.649     Device entry modified: ATSAME70J20A
+T20A0 000:232.689       ChipInfo:
+T20A0 000:232.706         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\Atmel_SAME70.pex
+T20A0 000:232.724     Device entry modified: ATSAME70J21A
+T20A0 000:232.763       ChipInfo:
+T20A0 000:232.780         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\Atmel_SAME70.pex
+T20A0 000:232.797     Device entry modified: ATSAME70N19A
+T20A0 000:232.836       ChipInfo:
+T20A0 000:232.853         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\Atmel_SAME70.pex
+T20A0 000:232.870     Device entry modified: ATSAME70N20A
+T20A0 000:232.910       ChipInfo:
+T20A0 000:232.927         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\Atmel_SAME70.pex
+T20A0 000:232.945     Device entry modified: ATSAME70N21A
+T20A0 000:232.984       ChipInfo:
+T20A0 000:233.002         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\Atmel_SAME70.pex
+T20A0 000:233.020     Device entry modified: ATSAME70Q19A
+T20A0 000:233.059       ChipInfo:
+T20A0 000:233.076         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\Atmel_SAME70.pex
+T20A0 000:233.093     Device entry modified: ATSAME70Q20A
+T20A0 000:233.132       ChipInfo:
+T20A0 000:233.149         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\Atmel_SAME70.pex
+T20A0 000:233.166     Device entry modified: ATSAME70Q21A
+T20A0 000:233.205       ChipInfo:
+T20A0 000:233.222         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\Atmel_SAME70.pex
+T20A0 000:233.240     Device entry modified: BCM43907
+T20A0 000:233.282       ChipInfo:
+T20A0 000:233.299         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Broadcom\BCM43907.JLinkScript
+T20A0 000:233.316     Device entry modified: CR600
+T20A0 000:233.357       ChipInfo:
+T20A0 000:233.374         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ClouderSemi\CR600\CR600.JLinkScript
+T20A0 000:233.391       FlashBankInfo:
+T20A0 000:233.407         Name:            QSPI flash
+T20A0 000:233.423         BaseAddr:        0x20000000
+T20A0 000:233.495     Device entry modified: CYW43907
+T20A0 000:233.540       ChipInfo:
+T20A0 000:233.557         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Broadcom\BCM43907.JLinkScript
+T20A0 000:233.575     Device entry modified: S6J328CK
+T20A0 000:233.618       ChipInfo:
+T20A0 000:233.635         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Cypress\Cypress_S6J328.pex
+T20A0 000:233.652     Device entry modified: S6J328CL
+T20A0 000:233.692       ChipInfo:
+T20A0 000:233.708         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Cypress\Cypress_S6J328.pex
+T20A0 000:233.726     Device entry modified: S6J324CKSM
+T20A0 000:233.766       ChipInfo:
+T20A0 000:233.783         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Cypress\Traveo_S6J3300\Cypress_S6J33xx.pex
+T20A0 000:233.800     Device entry modified: S6J331EKC
+T20A0 000:233.841       ChipInfo:
+T20A0 000:233.858         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Cypress\Traveo_S6J3300\Cypress_S6J33xx.pex
+T20A0 000:233.876     Device entry modified: S6J331EJA
+T20A0 000:233.917       ChipInfo:
+T20A0 000:233.934         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Cypress\Traveo_S6J3300\Cypress_S6J33xx.pex
+T20A0 000:233.951     Device entry modified: S6J331EKE
+T20A0 000:233.991       ChipInfo:
+T20A0 000:234.008         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Cypress\Traveo_S6J3300\Cypress_S6J33xx.pex
+T20A0 000:234.025     Device entry modified: S6J332CJB
+T20A0 000:234.065       ChipInfo:
+T20A0 000:234.082         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Cypress\Traveo_S6J3300\Cypress_S6J33xx.pex
+T20A0 000:234.099     Device entry modified: S6J332CJT
+T20A0 000:234.139       ChipInfo:
+T20A0 000:234.156         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Cypress\Traveo_S6J3300\Cypress_S6J33xx.pex
+T20A0 000:234.173     Device entry modified: S6J332CKS
+T20A0 000:234.213       ChipInfo:
+T20A0 000:234.230         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Cypress\Traveo_S6J3300\Cypress_S6J33xx.pex
+T20A0 000:234.248     Device entry modified: S6J332EJB
+T20A0 000:234.287       ChipInfo:
+T20A0 000:234.304         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Cypress\Traveo_S6J3300\Cypress_S6J33xx.pex
+T20A0 000:234.322     Device entry modified: S6J334BJD
+T20A0 000:234.362       ChipInfo:
+T20A0 000:234.379         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Cypress\Traveo_S6J3300\Cypress_S6J33xx.pex
+T20A0 000:234.417     Device entry modified: S6J334CHB
+T20A0 000:234.458       ChipInfo:
+T20A0 000:234.475         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Cypress\Traveo_S6J3300\Cypress_S6J33xx.pex
+T20A0 000:234.492     Device entry modified: S6J334CJE
+T20A0 000:234.534       ChipInfo:
+T20A0 000:234.551         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Cypress\Traveo_S6J3300\Cypress_S6J33xx.pex
+T20A0 000:234.569     Device entry modified: S6J334CJT
+T20A0 000:234.609       ChipInfo:
+T20A0 000:234.626         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Cypress\Traveo_S6J3300\Cypress_S6J33xx.pex
+T20A0 000:234.643     Device entry modified: S6J334CKS
+T20A0 000:234.683       ChipInfo:
+T20A0 000:234.700         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Cypress\Traveo_S6J3300\Cypress_S6J33xx.pex
+T20A0 000:234.718     Device entry modified: S6J334DJE
+T20A0 000:234.758       ChipInfo:
+T20A0 000:234.777         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Cypress\Traveo_S6J3300\Cypress_S6J33xx.pex
+T20A0 000:234.795     Device entry modified: S6J334DJT
+T20A0 000:234.836       ChipInfo:
+T20A0 000:234.853         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Cypress\Traveo_S6J3300\Cypress_S6J33xx.pex
+T20A0 000:234.871     Device entry modified: S6J334EJA
+T20A0 000:234.911       ChipInfo:
+T20A0 000:234.928         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Cypress\Traveo_S6J3300\Cypress_S6J33xx.pex
+T20A0 000:234.945     Device entry modified: S6J334EJE
+T20A0 000:234.986       ChipInfo:
+T20A0 000:235.003         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Cypress\Traveo_S6J3300\Cypress_S6J33xx.pex
+T20A0 000:235.020     Device entry modified: S6J334EJT
+T20A0 000:235.060       ChipInfo:
+T20A0 000:235.077         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Cypress\Traveo_S6J3300\Cypress_S6J33xx.pex
+T20A0 000:235.095     Device entry modified: CEC1702
+T20A0 000:235.110       FlashBankInfo:
+T20A0 000:235.127         Name:            SPI Flash
+T20A0 000:235.143         BaseAddr:        0x60000000
+T20A0 000:235.215     Device entry modified: nRF52832_xxAA
+T20A0 000:235.259       ChipInfo:
+T20A0 000:235.276         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NordicSemi\nRF52.pex
+T20A0 000:235.294     Device entry modified: nRF52832_xxAB
+T20A0 000:235.336       ChipInfo:
+T20A0 000:235.352         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NordicSemi\nRF52.pex
+T20A0 000:235.370     Device entry modified: nRF52840_xxAA
+T20A0 000:235.412       ChipInfo:
+T20A0 000:235.429         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NordicSemi\nRF52.pex
+T20A0 000:235.447     Device entry modified: MCIMX6X1_A9
+T20A0 000:235.495       ChipInfo:
+T20A0 000:235.512         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\iMX6SX\iMX6SX_CortexA9.JLinkScript
+T20A0 000:235.528       FlashBankInfo:
+T20A0 000:235.544         Name:            QSPI Flash
+T20A0 000:235.561         BaseAddr:        0x70000000
+T20A0 000:235.626     Device entry modified: MCIMX6X1_M4
+T20A0 000:235.667       ChipInfo:
+T20A0 000:235.684         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\iMX6SX\iMX6SX_CortexM4.JLinkScript
+T20A0 000:235.702     Device entry modified: MCIMX6X2_A9
+T20A0 000:235.742       ChipInfo:
+T20A0 000:235.759         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\iMX6SX\iMX6SX_CortexA9.JLinkScript
+T20A0 000:235.779       FlashBankInfo:
+T20A0 000:235.796         Name:            QSPI Flash
+T20A0 000:235.812         BaseAddr:        0x70000000
+T20A0 000:235.877     Device entry modified: MCIMX6X2_M4
+T20A0 000:235.920       ChipInfo:
+T20A0 000:235.938         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\iMX6SX\iMX6SX_CortexM4.JLinkScript
+T20A0 000:235.974     Device entry modified: MCIMX6X3_A9
+T20A0 000:236.027       ChipInfo:
+T20A0 000:236.048         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\iMX6SX\iMX6SX_CortexA9.JLinkScript
+T20A0 000:236.068       FlashBankInfo:
+T20A0 000:236.085         Name:            QSPI Flash
+T20A0 000:236.101         BaseAddr:        0x70000000
+T20A0 000:236.174     Device entry modified: MCIMX6X3_M4
+T20A0 000:236.218       ChipInfo:
+T20A0 000:236.236         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\iMX6SX\iMX6SX_CortexM4.JLinkScript
+T20A0 000:236.254     Device entry modified: MCIMX6X4_A9
+T20A0 000:236.298       ChipInfo:
+T20A0 000:236.316         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\iMX6SX\iMX6SX_CortexA9.JLinkScript
+T20A0 000:236.332       FlashBankInfo:
+T20A0 000:236.349         Name:            QSPI Flash
+T20A0 000:236.365         BaseAddr:        0x70000000
+T20A0 000:236.433     Device entry modified: MCIMX6X4_M4
+T20A0 000:236.476       ChipInfo:
+T20A0 000:236.495         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\iMX6SX\iMX6SX_CortexM4.JLinkScript
+T20A0 000:236.514     Device entry modified: MCIMX6G0
+T20A0 000:236.562       ChipInfo:
+T20A0 000:236.580         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\iMX6UL\NXP_iMX6ULL.JLinkScript
+T20A0 000:236.597       FlashBankInfo:
+T20A0 000:236.612         Name:            QSPI flash
+T20A0 000:236.630         BaseAddr:        0x60000000
+T20A0 000:236.705     Device entry modified: MCIMX6G1
+T20A0 000:236.747       ChipInfo:
+T20A0 000:236.765         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\iMX6UL\NXP_iMX6ULL.JLinkScript
+T20A0 000:236.781       FlashBankInfo:
+T20A0 000:236.798         Name:            QSPI flash
+T20A0 000:236.815         BaseAddr:        0x60000000
+T20A0 000:236.884     Device entry modified: MCIMX6G2
+T20A0 000:236.940       ChipInfo:
+T20A0 000:236.958         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\iMX6UL\NXP_iMX6ULL.JLinkScript
+T20A0 000:236.974       FlashBankInfo:
+T20A0 000:236.991         Name:            QSPI flash
+T20A0 000:237.007         BaseAddr:        0x60000000
+T20A0 000:237.078     Device entry modified: MCIMX6G3
+T20A0 000:237.122       ChipInfo:
+T20A0 000:237.139         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\iMX6UL\NXP_iMX6ULL.JLinkScript
+T20A0 000:237.156       FlashBankInfo:
+T20A0 000:237.174         Name:            QSPI flash
+T20A0 000:237.190         BaseAddr:        0x60000000
+T20A0 000:237.276     Device entry modified: MCIMX6Y0
+T20A0 000:237.332       ChipInfo:
+T20A0 000:237.353         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\iMX6UL\NXP_iMX6ULL.JLinkScript
+T20A0 000:237.370       FlashBankInfo:
+T20A0 000:237.387         Name:            QSPI flash
+T20A0 000:237.404         BaseAddr:        0x60000000
+T20A0 000:237.502     Device entry modified: MCIMX6Y1
+T20A0 000:237.570       ChipInfo:
+T20A0 000:237.589         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\iMX6UL\NXP_iMX6ULL.JLinkScript
+T20A0 000:237.607       FlashBankInfo:
+T20A0 000:237.623         Name:            QSPI flash
+T20A0 000:237.643         BaseAddr:        0x60000000
+T20A0 000:237.742     Device entry modified: MCIMX6Y2
+T20A0 000:237.793       ChipInfo:
+T20A0 000:237.811         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\iMX6UL\NXP_iMX6ULL.JLinkScript
+T20A0 000:237.828       FlashBankInfo:
+T20A0 000:237.846         Name:            QSPI flash
+T20A0 000:237.865         BaseAddr:        0x60000000
+T20A0 000:237.960     Device entry modified: MCIMX6Y7
+T20A0 000:238.016       ChipInfo:
+T20A0 000:238.035         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\iMX6UL\NXP_iMX6ULL.JLinkScript
+T20A0 000:238.054       FlashBankInfo:
+T20A0 000:238.073         Name:            QSPI flash
+T20A0 000:238.091         BaseAddr:        0x60000000
+T20A0 000:238.179     Device entry modified: MCIMX7D3_A7_0
+T20A0 000:238.242       ChipInfo:
+T20A0 000:238.260         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\iMX7D\NXP_iMX7D_Connect_CortexA7_0.JLinkScript
+T20A0 000:238.277       FlashBankInfo:
+T20A0 000:238.294         Name:            QSPI flash
+T20A0 000:238.313         BaseAddr:        0x60000000
+T20A0 000:238.399     Device entry modified: MCIMX7D3_A7_1
+T20A0 000:238.445       ChipInfo:
+T20A0 000:238.463         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\iMX7D\NXP_iMX7D_Connect_CortexA7_1.JLinkScript
+T20A0 000:238.480       FlashBankInfo:
+T20A0 000:238.497         Name:            QSPI flash
+T20A0 000:238.517         BaseAddr:        0x60000000
+T20A0 000:238.626     Device entry modified: MCIMX7D3_M4
+T20A0 000:238.641       ChipInfo:
+T20A0 000:238.659         WorkRAMAddr:     0x00900000
+T20A0 000:238.677         WorkRAMSize:     0x00020000
+T20A0 000:238.746         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\iMX7D\NXP_iMX7D_Connect_CortexM4.JLinkScript
+T20A0 000:238.765       FlashBankInfo:
+T20A0 000:238.782         Name:            QSPI flash
+T20A0 000:238.800         BaseAddr:        0x60000000
+T20A0 000:238.886     Device entry modified: MCIMX7D5_A7_0
+T20A0 000:238.935       ChipInfo:
+T20A0 000:238.952         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\iMX7D\NXP_iMX7D_Connect_CortexA7_0.JLinkScript
+T20A0 000:238.969       FlashBankInfo:
+T20A0 000:238.985         Name:            QSPI flash
+T20A0 000:239.001         BaseAddr:        0x60000000
+T20A0 000:239.064     Device entry modified: MCIMX7D5_A7_1
+T20A0 000:239.105       ChipInfo:
+T20A0 000:239.122         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\iMX7D\NXP_iMX7D_Connect_CortexA7_1.JLinkScript
+T20A0 000:239.138       FlashBankInfo:
+T20A0 000:239.154         Name:            QSPI flash
+T20A0 000:239.171         BaseAddr:        0x60000000
+T20A0 000:239.235     Device entry modified: MCIMX7D5_M4
+T20A0 000:239.247       ChipInfo:
+T20A0 000:239.263         WorkRAMAddr:     0x00900000
+T20A0 000:239.280         WorkRAMSize:     0x00020000
+T20A0 000:239.326         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\iMX7D\NXP_iMX7D_Connect_CortexM4.JLinkScript
+T20A0 000:239.344       FlashBankInfo:
+T20A0 000:239.360         Name:            QSPI flash
+T20A0 000:239.377         BaseAddr:        0x60000000
+T20A0 000:239.456     Device entry modified: MCIMX7D7_A7_0
+T20A0 000:239.506       ChipInfo:
+T20A0 000:239.525         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\iMX7D\NXP_iMX7D_Connect_CortexA7_0.JLinkScript
+T20A0 000:239.541       FlashBankInfo:
+T20A0 000:239.559         Name:            QSPI flash
+T20A0 000:239.577         BaseAddr:        0x60000000
+T20A0 000:239.652     Device entry modified: MCIMX7D7_A7_1
+T20A0 000:239.693       ChipInfo:
+T20A0 000:239.710         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\iMX7D\NXP_iMX7D_Connect_CortexA7_1.JLinkScript
+T20A0 000:239.726       FlashBankInfo:
+T20A0 000:239.742         Name:            QSPI flash
+T20A0 000:239.759         BaseAddr:        0x60000000
+T20A0 000:239.825     Device entry modified: MCIMX7D7_M4
+T20A0 000:239.836       ChipInfo:
+T20A0 000:239.853         WorkRAMAddr:     0x00900000
+T20A0 000:239.869         WorkRAMSize:     0x00020000
+T20A0 000:239.916         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\iMX7D\NXP_iMX7D_Connect_CortexM4.JLinkScript
+T20A0 000:239.935       FlashBankInfo:
+T20A0 000:239.952         Name:            QSPI flash
+T20A0 000:239.968         BaseAddr:        0x60000000
+T20A0 000:240.031     Device entry modified: MCIMX7U3_M4
+T20A0 000:240.072       ChipInfo:
+T20A0 000:240.089         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\iMX7ULP\NXP_iMX7ULP_CortexM4.JLinkScript
+T20A0 000:240.105       FlashBankInfo:
+T20A0 000:240.121         Name:            QSPI Flash
+T20A0 000:240.138         BaseAddr:        0x04000000
+T20A0 000:240.202     Device entry modified: MCIMX7U3_A7
+T20A0 000:240.242       ChipInfo:
+T20A0 000:240.259         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\iMX7ULP\NXP_iMX7ULP_CortexA7.JLinkScript
+T20A0 000:240.275       FlashBankInfo:
+T20A0 000:240.292         Name:            QSPI Flash
+T20A0 000:240.308         BaseAddr:        0xC0000000
+T20A0 000:240.371     Device entry modified: MCIMX7U5_M4
+T20A0 000:240.412       ChipInfo:
+T20A0 000:240.429         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\iMX7ULP\NXP_iMX7ULP_CortexM4.JLinkScript
+T20A0 000:240.446       FlashBankInfo:
+T20A0 000:240.463         Name:            QSPI Flash
+T20A0 000:240.481         BaseAddr:        0x04000000
+T20A0 000:240.549     Device entry modified: MCIMX7U5_A7
+T20A0 000:240.592       ChipInfo:
+T20A0 000:240.609         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\iMX7ULP\NXP_iMX7ULP_CortexA7.JLinkScript
+T20A0 000:240.626       FlashBankInfo:
+T20A0 000:240.642         Name:            QSPI Flash
+T20A0 000:240.659         BaseAddr:        0xC0000000
+T20A0 000:240.725     Device entry modified: MIMXRT1021xxx4A
+T20A0 000:240.750       FlashBankInfo:
+T20A0 000:240.768         Name:            QSPI Flash
+T20A0 000:240.784         BaseAddr:        0x60000000
+T20A0 000:240.852     Device entry modified: MIMXRT1021xxx4A
+T20A0 000:240.865       FlashBankInfo:
+T20A0 000:240.882         Name:            QSPI Flash
+T20A0 000:240.899         BaseAddr:        0x60000000
+T20A0 000:240.968     Device entry modified: MIMXRT1021xxx4A
+T20A0 000:240.980       FlashBankInfo:
+T20A0 000:240.996         Name:            QSPI Flash
+T20A0 000:241.012         BaseAddr:        0x60000000
+T20A0 000:241.080     Device entry modified: MIMXRT1021xxx5A
+T20A0 000:241.094       FlashBankInfo:
+T20A0 000:241.111         Name:            QSPI Flash
+T20A0 000:241.127         BaseAddr:        0x60000000
+T20A0 000:241.190     Device entry modified: MIMXRT1021xxx5A
+T20A0 000:241.202       FlashBankInfo:
+T20A0 000:241.218         Name:            QSPI Flash
+T20A0 000:241.234         BaseAddr:        0x60000000
+T20A0 000:241.296     Device entry modified: MIMXRT1021xxx5A
+T20A0 000:241.308       FlashBankInfo:
+T20A0 000:241.327         Name:            QSPI Flash
+T20A0 000:241.343         BaseAddr:        0x60000000
+T20A0 000:241.413     Device entry modified: MIMXRT1051xxxxA
+T20A0 000:241.425       ChipInfo:
+T20A0 000:241.442         WorkRAMSize:     0x00080000
+T20A0 000:241.459       FlashBankInfo:
+T20A0 000:241.476         Name:            HyperFlash
+T20A0 000:241.492         BaseAddr:        0x60000000
+T20A0 000:241.566     Device entry modified: MIMXRT1051xxxxA
+T20A0 000:241.579       FlashBankInfo:
+T20A0 000:241.595         Name:            HyperFlash
+T20A0 000:241.612         BaseAddr:        0x60000000
+T20A0 000:241.686     Alias entry created:
+T20A0 000:241.697       ChipInfo:
+T20A0 000:241.714         Alias of:        MIMXRT1051xxxxA
+T20A0 000:241.730         Name:            MIMXRT1051xxx5A
+T20A0 000:241.805     Alias entry created:
+T20A0 000:241.817       ChipInfo:
+T20A0 000:241.833         Alias of:        MIMXRT1051xxxxA
+T20A0 000:241.850         Name:            MIMXRT1051CVL5A
+T20A0 000:241.884     Alias entry created:
+T20A0 000:241.896       ChipInfo:
+T20A0 000:241.912         Alias of:        MIMXRT1051xxxxA
+T20A0 000:242.005         Name:            MIMXRT1051xxx6A
+T20A0 000:242.025     Alias entry created:
+T20A0 000:242.036       ChipInfo:
+T20A0 000:242.052         Alias of:        MIMXRT1051xxxxA
+T20A0 000:242.068         Name:            MIMXRT1051DVL6A
+T20A0 000:242.100     Device entry modified: MIMXRT1051xxxxB
+T20A0 000:242.112       ChipInfo:
+T20A0 000:242.128         WorkRAMSize:     0x00080000
+T20A0 000:242.146       FlashBankInfo:
+T20A0 000:242.162         Name:            HyperFlash
+T20A0 000:242.180         BaseAddr:        0x60000000
+T20A0 000:242.273     Alias entry created:
+T20A0 000:242.284       ChipInfo:
+T20A0 000:242.300         Alias of:        MIMXRT1051xxxxB
+T20A0 000:242.316         Name:            MIMXRT1051xxx5B
+T20A0 000:242.335     Alias entry created:
+T20A0 000:242.346       ChipInfo:
+T20A0 000:242.363         Alias of:        MIMXRT1051xxxxB
+T20A0 000:242.379         Name:            MIMXRT1051CVL5B
+T20A0 000:242.410     Alias entry created:
+T20A0 000:242.421       ChipInfo:
+T20A0 000:242.438         Alias of:        MIMXRT1051xxxxB
+T20A0 000:242.454         Name:            MIMXRT1051xxx6B
+T20A0 000:242.472     Alias entry created:
+T20A0 000:242.483       ChipInfo:
+T20A0 000:242.500         Alias of:        MIMXRT1051xxxxB
+T20A0 000:242.516         Name:            MIMXRT1051DVL6B
+T20A0 000:242.545     Device entry modified: MIMXRT1052xxxxA
+T20A0 000:242.556       ChipInfo:
+T20A0 000:242.572         WorkRAMSize:     0x00080000
+T20A0 000:242.592       FlashBankInfo:
+T20A0 000:242.608         Name:            HyperFlash
+T20A0 000:242.624         BaseAddr:        0x60000000
+T20A0 000:242.693     Device entry modified: MIMXRT1052xxxxA
+T20A0 000:242.707       FlashBankInfo:
+T20A0 000:242.723         Name:            HyperFlash
+T20A0 000:242.739         BaseAddr:        0x60000000
+T20A0 000:242.803     Alias entry created:
+T20A0 000:242.814       ChipInfo:
+T20A0 000:242.831         Alias of:        MIMXRT1052xxxxA
+T20A0 000:242.847         Name:            MIMXRT1052xxx5A
+T20A0 000:242.867     Alias entry created:
+T20A0 000:242.878       ChipInfo:
+T20A0 000:242.894         Alias of:        MIMXRT1052xxxxA
+T20A0 000:242.910         Name:            MIMXRT1052CVL5A
+T20A0 000:242.952     Alias entry created:
+T20A0 000:243.004       ChipInfo:
+T20A0 000:243.045         Alias of:        MIMXRT1052xxxxA
+T20A0 000:243.062         Name:            MIMXRT1052xxx6A
+T20A0 000:243.081     Alias entry created:
+T20A0 000:243.092       ChipInfo:
+T20A0 000:243.109         Alias of:        MIMXRT1052xxxxA
+T20A0 000:243.126         Name:            MIMXRT1052DVL6A
+T20A0 000:243.157     Device entry modified: MIMXRT1052xxxxB
+T20A0 000:243.169       ChipInfo:
+T20A0 000:243.185         WorkRAMSize:     0x00080000
+T20A0 000:243.202       FlashBankInfo:
+T20A0 000:243.218         Name:            HyperFlash
+T20A0 000:243.235         BaseAddr:        0x60000000
+T20A0 000:243.312     Alias entry created:
+T20A0 000:243.325       ChipInfo:
+T20A0 000:243.341         Alias of:        MIMXRT1052xxxxB
+T20A0 000:243.357         Name:            MIMXRT1052xxx5B
+T20A0 000:243.376     Alias entry created:
+T20A0 000:243.387       ChipInfo:
+T20A0 000:243.403         Alias of:        MIMXRT1052xxxxB
+T20A0 000:243.419         Name:            MIMXRT1052CVL5B
+T20A0 000:243.450     Alias entry created:
+T20A0 000:243.461       ChipInfo:
+T20A0 000:243.477         Alias of:        MIMXRT1052xxxxB
+T20A0 000:243.493         Name:            MIMXRT1052xxx6B
+T20A0 000:243.512     Alias entry created:
+T20A0 000:243.523       ChipInfo:
+T20A0 000:243.539         Alias of:        MIMXRT1052xxxxB
+T20A0 000:243.555         Name:            MIMXRT1052DVL6B
+T20A0 000:243.584     Device entry modified: MIMXRT1061xxx5A
+T20A0 000:243.595       ChipInfo:
+T20A0 000:243.611         WorkRAMSize:     0x00080000
+T20A0 000:243.629       FlashBankInfo:
+T20A0 000:243.645         Name:            HyperFlash
+T20A0 000:243.661         BaseAddr:        0x60000000
+T20A0 000:243.747     Alias entry created:
+T20A0 000:243.759       ChipInfo:
+T20A0 000:243.775         Alias of:        MIMXRT1061xxx5A
+T20A0 000:243.791         Name:            MIMXRT1061CVL5A
+T20A0 000:243.811     Alias entry created:
+T20A0 000:243.822       ChipInfo:
+T20A0 000:243.838         Alias of:        MIMXRT1061xxx5A
+T20A0 000:243.854         Name:            MIMXRT1061CVJ5A
+T20A0 000:243.884     Device entry modified: MIMXRT1061xxx6A
+T20A0 000:243.895       ChipInfo:
+T20A0 000:243.912         WorkRAMSize:     0x00080000
+T20A0 000:243.929       FlashBankInfo:
+T20A0 000:243.946         Name:            HyperFlash
+T20A0 000:243.962         BaseAddr:        0x60000000
+T20A0 000:244.026     Alias entry created:
+T20A0 000:244.037       ChipInfo:
+T20A0 000:244.054         Alias of:        MIMXRT1061xxx6A
+T20A0 000:244.070         Name:            MIMXRT1061DVL6A
+T20A0 000:244.090     Device entry modified: MIMXRT1062xxx5A
+T20A0 000:244.101       ChipInfo:
+T20A0 000:244.117         WorkRAMSize:     0x00080000
+T20A0 000:244.135       FlashBankInfo:
+T20A0 000:244.152         Name:            HyperFlash
+T20A0 000:244.168         BaseAddr:        0x60000000
+T20A0 000:244.232     Alias entry created:
+T20A0 000:244.243       ChipInfo:
+T20A0 000:244.262         Alias of:        MIMXRT1062xxx5A
+T20A0 000:244.278         Name:            MIMXRT1062CVL5A
+T20A0 000:244.297     Alias entry created:
+T20A0 000:244.308       ChipInfo:
+T20A0 000:244.325         Alias of:        MIMXRT1062xxx5A
+T20A0 000:244.341         Name:            MIMXRT1062CVJ5A
+T20A0 000:244.371     Device entry modified: MIMXRT1062xxx6A
+T20A0 000:244.382       ChipInfo:
+T20A0 000:244.398         WorkRAMSize:     0x00080000
+T20A0 000:244.416       FlashBankInfo:
+T20A0 000:244.432         Name:            HyperFlash
+T20A0 000:244.448         BaseAddr:        0x60000000
+T20A0 000:244.512     Alias entry created:
+T20A0 000:244.523       ChipInfo:
+T20A0 000:244.539         Alias of:        MIMXRT1062xxx6A
+T20A0 000:244.556         Name:            MIMXRT1062DVL6A
+T20A0 000:244.575     Device entry modified: LPC51U68
+T20A0 000:244.623       ChipInfo:
+T20A0 000:244.640         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\LPC51U68\NXP_LPC51U68.pex
+T20A0 000:244.658     Device entry modified: LPC54005
+T20A0 000:244.701       ChipInfo:
+T20A0 000:244.718         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\LPC540xx\NXP_LPC540xx.pex
+T20A0 000:244.736     Device entry modified: LPC54016
+T20A0 000:244.776       ChipInfo:
+T20A0 000:244.793         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\LPC540xx\NXP_LPC540xx.pex
+T20A0 000:244.811     Device entry modified: LPC54018
+T20A0 000:244.851       ChipInfo:
+T20A0 000:244.867         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\LPC540xx\NXP_LPC540xx.pex
+T20A0 000:244.885     Device entry modified: LPC54S005
+T20A0 000:244.927       ChipInfo:
+T20A0 000:244.944         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\LPC540xx\NXP_LPC540xx.pex
+T20A0 000:244.961     Device entry modified: LPC54S016
+T20A0 000:245.001       ChipInfo:
+T20A0 000:245.018         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\LPC540xx\NXP_LPC540xx.pex
+T20A0 000:245.036     Device entry modified: LPC54S018
+T20A0 000:245.076       ChipInfo:
+T20A0 000:245.093         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\LPC540xx\NXP_LPC540xx.pex
+T20A0 000:245.111     Device entry modified: LPC54101J256_M0
+T20A0 000:245.150       ChipInfo:
+T20A0 000:245.167         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\LPC5411x\LPC5411x_M0.JLinkScript
+T20A0 000:245.185     Device entry modified: LPC54101J512_M0
+T20A0 000:245.225       ChipInfo:
+T20A0 000:245.241         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\LPC5411x\LPC5411x_M0.JLinkScript
+T20A0 000:245.276     Device entry modified: LPC54102J256_M0
+T20A0 000:245.316       ChipInfo:
+T20A0 000:245.333         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\LPC5411x\LPC5411x_M0.JLinkScript
+T20A0 000:245.352     Device entry modified: LPC54102J512_M0
+T20A0 000:245.391       ChipInfo:
+T20A0 000:245.408         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\LPC5411x\LPC5411x_M0.JLinkScript
+T20A0 000:245.426     Device entry modified: LPC54111J128_M0
+T20A0 000:245.466       ChipInfo:
+T20A0 000:245.483         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\LPC5411x\LPC5411x_M0.JLinkScript
+T20A0 000:245.501     Device entry modified: LPC54111J256_M0
+T20A0 000:245.540       ChipInfo:
+T20A0 000:245.557         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\LPC5411x\LPC5411x_M0.JLinkScript
+T20A0 000:245.575     Device entry modified: LPC54112J256_M0
+T20A0 000:245.614       ChipInfo:
+T20A0 000:245.631         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\LPC5411x\LPC5411x_M0.JLinkScript
+T20A0 000:245.648     Device entry modified: LPC54113J128_M0
+T20A0 000:245.688       ChipInfo:
+T20A0 000:245.705         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\LPC5411x\LPC5411x_M0.JLinkScript
+T20A0 000:245.722     Device entry modified: LPC54113J256_M0
+T20A0 000:245.762       ChipInfo:
+T20A0 000:245.779         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\LPC5411x\LPC5411x_M0.JLinkScript
+T20A0 000:245.796     Device entry modified: LPC54114J256_M0
+T20A0 000:245.837       ChipInfo:
+T20A0 000:245.854         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\LPC5411x\LPC5411x_M0.JLinkScript
+T20A0 000:245.872     Device entry modified: LPC54608J512
+T20A0 000:245.914       ChipInfo:
+T20A0 000:245.931         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\LPC5460x\NXP_LPC5460x.pex
+T20A0 000:245.949     Device entry modified: LPC54608J512 (allow ECRP)
+T20A0 000:245.989       ChipInfo:
+T20A0 000:246.006         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\LPC5460x\NXP_LPC5460x.pex
+T20A0 000:246.024     Device entry modified: S32V232_A53_A0
+T20A0 000:246.066       ChipInfo:
+T20A0 000:246.083         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\S32V\NXP_S32V234_A53_0.pex
+T20A0 000:246.100     Device entry modified: S32V232_A53_B0
+T20A0 000:246.139       ChipInfo:
+T20A0 000:246.157         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\S32V\NXP_S32V234_A53_2.pex
+T20A0 000:246.174     Device entry modified: S32V234_A53_A0
+T20A0 000:246.214       ChipInfo:
+T20A0 000:246.231         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\S32V\NXP_S32V234_A53_0.pex
+T20A0 000:246.248     Device entry modified: S32V234_A53_A1
+T20A0 000:246.287       ChipInfo:
+T20A0 000:246.305         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\S32V\NXP_S32V234_A53_1.pex
+T20A0 000:246.322     Device entry modified: S32V234_A53_B0
+T20A0 000:246.361       ChipInfo:
+T20A0 000:246.378         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\S32V\NXP_S32V234_A53_2.pex
+T20A0 000:246.396     Device entry modified: S32V234_A53_B1
+T20A0 000:246.435       ChipInfo:
+T20A0 000:246.452         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\NXP\S32V\NXP_S32V234_A53_3.pex
+T20A0 000:246.470     Device entry modified: R9A06G032
+T20A0 000:246.513       ChipInfo:
+T20A0 000:246.530         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Renesas\RZN1\Renesas_RZN1_Cortex-A7_CPU0.pex
+T20A0 000:246.548     Device entry modified: R9A06G032_A7CPU0
+T20A0 000:246.588       ChipInfo:
+T20A0 000:246.606         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Renesas\RZN1\Renesas_RZN1_Cortex-A7_CPU0.pex
+T20A0 000:246.623     Device entry modified: R9A06G032_A7CPU1
+T20A0 000:246.663       ChipInfo:
+T20A0 000:246.680         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Renesas\RZN1\Renesas_RZN1_Cortex-A7_CPU1.pex
+T20A0 000:246.698     Device entry modified: R9A06G032_M3
+T20A0 000:246.737       ChipInfo:
+T20A0 000:246.754         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Renesas\RZN1\Renesas_RZN1_Cortex-M3.pex
+T20A0 000:246.772     Device entry modified: R9A06G033
+T20A0 000:246.811       ChipInfo:
+T20A0 000:246.828         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Renesas\RZN1\Renesas_RZN1_Cortex-A7_CPU0.pex
+T20A0 000:246.846     Device entry modified: R9A06G033_A7
+T20A0 000:246.886       ChipInfo:
+T20A0 000:246.903         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Renesas\RZN1\Renesas_RZN1_Cortex-A7_CPU0.pex
+T20A0 000:246.920     Device entry modified: R9A06G033_M3
+T20A0 000:246.960       ChipInfo:
+T20A0 000:246.976         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Renesas\RZN1\Renesas_RZN1_Cortex-M3.pex
+T20A0 000:246.994     Device entry modified: R9A06G034
+T20A0 000:247.033       ChipInfo:
+T20A0 000:247.050         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Renesas\RZN1\Renesas_RZN1_Cortex-M3.pex
+T20A0 000:247.068     Device entry modified: R7S921040VCBG
+T20A0 000:247.085       FlashBankInfo:
+T20A0 000:247.101         Name:            HyperFlash
+T20A0 000:247.117         BaseAddr:        0x30000000
+T20A0 000:247.214     Device entry modified: R7S921041VCBG
+T20A0 000:247.227       FlashBankInfo:
+T20A0 000:247.243         Name:            HyperFlash
+T20A0 000:247.259         BaseAddr:        0x30000000
+T20A0 000:247.323     Device entry modified: R7S921042VCBG
+T20A0 000:247.336       FlashBankInfo:
+T20A0 000:247.353         Name:            HyperFlash
+T20A0 000:247.369         BaseAddr:        0x30000000
+T20A0 000:247.432     Device entry modified: R7S921043VCBG
+T20A0 000:247.444       FlashBankInfo:
+T20A0 000:247.460         Name:            HyperFlash
+T20A0 000:247.477         BaseAddr:        0x30000000
+T20A0 000:247.539     Device entry modified: R7S921051VCBG
+T20A0 000:247.551       FlashBankInfo:
+T20A0 000:247.567         Name:            HyperFlash
+T20A0 000:247.584         BaseAddr:        0x30000000
+T20A0 000:247.649     Device entry modified: R7S921052VCBG
+T20A0 000:247.661       FlashBankInfo:
+T20A0 000:247.677         Name:            HyperFlash
+T20A0 000:247.693         BaseAddr:        0x30000000
+T20A0 000:247.755     Device entry modified: R7S921053VCBG
+T20A0 000:247.768       FlashBankInfo:
+T20A0 000:247.784         Name:            HyperFlash
+T20A0 000:247.800         BaseAddr:        0x30000000
+T20A0 000:247.863     Device entry modified: CC3200
+T20A0 000:247.907       ChipInfo:
+T20A0 000:247.924         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\TI\TI_CC3200.JLinkScript
+T20A0 000:247.942     Device entry modified: CC3220R
+T20A0 000:247.983       ChipInfo:
+T20A0 000:248.000         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\TI\TI_CC322x.pex
+T20A0 000:248.017         WorkRAMSize:     0x00010000
+T20A0 000:248.034     Device entry modified: CC3220S
+T20A0 000:248.074       ChipInfo:
+T20A0 000:248.091         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\TI\TI_CC322x.pex
+T20A0 000:248.108         WorkRAMSize:     0x00010000
+T20A0 000:248.125     Device entry modified: CC3220SF
+T20A0 000:248.165       ChipInfo:
+T20A0 000:248.181         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\TI\TI_CC322x.pex
+T20A0 000:248.198         WorkRAMSize:     0x00010000
+T20A0 000:248.217     Device entry modified: DM3730
+T20A0 000:248.256       ChipInfo:
+T20A0 000:248.273         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\TI\DM3730\TI_DM3730.pex
+T20A0 000:248.291     Device entry modified: TLE9842
+T20A0 000:248.305       FlashBankInfo:
+T20A0 000:248.321         Name:            NACNAD
+T20A0 000:248.337         BaseAddr:        0x10FFFFFC
+T20A0 000:248.400         AlwaysPresent:   1
+T20A0 000:248.417       FlashBankInfo:
+T20A0 000:248.433         Name:            Code Flash
+T20A0 000:248.449         BaseAddr:        0x11000000
+T20A0 000:248.512         AlwaysPresent:   1
+T20A0 000:248.543       FlashBankInfo:
+T20A0 000:248.560         Name:            Data Flash
+T20A0 000:248.576         BaseAddr:        0x11008000
+T20A0 000:248.636         AlwaysPresent:   1
+T20A0 000:248.654     Device entry modified: TLE9842-2
+T20A0 000:248.666       FlashBankInfo:
+T20A0 000:248.682         Name:            NACNAD
+T20A0 000:248.699         BaseAddr:        0x10FFFFFC
+T20A0 000:248.760         AlwaysPresent:   1
+T20A0 000:248.778       FlashBankInfo:
+T20A0 000:248.794         Name:            Code Flash
+T20A0 000:248.811         BaseAddr:        0x11000000
+T20A0 000:248.872         AlwaysPresent:   1
+T20A0 000:248.889       FlashBankInfo:
+T20A0 000:248.905         Name:            Data Flash
+T20A0 000:248.921         BaseAddr:        0x11009000
+T20A0 000:249.007         AlwaysPresent:   1
+T20A0 000:249.024     Device entry modified: TLE9843
+T20A0 000:249.036       FlashBankInfo:
+T20A0 000:249.052         Name:            NACNAD
+T20A0 000:249.069         BaseAddr:        0x10FFFFFC
+T20A0 000:249.131         AlwaysPresent:   1
+T20A0 000:249.148       FlashBankInfo:
+T20A0 000:249.164         Name:            Code Flash
+T20A0 000:249.180         BaseAddr:        0x11000000
+T20A0 000:249.242         AlwaysPresent:   1
+T20A0 000:249.259       FlashBankInfo:
+T20A0 000:249.275         Name:            Data Flash
+T20A0 000:249.291         BaseAddr:        0x1100B000
+T20A0 000:249.353         AlwaysPresent:   1
+T20A0 000:249.380     Device entry modified: TLE9843-2
+T20A0 000:249.392       FlashBankInfo:
+T20A0 000:249.408         Name:            NACNAD
+T20A0 000:249.424         BaseAddr:        0x10FFFFFC
+T20A0 000:249.485         AlwaysPresent:   1
+T20A0 000:249.502       FlashBankInfo:
+T20A0 000:249.518         Name:            Code Flash
+T20A0 000:249.535         BaseAddr:        0x11000000
+T20A0 000:249.596         AlwaysPresent:   1
+T20A0 000:249.613       FlashBankInfo:
+T20A0 000:249.630         Name:            Data Flash
+T20A0 000:249.646         BaseAddr:        0x1100C000
+T20A0 000:249.707         AlwaysPresent:   1
+T20A0 000:249.725     Device entry modified: TLE9844
+T20A0 000:249.737       FlashBankInfo:
+T20A0 000:249.753         Name:            NACNAD
+T20A0 000:249.769         BaseAddr:        0x10FFFFFC
+T20A0 000:249.830         AlwaysPresent:   1
+T20A0 000:249.846       FlashBankInfo:
+T20A0 000:249.862         Name:            Code Flash
+T20A0 000:249.878         BaseAddr:        0x11000000
+T20A0 000:249.940         AlwaysPresent:   1
+T20A0 000:249.955       FlashBankInfo:
+T20A0 000:249.971         Name:            Data Flash
+T20A0 000:249.987         BaseAddr:        0x1100F000
+T20A0 000:250.071         AlwaysPresent:   1
+T20A0 000:250.089     Device entry modified: TLE9844
+T20A0 000:250.101       FlashBankInfo:
+T20A0 000:250.117         Name:            NACNAD
+T20A0 000:250.133         BaseAddr:        0x10FFFFFC
+T20A0 000:250.194         AlwaysPresent:   1
+T20A0 000:250.211       FlashBankInfo:
+T20A0 000:250.227         Name:            Code Flash
+T20A0 000:250.243         BaseAddr:        0x11000000
+T20A0 000:250.304         AlwaysPresent:   1
+T20A0 000:250.321       FlashBankInfo:
+T20A0 000:250.337         Name:            Data Flash
+T20A0 000:250.354         BaseAddr:        0x1100F000
+T20A0 000:250.415         AlwaysPresent:   1
+T20A0 000:250.432     Device entry modified: TLE9845
+T20A0 000:250.445       FlashBankInfo:
+T20A0 000:250.462         Name:            NACNAD
+T20A0 000:250.478         BaseAddr:        0x10FFFFFC
+T20A0 000:250.539         AlwaysPresent:   1
+T20A0 000:250.556       FlashBankInfo:
+T20A0 000:250.572         Name:            Code Flash
+T20A0 000:250.588         BaseAddr:        0x11000000
+T20A0 000:250.649         AlwaysPresent:   1
+T20A0 000:250.666       FlashBankInfo:
+T20A0 000:250.682         Name:            Data Flash
+T20A0 000:250.698         BaseAddr:        0x1100B000
+T20A0 000:250.760         AlwaysPresent:   1
+T20A0 000:250.778     Device entry modified: TLE9861
+T20A0 000:250.789       ChipInfo:
+T20A0 000:250.805         WorkRAMAddr:     0x18000000
+T20A0 000:250.822         WorkRAMSize:     0x00000C00
+T20A0 000:250.838         Core:            JLINK_CORE_CORTEX_M3_R2P0
+T20A0 000:250.855       FlashBankInfo:
+T20A0 000:250.871         Name:            Code Flash
+T20A0 000:250.887         BaseAddr:        0x11000000
+T20A0 000:250.949         AlwaysPresent:   1
+T20A0 000:250.966       FlashBankInfo:
+T20A0 000:250.982         Name:            Data Flash
+T20A0 000:250.998         BaseAddr:        0x11008000
+T20A0 000:251.059         AlwaysPresent:   1
+T20A0 000:251.076     Device entry created:  TLE9863QXW20
+T20A0 000:251.088       ChipInfo:
+T20A0 000:251.104         Vendor:          Infineon
+T20A0 000:251.120         Name:            TLE9863QXW20
+T20A0 000:251.136         WorkRAMAddr:     0x18000000
+T20A0 000:251.153         WorkRAMSize:     0x00000C00
+T20A0 000:251.169         Core:            JLINK_CORE_CORTEX_M3_R2P0
+T20A0 000:251.186       FlashBankInfo:
+T20A0 000:251.202         Name:            Code Flash
+T20A0 000:251.218         BaseAddr:        0x11000000
+T20A0 000:251.279         AlwaysPresent:   1
+T20A0 000:251.296   
+  ***** Internal Error: 
+T20A0 000:251.312   Device: TLE9863QXW20: Flash bank 0x11000000: No loader specified
+T20A0 001:298.774       FlashBankInfo:
+T20A0 001:298.827         Name:            Data Flash
+T20A0 001:298.858         BaseAddr:        0x1100B000
+T20A0 001:299.082         AlwaysPresent:   1
+T20A0 001:299.133     Device entry modified: TLE9867
+T20A0 001:299.154       ChipInfo:
+T20A0 001:299.182         WorkRAMAddr:     0x18000000
+T20A0 001:299.211         WorkRAMSize:     0x00001800
+T20A0 001:299.241       FlashBankInfo:
+T20A0 001:299.269         Name:            Code Flash
+T20A0 001:299.297         BaseAddr:        0x11000000
+T20A0 001:299.419         AlwaysPresent:   1
+T20A0 001:299.448       FlashBankInfo:
+T20A0 001:299.476         Name:            Data Flash
+T20A0 001:299.504         BaseAddr:        0x1100F000
+T20A0 001:299.613         AlwaysPresent:   1
+T20A0 001:299.644     Device entry modified: TLE9867
+T20A0 001:299.668       FlashBankInfo:
+T20A0 001:299.696         Name:            Code Flash
+T20A0 001:299.724         BaseAddr:        0x11000000
+T20A0 001:299.830         AlwaysPresent:   1
+T20A0 001:299.859       FlashBankInfo:
+T20A0 001:299.887         Name:            Data Flash
+T20A0 001:299.915         BaseAddr:        0x1100F000
+T20A0 001:300.021         AlwaysPresent:   1
+T20A0 001:300.051     Device entry modified: TLE9867
+T20A0 001:300.071       FlashBankInfo:
+T20A0 001:300.099         Name:            Code Flash
+T20A0 001:300.127         BaseAddr:        0x11000000
+T20A0 001:300.231         AlwaysPresent:   1
+T20A0 001:300.260       FlashBankInfo:
+T20A0 001:300.287         Name:            Data Flash
+T20A0 001:300.315         BaseAddr:        0x1100F000
+T20A0 001:300.421         AlwaysPresent:   1
+T20A0 001:300.452     Device entry modified: TLE9868
+T20A0 001:300.471       ChipInfo:
+T20A0 001:300.499         WorkRAMAddr:     0x18000000
+T20A0 001:300.527         WorkRAMSize:     0x00001000
+T20A0 001:300.556       FlashBankInfo:
+T20A0 001:300.583         Name:            Code Flash
+T20A0 001:300.611         BaseAddr:        0x11000000
+T20A0 001:300.716         AlwaysPresent:   1
+T20A0 001:300.749       FlashBankInfo:
+T20A0 001:300.782         Name:            Data Flash
+T20A0 001:300.815         BaseAddr:        0x1101F000
+T20A0 001:300.928         AlwaysPresent:   1
+T20A0 001:300.960     Device entry modified: TLE9869
+T20A0 001:300.980       ChipInfo:
+T20A0 001:301.058         WorkRAMAddr:     0x18000000
+T20A0 001:301.107         WorkRAMSize:     0x00001800
+T20A0 001:301.147       FlashBankInfo:
+T20A0 001:301.175         Name:            Code Flash
+T20A0 001:301.204         BaseAddr:        0x11000000
+T20A0 001:301.468         AlwaysPresent:   1
+T20A0 001:301.500       FlashBankInfo:
+T20A0 001:301.530         Name:            Data Flash
+T20A0 001:301.560         BaseAddr:        0x1101F000
+T20A0 001:301.699         AlwaysPresent:   1
+T20A0 001:301.772     Device entry modified: TLE9869
+T20A0 001:301.794       FlashBankInfo:
+T20A0 001:301.822         Name:            Code Flash
+T20A0 001:301.851         BaseAddr:        0x11000000
+T20A0 001:301.966         AlwaysPresent:   1
+T20A0 001:301.995       FlashBankInfo:
+T20A0 001:302.023         Name:            Data Flash
+T20A0 001:302.052         BaseAddr:        0x1101F000
+T20A0 001:302.166         AlwaysPresent:   1
+T20A0 001:302.197     Device entry modified: TLE9871
+T20A0 001:302.217       ChipInfo:
+T20A0 001:302.245         WorkRAMAddr:     0x18000000
+T20A0 001:302.274         WorkRAMSize:     0x00000C00
+T20A0 001:302.302         Core:            JLINK_CORE_CORTEX_M3_R2P0
+T20A0 001:302.334       FlashBankInfo:
+T20A0 001:302.361         Name:            Code Flash
+T20A0 001:302.389         BaseAddr:        0x11000000
+T20A0 001:302.501         AlwaysPresent:   1
+T20A0 001:302.532       FlashBankInfo:
+T20A0 001:302.560         Name:            Data Flash
+T20A0 001:302.588         BaseAddr:        0x11008000
+T20A0 001:302.696         AlwaysPresent:   1
+T20A0 001:302.728     Device entry modified: TLE9873
+T20A0 001:302.748       ChipInfo:
+T20A0 001:302.776         WorkRAMAddr:     0x18000000
+T20A0 001:302.804         WorkRAMSize:     0x00000C00
+T20A0 001:302.832       FlashBankInfo:
+T20A0 001:302.860         Name:            Code Flash
+T20A0 001:302.888         BaseAddr:        0x11000000
+T20A0 001:303.002         AlwaysPresent:   1
+T20A0 001:303.031       FlashBankInfo:
+T20A0 001:303.059         Name:            Data Flash
+T20A0 001:303.087         BaseAddr:        0x1100B000
+T20A0 001:303.198         AlwaysPresent:   1
+T20A0 001:303.228     Device entry modified: TLE9873
+T20A0 001:303.249       FlashBankInfo:
+T20A0 001:303.282         Name:            Code Flash
+T20A0 001:303.313         BaseAddr:        0x11000000
+T20A0 001:303.427         AlwaysPresent:   1
+T20A0 001:303.460       FlashBankInfo:
+T20A0 001:303.488         Name:            Data Flash
+T20A0 001:303.518         BaseAddr:        0x1100B000
+T20A0 001:303.641         AlwaysPresent:   1
+T20A0 001:303.673     Device entry modified: TLE9877
+T20A0 001:303.692       ChipInfo:
+T20A0 001:303.720         WorkRAMAddr:     0x18000000
+T20A0 001:303.748         WorkRAMSize:     0x00001800
+T20A0 001:303.776       FlashBankInfo:
+T20A0 001:303.805         Name:            Code Flash
+T20A0 001:303.833         BaseAddr:        0x11000000
+T20A0 001:304.011         AlwaysPresent:   1
+T20A0 001:304.042       FlashBankInfo:
+T20A0 001:304.070         Name:            Data Flash
+T20A0 001:304.099         BaseAddr:        0x1100F000
+T20A0 001:304.219         AlwaysPresent:   1
+T20A0 001:304.249     Device entry modified: TLE9877
+T20A0 001:304.269       FlashBankInfo:
+T20A0 001:304.298         Name:            Code Flash
+T20A0 001:304.334         BaseAddr:        0x11000000
+T20A0 001:304.456         AlwaysPresent:   1
+T20A0 001:304.484       FlashBankInfo:
+T20A0 001:304.511         Name:            Data Flash
+T20A0 001:304.539         BaseAddr:        0x1100F000
+T20A0 001:304.652         AlwaysPresent:   1
+T20A0 001:304.682     Device entry modified: TLE9877
+T20A0 001:304.701       FlashBankInfo:
+T20A0 001:304.730         Name:            Code Flash
+T20A0 001:304.760         BaseAddr:        0x11000000
+T20A0 001:304.876         AlwaysPresent:   1
+T20A0 001:304.904       FlashBankInfo:
+T20A0 001:304.932         Name:            Data Flash
+T20A0 001:304.959         BaseAddr:        0x1100F000
+T20A0 001:305.055         AlwaysPresent:   1
+T20A0 001:305.082     Device entry modified: TLE9877
+T20A0 001:305.100       FlashBankInfo:
+T20A0 001:305.125         Name:            Code Flash
+T20A0 001:305.153         BaseAddr:        0x11000000
+T20A0 001:305.257         AlwaysPresent:   1
+T20A0 001:305.282       FlashBankInfo:
+T20A0 001:305.306         Name:            Data Flash
+T20A0 001:305.332         BaseAddr:        0x1100F000
+T20A0 001:305.426         AlwaysPresent:   1
+T20A0 001:305.455     Device entry modified: TLE9879
+T20A0 001:305.472       ChipInfo:
+T20A0 001:305.498         WorkRAMAddr:     0x18000000
+T20A0 001:305.523         WorkRAMSize:     0x00001800
+T20A0 001:305.548       FlashBankInfo:
+T20A0 001:305.572         Name:            Code Flash
+T20A0 001:305.595         BaseAddr:        0x11000000
+T20A0 001:305.705         AlwaysPresent:   1
+T20A0 001:305.731       FlashBankInfo:
+T20A0 001:305.755         Name:            Data Flash
+T20A0 001:305.783         BaseAddr:        0x1101F000
+T20A0 001:306.029         AlwaysPresent:   1
+T20A0 001:306.077     Device entry modified: TLE9879
+T20A0 001:306.124       FlashBankInfo:
+T20A0 001:306.147         Name:            Code Flash
+T20A0 001:306.169         BaseAddr:        0x11000000
+T20A0 001:306.276         AlwaysPresent:   1
+T20A0 001:306.299       FlashBankInfo:
+T20A0 001:306.320         Name:            Data Flash
+T20A0 001:306.342         BaseAddr:        0x1101F000
+T20A0 001:306.431         AlwaysPresent:   1
+T20A0 001:306.456     Device entry modified: TLE9879
+T20A0 001:306.472       FlashBankInfo:
+T20A0 001:306.493         Name:            Code Flash
+T20A0 001:306.514         BaseAddr:        0x11000000
+T20A0 001:306.597         AlwaysPresent:   1
+T20A0 001:306.618       FlashBankInfo:
+T20A0 001:306.667         Name:            Data Flash
+T20A0 001:306.692         BaseAddr:        0x1101F000
+T20A0 001:306.841         AlwaysPresent:   1
+T20A0 001:306.868     Device entry modified: TLE9879
+T20A0 001:306.885       FlashBankInfo:
+T20A0 001:306.906         Name:            Code Flash
+T20A0 001:306.928         BaseAddr:        0x11000000
+T20A0 001:307.022         AlwaysPresent:   1
+T20A0 001:307.043       FlashBankInfo:
+T20A0 001:307.064         Name:            Data Flash
+T20A0 001:307.086         BaseAddr:        0x1101F000
+T20A0 001:307.171         AlwaysPresent:   1
+T20A0 001:307.195     Device entry modified: TLE9879
+T20A0 001:307.210       FlashBankInfo:
+T20A0 001:307.231         Name:            Code Flash
+T20A0 001:307.253         BaseAddr:        0x11000000
+T20A0 001:307.339         AlwaysPresent:   1
+T20A0 001:307.362       FlashBankInfo:
+T20A0 001:307.387         Name:            Data Flash
+T20A0 001:307.415         BaseAddr:        0x1101F000
+T20A0 001:307.523         AlwaysPresent:   1
+T20A0 001:307.553     Device entry modified: TLE9851QXW
+T20A0 001:307.624       ChipInfo:
+T20A0 001:307.653         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Infineon\TLE985x\Infineon_TLExxx.pex
+T20A0 001:307.682       FlashBankInfo:
+T20A0 001:307.710         Name:            NACNAD
+T20A0 001:307.738         BaseAddr:        0x10FFFFFC
+T20A0 001:307.848         AlwaysPresent:   1
+T20A0 001:307.877       FlashBankInfo:
+T20A0 001:307.905         Name:            Code Flash
+T20A0 001:307.934         BaseAddr:        0x11000000
+T20A0 001:308.043         AlwaysPresent:   1
+T20A0 001:308.071       FlashBankInfo:
+T20A0 001:308.103         Name:            Data Flash
+T20A0 001:308.132         BaseAddr:        0x1100F000
+T20A0 001:308.301         AlwaysPresent:   1
+T20A0 001:308.353     Device entry modified: TLE9853QX
+T20A0 001:308.445       ChipInfo:
+T20A0 001:308.471         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Infineon\TLE985x\Infineon_TLExxx.pex
+T20A0 001:308.492       FlashBankInfo:
+T20A0 001:308.509         Name:            NACNAD
+T20A0 001:308.526         BaseAddr:        0x10FFFFFC
+T20A0 001:308.594         AlwaysPresent:   1
+T20A0 001:308.611       FlashBankInfo:
+T20A0 001:308.628         Name:            Code Flash
+T20A0 001:308.646         BaseAddr:        0x11000000
+T20A0 001:308.712         AlwaysPresent:   1
+T20A0 001:308.729       FlashBankInfo:
+T20A0 001:308.746         Name:            Data Flash
+T20A0 001:308.763         BaseAddr:        0x1100B000
+T20A0 001:308.841         AlwaysPresent:   1
+T20A0 001:308.861     Device entry modified: TLE9854QX
+T20A0 001:308.904       ChipInfo:
+T20A0 001:308.921         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Infineon\TLE985x\Infineon_TLExxx.pex
+T20A0 001:308.938       FlashBankInfo:
+T20A0 001:308.955         Name:            NACNAD
+T20A0 001:308.972         BaseAddr:        0x10FFFFFC
+T20A0 001:309.072         AlwaysPresent:   1
+T20A0 001:309.100       FlashBankInfo:
+T20A0 001:309.128         Name:            Code Flash
+T20A0 001:309.156         BaseAddr:        0x11000000
+T20A0 001:309.270         AlwaysPresent:   1
+T20A0 001:309.307       FlashBankInfo:
+T20A0 001:309.335         Name:            Data Flash
+T20A0 001:309.365         BaseAddr:        0x1100F000
+T20A0 001:309.475         AlwaysPresent:   1
+T20A0 001:309.505     Device entry modified: TLE9855QX
+T20A0 001:309.576       ChipInfo:
+T20A0 001:309.606         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Infineon\TLE985x\Infineon_TLExxx.pex
+T20A0 001:309.635       FlashBankInfo:
+T20A0 001:309.663         Name:            NACNAD
+T20A0 001:309.686         BaseAddr:        0x10FFFFFC
+T20A0 001:309.750         AlwaysPresent:   1
+T20A0 001:309.767       FlashBankInfo:
+T20A0 001:309.784         Name:            Code Flash
+T20A0 001:309.800         BaseAddr:        0x11000000
+T20A0 001:309.863         AlwaysPresent:   1
+T20A0 001:309.879       FlashBankInfo:
+T20A0 001:309.896         Name:            Data Flash
+T20A0 001:309.912         BaseAddr:        0x11017000
+T20A0 001:309.975         AlwaysPresent:   1
+T20A0 001:309.994     Device entry modified: GP570NKDx
+T20A0 001:310.041       ChipInfo:
+T20A0 001:310.057         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Qorvo\GPxxx\GPxxx.pex
+T20A0 001:310.076     Device entry modified: GP570NMDx
+T20A0 001:310.120       ChipInfo:
+T20A0 001:310.137         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Qorvo\GPxxx\GPxxx.pex
+T20A0 001:310.156     Device entry modified: GP570NMEx
+T20A0 001:310.201       ChipInfo:
+T20A0 001:310.218         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Qorvo\GPxxx\GPxxx.pex
+T20A0 001:310.237     Device entry modified: GP870NKCG
+T20A0 001:310.289       ChipInfo:
+T20A0 001:310.305         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Qorvo\GPxxx\GPxxx.pex
+T20A0 001:310.325     Device entry modified: GP870NMDG
+T20A0 001:310.378       ChipInfo:
+T20A0 001:310.395         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Qorvo\GPxxx\GPxxx.pex
+T20A0 001:310.414     Device entry modified: GP870NMEG
+T20A0 001:310.463       ChipInfo:
+T20A0 001:310.480         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Qorvo\GPxxx\GPxxx.pex
+T20A0 001:310.498     Device entry modified: UE878NHCG
+T20A0 001:310.540       ChipInfo:
+T20A0 001:310.557         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Qorvo\GPxxx\GPxxx.pex
+T20A0 001:310.576     Device entry modified: UE878NKDx
+T20A0 001:310.617       ChipInfo:
+T20A0 001:310.634         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Qorvo\GPxxx\GPxxx.pex
+T20A0 001:310.652     Device entry modified: UE878NKEx
+T20A0 001:310.693       ChipInfo:
+T20A0 001:310.710         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Qorvo\GPxxx\GPxxx.pex
+T20A0 001:310.730     Device entry modified: UE878NMDx
+T20A0 001:310.770       ChipInfo:
+T20A0 001:310.787         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Qorvo\GPxxx\GPxxx.pex
+T20A0 001:310.805     Device entry modified: UE878NMEx
+T20A0 001:310.845       ChipInfo:
+T20A0 001:310.861         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Qorvo\GPxxx\GPxxx.pex
+T20A0 001:310.880     Device entry modified: QPG6095x
+T20A0 001:310.921       ChipInfo:
+T20A0 001:310.937         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Qorvo\GPxxx\GPxxx.pex
+T20A0 001:310.956     Device entry modified: CY8C6xx6_CM0p
+T20A0 001:310.998       ChipInfo:
+T20A0 001:311.014         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Cypress\PSoC6\CY8C6xxx_CM0p.JLinkScript
+T20A0 001:311.031         WorkRAMSize:     0x00040000
+T20A0 001:311.048       FlashBankInfo:
+T20A0 001:311.064         Name:            FLASH  (Main)
+T20A0 001:311.081         BaseAddr:        0x10000000
+T20A0 001:311.148         AlwaysPresent:   1
+T20A0 001:311.168       FlashBankInfo:
+T20A0 001:311.185         Name:            WFLASH (Work)
+T20A0 001:311.201         BaseAddr:        0x14000000
+T20A0 001:311.265         AlwaysPresent:   1
+T20A0 001:311.282       FlashBankInfo:
+T20A0 001:311.300         Name:            SFLASH: User Data
+T20A0 001:311.317         BaseAddr:        0x16000800
+T20A0 001:311.381         AlwaysPresent:   1
+T20A0 001:311.398       FlashBankInfo:
+T20A0 001:311.414         Name:            SFLASH: NAR
+T20A0 001:311.430         BaseAddr:        0x16001A00
+T20A0 001:311.493         AlwaysPresent:   1
+T20A0 001:311.510       FlashBankInfo:
+T20A0 001:311.526         Name:            SFLASH: Public Key
+T20A0 001:311.543         BaseAddr:        0x16005A00
+T20A0 001:311.605         AlwaysPresent:   1
+T20A0 001:311.622       FlashBankInfo:
+T20A0 001:311.638         Name:            SFLASH: TOC2
+T20A0 001:311.655         BaseAddr:        0x16007C00
+T20A0 001:311.718         AlwaysPresent:   1
+T20A0 001:311.735       FlashBankInfo:
+T20A0 001:311.750         Name:            SMIF
+T20A0 001:311.766         BaseAddr:        0x18000000
+T20A0 001:311.832     Device entry modified: CY8C6xx6_CM0p_sect256KB
+T20A0 001:311.880       ChipInfo:
+T20A0 001:311.897         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Cypress\PSoC6\CY8C6xxx_CM0p.JLinkScript
+T20A0 001:311.915         WorkRAMSize:     0x00040000
+T20A0 001:311.932       FlashBankInfo:
+T20A0 001:311.948         Name:            FLASH  (Main)
+T20A0 001:311.965         BaseAddr:        0x10000000
+T20A0 001:312.038         AlwaysPresent:   1
+T20A0 001:312.054       FlashBankInfo:
+T20A0 001:312.071         Name:            WFLASH (Work)
+T20A0 001:312.087         BaseAddr:        0x14000000
+T20A0 001:312.158         AlwaysPresent:   1
+T20A0 001:312.175       FlashBankInfo:
+T20A0 001:312.192         Name:            SFLASH: User Data
+T20A0 001:312.210         BaseAddr:        0x16000800
+T20A0 001:312.286         AlwaysPresent:   1
+T20A0 001:312.304       FlashBankInfo:
+T20A0 001:312.321         Name:            SFLASH: NAR
+T20A0 001:312.338         BaseAddr:        0x16001A00
+T20A0 001:312.409         AlwaysPresent:   1
+T20A0 001:312.426       FlashBankInfo:
+T20A0 001:312.442         Name:            SFLASH: Public Key
+T20A0 001:312.459         BaseAddr:        0x16005A00
+T20A0 001:312.522         AlwaysPresent:   1
+T20A0 001:312.538       FlashBankInfo:
+T20A0 001:312.554         Name:            SFLASH: TOC2
+T20A0 001:312.571         BaseAddr:        0x16007C00
+T20A0 001:312.632         AlwaysPresent:   1
+T20A0 001:312.648       FlashBankInfo:
+T20A0 001:312.664         Name:            SMIF
+T20A0 001:312.681         BaseAddr:        0x18000000
+T20A0 001:312.744     Device entry modified: CY8C6xx6_CM0p_tm
+T20A0 001:312.786       ChipInfo:
+T20A0 001:312.804         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Cypress\PSoC6\CY8C6xxx_CM0p_tm_xA.JLinkScript
+T20A0 001:312.821         WorkRAMSize:     0x00040000
+T20A0 001:312.838       FlashBankInfo:
+T20A0 001:312.854         Name:            FLASH  (Main)
+T20A0 001:312.870         BaseAddr:        0x10000000
+T20A0 001:312.932         AlwaysPresent:   1
+T20A0 001:312.949       FlashBankInfo:
+T20A0 001:312.965         Name:            WFLASH (Work)
+T20A0 001:312.982         BaseAddr:        0x14000000
+T20A0 001:313.044         AlwaysPresent:   1
+T20A0 001:313.061       FlashBankInfo:
+T20A0 001:313.077         Name:            SFLASH: User Data
+T20A0 001:313.094         BaseAddr:        0x16000800
+T20A0 001:313.156         AlwaysPresent:   1
+T20A0 001:313.173       FlashBankInfo:
+T20A0 001:313.190         Name:            SFLASH: NAR
+T20A0 001:313.206         BaseAddr:        0x16001A00
+T20A0 001:313.270         AlwaysPresent:   1
+T20A0 001:313.286       FlashBankInfo:
+T20A0 001:313.302         Name:            SFLASH: Public Key
+T20A0 001:313.319         BaseAddr:        0x16005A00
+T20A0 001:313.382         AlwaysPresent:   1
+T20A0 001:313.398       FlashBankInfo:
+T20A0 001:313.415         Name:            SFLASH: TOC2
+T20A0 001:313.431         BaseAddr:        0x16007C00
+T20A0 001:313.494         AlwaysPresent:   1
+T20A0 001:313.510       FlashBankInfo:
+T20A0 001:313.527         Name:            SMIF
+T20A0 001:313.543         BaseAddr:        0x18000000
+T20A0 001:313.608     Device entry modified: CY8C6xx6_CM0p_sect256KB_tm
+T20A0 001:313.649       ChipInfo:
+T20A0 001:313.666         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Cypress\PSoC6\CY8C6xxx_CM0p_tm_xA.JLinkScript
+T20A0 001:313.683         WorkRAMSize:     0x00040000
+T20A0 001:313.700       FlashBankInfo:
+T20A0 001:313.716         Name:            FLASH  (Main)
+T20A0 001:313.732         BaseAddr:        0x10000000
+T20A0 001:313.794         AlwaysPresent:   1
+T20A0 001:313.810       FlashBankInfo:
+T20A0 001:313.827         Name:            WFLASH (Work)
+T20A0 001:313.843         BaseAddr:        0x14000000
+T20A0 001:313.906         AlwaysPresent:   1
+T20A0 001:313.923       FlashBankInfo:
+T20A0 001:313.938         Name:            SFLASH: User Data
+T20A0 001:313.955         BaseAddr:        0x16000800
+T20A0 001:314.016         AlwaysPresent:   1
+T20A0 001:314.032       FlashBankInfo:
+T20A0 001:314.048         Name:            SFLASH: NAR
+T20A0 001:314.065         BaseAddr:        0x16001A00
+T20A0 001:314.127         AlwaysPresent:   1
+T20A0 001:314.144       FlashBankInfo:
+T20A0 001:314.160         Name:            SFLASH: Public Key
+T20A0 001:314.177         BaseAddr:        0x16005A00
+T20A0 001:314.240         AlwaysPresent:   1
+T20A0 001:314.257       FlashBankInfo:
+T20A0 001:314.273         Name:            SFLASH: TOC2
+T20A0 001:314.290         BaseAddr:        0x16007C00
+T20A0 001:314.352         AlwaysPresent:   1
+T20A0 001:314.369       FlashBankInfo:
+T20A0 001:314.385         Name:            SMIF
+T20A0 001:314.402         BaseAddr:        0x18000000
+T20A0 001:314.466     Device entry modified: CY8C6xx6_CM4
+T20A0 001:314.506       ChipInfo:
+T20A0 001:314.523         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Cypress\PSoC6\CY8C6xxx_CM4.JLinkScript
+T20A0 001:314.540         WorkRAMSize:     0x00040000
+T20A0 001:314.557       FlashBankInfo:
+T20A0 001:314.573         Name:            FLASH  (Main)
+T20A0 001:314.590         BaseAddr:        0x10000000
+T20A0 001:314.653         AlwaysPresent:   1
+T20A0 001:314.669       FlashBankInfo:
+T20A0 001:314.685         Name:            WFLASH (Work)
+T20A0 001:314.702         BaseAddr:        0x14000000
+T20A0 001:314.764         AlwaysPresent:   1
+T20A0 001:314.781       FlashBankInfo:
+T20A0 001:314.796         Name:            SFLASH: User Data
+T20A0 001:314.813         BaseAddr:        0x16000800
+T20A0 001:314.882         AlwaysPresent:   1
+T20A0 001:314.900       FlashBankInfo:
+T20A0 001:314.917         Name:            SFLASH: NAR
+T20A0 001:314.934         BaseAddr:        0x16001A00
+T20A0 001:315.008         AlwaysPresent:   1
+T20A0 001:315.025       FlashBankInfo:
+T20A0 001:315.041         Name:            SFLASH: Public Key
+T20A0 001:315.059         BaseAddr:        0x16005A00
+T20A0 001:315.133         AlwaysPresent:   1
+T20A0 001:315.150       FlashBankInfo:
+T20A0 001:315.167         Name:            SFLASH: TOC2
+T20A0 001:315.183         BaseAddr:        0x16007C00
+T20A0 001:315.246         AlwaysPresent:   1
+T20A0 001:315.263       FlashBankInfo:
+T20A0 001:315.279         Name:            SMIF
+T20A0 001:315.295         BaseAddr:        0x18000000
+T20A0 001:315.359     Device entry modified: CY8C6xx6_CM4_sect256KB
+T20A0 001:315.399       ChipInfo:
+T20A0 001:315.416         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Cypress\PSoC6\CY8C6xxx_CM4.JLinkScript
+T20A0 001:315.433         WorkRAMSize:     0x00040000
+T20A0 001:315.450       FlashBankInfo:
+T20A0 001:315.466         Name:            FLASH  (Main)
+T20A0 001:315.482         BaseAddr:        0x10000000
+T20A0 001:315.545         AlwaysPresent:   1
+T20A0 001:315.561       FlashBankInfo:
+T20A0 001:315.577         Name:            WFLASH (Work)
+T20A0 001:315.594         BaseAddr:        0x14000000
+T20A0 001:315.655         AlwaysPresent:   1
+T20A0 001:315.672       FlashBankInfo:
+T20A0 001:315.688         Name:            SFLASH: User Data
+T20A0 001:315.705         BaseAddr:        0x16000800
+T20A0 001:315.767         AlwaysPresent:   1
+T20A0 001:315.784       FlashBankInfo:
+T20A0 001:315.800         Name:            SFLASH: NAR
+T20A0 001:315.817         BaseAddr:        0x16001A00
+T20A0 001:315.880         AlwaysPresent:   1
+T20A0 001:315.896       FlashBankInfo:
+T20A0 001:315.912         Name:            SFLASH: Public Key
+T20A0 001:315.929         BaseAddr:        0x16005A00
+T20A0 001:315.991         AlwaysPresent:   1
+T20A0 001:316.007       FlashBankInfo:
+T20A0 001:316.024         Name:            SFLASH: TOC2
+T20A0 001:316.040         BaseAddr:        0x16007C00
+T20A0 001:316.103         AlwaysPresent:   1
+T20A0 001:316.119       FlashBankInfo:
+T20A0 001:316.136         Name:            SMIF
+T20A0 001:316.152         BaseAddr:        0x18000000
+T20A0 001:316.216     Device entry modified: CY8C6xx7_CM0p
+T20A0 001:316.259       ChipInfo:
+T20A0 001:316.276         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Cypress\PSoC6\CY8C6xxx_CM0p.JLinkScript
+T20A0 001:316.293         WorkRAMSize:     0x00040000
+T20A0 001:316.309       FlashBankInfo:
+T20A0 001:316.326         Name:            FLASH  (Main)
+T20A0 001:316.342         BaseAddr:        0x10000000
+T20A0 001:316.404         AlwaysPresent:   1
+T20A0 001:316.420       FlashBankInfo:
+T20A0 001:316.436         Name:            WFLASH (Work)
+T20A0 001:316.453         BaseAddr:        0x14000000
+T20A0 001:316.514         AlwaysPresent:   1
+T20A0 001:316.532       FlashBankInfo:
+T20A0 001:316.548         Name:            SFLASH: User Data
+T20A0 001:316.565         BaseAddr:        0x16000800
+T20A0 001:316.626         AlwaysPresent:   1
+T20A0 001:316.642       FlashBankInfo:
+T20A0 001:316.658         Name:            SFLASH: NAR
+T20A0 001:316.675         BaseAddr:        0x16001A00
+T20A0 001:316.736         AlwaysPresent:   1
+T20A0 001:316.752       FlashBankInfo:
+T20A0 001:316.768         Name:            SFLASH: Public Key
+T20A0 001:316.784         BaseAddr:        0x16005A00
+T20A0 001:316.845         AlwaysPresent:   1
+T20A0 001:316.861       FlashBankInfo:
+T20A0 001:316.877         Name:            SFLASH: TOC2
+T20A0 001:316.893         BaseAddr:        0x16007C00
+T20A0 001:316.954         AlwaysPresent:   1
+T20A0 001:316.970       FlashBankInfo:
+T20A0 001:316.987         Name:            SMIF
+T20A0 001:317.003         BaseAddr:        0x18000000
+T20A0 001:317.066     Device entry modified: CY8C6xx7_CM0p_sect256KB
+T20A0 001:317.109       ChipInfo:
+T20A0 001:317.125         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Cypress\PSoC6\CY8C6xxx_CM0p.JLinkScript
+T20A0 001:317.142         WorkRAMSize:     0x00040000
+T20A0 001:317.159       FlashBankInfo:
+T20A0 001:317.175         Name:            FLASH  (Main)
+T20A0 001:317.191         BaseAddr:        0x10000000
+T20A0 001:317.252         AlwaysPresent:   1
+T20A0 001:317.268       FlashBankInfo:
+T20A0 001:317.285         Name:            WFLASH (Work)
+T20A0 001:317.301         BaseAddr:        0x14000000
+T20A0 001:317.363         AlwaysPresent:   1
+T20A0 001:317.379       FlashBankInfo:
+T20A0 001:317.395         Name:            SFLASH: User Data
+T20A0 001:317.411         BaseAddr:        0x16000800
+T20A0 001:317.472         AlwaysPresent:   1
+T20A0 001:317.488       FlashBankInfo:
+T20A0 001:317.503         Name:            SFLASH: NAR
+T20A0 001:317.520         BaseAddr:        0x16001A00
+T20A0 001:317.581         AlwaysPresent:   1
+T20A0 001:317.597       FlashBankInfo:
+T20A0 001:317.612         Name:            SFLASH: Public Key
+T20A0 001:317.628         BaseAddr:        0x16005A00
+T20A0 001:317.689         AlwaysPresent:   1
+T20A0 001:317.705       FlashBankInfo:
+T20A0 001:317.721         Name:            SFLASH: TOC2
+T20A0 001:317.738         BaseAddr:        0x16007C00
+T20A0 001:317.799         AlwaysPresent:   1
+T20A0 001:317.815       FlashBankInfo:
+T20A0 001:317.831         Name:            SMIF
+T20A0 001:317.848         BaseAddr:        0x18000000
+T20A0 001:317.910     Device entry modified: CY8C6xx7_CM0p_tm
+T20A0 001:317.950       ChipInfo:
+T20A0 001:317.967         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Cypress\PSoC6\CY8C6xxx_CM0p_tm_xA.JLinkScript
+T20A0 001:317.983         WorkRAMSize:     0x00040000
+T20A0 001:318.000       FlashBankInfo:
+T20A0 001:318.016         Name:            FLASH  (Main)
+T20A0 001:318.033         BaseAddr:        0x10000000
+T20A0 001:318.094         AlwaysPresent:   1
+T20A0 001:318.111       FlashBankInfo:
+T20A0 001:318.128         Name:            WFLASH (Work)
+T20A0 001:318.144         BaseAddr:        0x14000000
+T20A0 001:318.206         AlwaysPresent:   1
+T20A0 001:318.223       FlashBankInfo:
+T20A0 001:318.239         Name:            SFLASH: User Data
+T20A0 001:318.255         BaseAddr:        0x16000800
+T20A0 001:318.317         AlwaysPresent:   1
+T20A0 001:318.334       FlashBankInfo:
+T20A0 001:318.350         Name:            SFLASH: NAR
+T20A0 001:318.367         BaseAddr:        0x16001A00
+T20A0 001:318.431         AlwaysPresent:   1
+T20A0 001:318.448       FlashBankInfo:
+T20A0 001:318.465         Name:            SFLASH: Public Key
+T20A0 001:318.481         BaseAddr:        0x16005A00
+T20A0 001:318.545         AlwaysPresent:   1
+T20A0 001:318.562       FlashBankInfo:
+T20A0 001:318.578         Name:            SFLASH: TOC2
+T20A0 001:318.594         BaseAddr:        0x16007C00
+T20A0 001:318.656         AlwaysPresent:   1
+T20A0 001:318.672       FlashBankInfo:
+T20A0 001:318.688         Name:            SMIF
+T20A0 001:318.705         BaseAddr:        0x18000000
+T20A0 001:318.770     Device entry modified: CY8C6xx7_CM0p_sect256KB_tm
+T20A0 001:318.811       ChipInfo:
+T20A0 001:318.828         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Cypress\PSoC6\CY8C6xxx_CM0p_tm_xA.JLinkScript
+T20A0 001:318.845         WorkRAMSize:     0x00040000
+T20A0 001:318.862       FlashBankInfo:
+T20A0 001:318.878         Name:            FLASH  (Main)
+T20A0 001:318.894         BaseAddr:        0x10000000
+T20A0 001:318.957         AlwaysPresent:   1
+T20A0 001:318.975       FlashBankInfo:
+T20A0 001:318.991         Name:            WFLASH (Work)
+T20A0 001:319.008         BaseAddr:        0x14000000
+T20A0 001:319.073         AlwaysPresent:   1
+T20A0 001:319.090       FlashBankInfo:
+T20A0 001:319.106         Name:            SFLASH: User Data
+T20A0 001:319.122         BaseAddr:        0x16000800
+T20A0 001:319.189         AlwaysPresent:   1
+T20A0 001:319.205       FlashBankInfo:
+T20A0 001:319.222         Name:            SFLASH: NAR
+T20A0 001:319.238         BaseAddr:        0x16001A00
+T20A0 001:319.301         AlwaysPresent:   1
+T20A0 001:319.317       FlashBankInfo:
+T20A0 001:319.333         Name:            SFLASH: Public Key
+T20A0 001:319.351         BaseAddr:        0x16005A00
+T20A0 001:319.412         AlwaysPresent:   1
+T20A0 001:319.429       FlashBankInfo:
+T20A0 001:319.446         Name:            SFLASH: TOC2
+T20A0 001:319.462         BaseAddr:        0x16007C00
+T20A0 001:319.525         AlwaysPresent:   1
+T20A0 001:319.542       FlashBankInfo:
+T20A0 001:319.558         Name:            SMIF
+T20A0 001:319.574         BaseAddr:        0x18000000
+T20A0 001:319.639     Device entry modified: CY8C6xx7_CM4
+T20A0 001:319.680       ChipInfo:
+T20A0 001:319.698         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Cypress\PSoC6\CY8C6xxx_CM4.JLinkScript
+T20A0 001:319.714         WorkRAMSize:     0x00040000
+T20A0 001:319.731       FlashBankInfo:
+T20A0 001:319.748         Name:            FLASH  (Main)
+T20A0 001:319.764         BaseAddr:        0x10000000
+T20A0 001:319.826         AlwaysPresent:   1
+T20A0 001:319.843       FlashBankInfo:
+T20A0 001:319.858         Name:            WFLASH (Work)
+T20A0 001:319.874         BaseAddr:        0x14000000
+T20A0 001:319.939         AlwaysPresent:   1
+T20A0 001:319.955       FlashBankInfo:
+T20A0 001:319.971         Name:            SFLASH: User Data
+T20A0 001:319.987         BaseAddr:        0x16000800
+T20A0 001:320.052         AlwaysPresent:   1
+T20A0 001:320.069       FlashBankInfo:
+T20A0 001:320.085         Name:            SFLASH: NAR
+T20A0 001:320.102         BaseAddr:        0x16001A00
+T20A0 001:320.172         AlwaysPresent:   1
+T20A0 001:320.189       FlashBankInfo:
+T20A0 001:320.206         Name:            SFLASH: Public Key
+T20A0 001:320.223         BaseAddr:        0x16005A00
+T20A0 001:320.290         AlwaysPresent:   1
+T20A0 001:320.308       FlashBankInfo:
+T20A0 001:320.324         Name:            SFLASH: TOC2
+T20A0 001:320.340         BaseAddr:        0x16007C00
+T20A0 001:320.404         AlwaysPresent:   1
+T20A0 001:320.420       FlashBankInfo:
+T20A0 001:320.436         Name:            SMIF
+T20A0 001:320.452         BaseAddr:        0x18000000
+T20A0 001:320.526     Device entry modified: CY8C6xx7_CM4_sect256KB
+T20A0 001:320.569       ChipInfo:
+T20A0 001:320.587         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Cypress\PSoC6\CY8C6xxx_CM4.JLinkScript
+T20A0 001:320.603         WorkRAMSize:     0x00040000
+T20A0 001:320.621       FlashBankInfo:
+T20A0 001:320.637         Name:            FLASH  (Main)
+T20A0 001:320.653         BaseAddr:        0x10000000
+T20A0 001:320.717         AlwaysPresent:   1
+T20A0 001:320.734       FlashBankInfo:
+T20A0 001:320.750         Name:            WFLASH (Work)
+T20A0 001:320.767         BaseAddr:        0x14000000
+T20A0 001:320.846         AlwaysPresent:   1
+T20A0 001:320.868       FlashBankInfo:
+T20A0 001:320.886         Name:            SFLASH: User Data
+T20A0 001:320.904         BaseAddr:        0x16000800
+T20A0 001:321.021         AlwaysPresent:   1
+T20A0 001:321.045       FlashBankInfo:
+T20A0 001:321.064         Name:            SFLASH: NAR
+T20A0 001:321.084         BaseAddr:        0x16001A00
+T20A0 001:321.174         AlwaysPresent:   1
+T20A0 001:321.193       FlashBankInfo:
+T20A0 001:321.210         Name:            SFLASH: Public Key
+T20A0 001:321.232         BaseAddr:        0x16005A00
+T20A0 001:321.329         AlwaysPresent:   1
+T20A0 001:321.349       FlashBankInfo:
+T20A0 001:321.366         Name:            SFLASH: TOC2
+T20A0 001:321.383         BaseAddr:        0x16007C00
+T20A0 001:321.481         AlwaysPresent:   1
+T20A0 001:321.503       FlashBankInfo:
+T20A0 001:321.520         Name:            SMIF
+T20A0 001:321.537         BaseAddr:        0x18000000
+T20A0 001:321.642     Device entry modified: RSL10
+T20A0 001:321.663       ChipInfo:
+T20A0 001:321.682         Core:            JLINK_CORE_CORTEX_M3_R2P1
+T20A0 001:321.759         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ONSemiconductor\RSL10\ONSemiconductor_RSL10.JLinkScript
+T20A0 001:321.779       FlashBankInfo:
+T20A0 001:321.796         Name:            Main Flash
+T20A0 001:321.813         BaseAddr:        0x00100000
+T20A0 001:321.905         AlwaysPresent:   1
+T20A0 001:321.927       FlashBankInfo:
+T20A0 001:321.944         Name:            NVR Flash
+T20A0 001:321.961         BaseAddr:        0x00080000
+T20A0 001:322.044     Device entry modified: E31ARTY
+T20A0 001:322.066       ChipInfo:
+T20A0 001:322.083         Core:            JLINK_CORE_RISC_V
+T20A0 001:322.101       FlashBankInfo:
+T20A0 001:322.120         Name:            QSPI Flash
+T20A0 001:322.138         BaseAddr:        0x40000000
+T20A0 001:322.257     Device entry modified: STM32F412CE
+T20A0 001:322.281       FlashBankInfo:
+T20A0 001:322.300         Name:            QSPI Flash
+T20A0 001:322.316         BaseAddr:        0x90000000
+T20A0 001:322.408     Device entry modified: STM32F412RE
+T20A0 001:322.421       FlashBankInfo:
+T20A0 001:322.440         Name:            QSPI Flash
+T20A0 001:322.458         BaseAddr:        0x90000000
+T20A0 001:322.524     Device entry modified: STM32F412ZG
+T20A0 001:322.537       FlashBankInfo:
+T20A0 001:322.553         Name:            QSPI Flash
+T20A0 001:322.569         BaseAddr:        0x90000000
+T20A0 001:322.636     Device entry modified: STM32F412RG
+T20A0 001:322.651       FlashBankInfo:
+T20A0 001:322.667         Name:            QSPI Flash
+T20A0 001:322.684         BaseAddr:        0x90000000
+T20A0 001:322.749     Device entry modified: STM32F412VE
+T20A0 001:322.762       FlashBankInfo:
+T20A0 001:322.778         Name:            QSPI Flash
+T20A0 001:322.794         BaseAddr:        0x90000000
+T20A0 001:322.858     Device entry modified: STM32F412VG
+T20A0 001:322.870       FlashBankInfo:
+T20A0 001:322.888         Name:            QSPI Flash
+T20A0 001:322.904         BaseAddr:        0x90000000
+T20A0 001:322.970     Device entry modified: STM32F412CG
+T20A0 001:322.983       FlashBankInfo:
+T20A0 001:323.001         Name:            QSPI Flash
+T20A0 001:323.019         BaseAddr:        0x90000000
+T20A0 001:323.096     Device entry modified: STM32F412ZE
+T20A0 001:323.109       FlashBankInfo:
+T20A0 001:323.127         Name:            QSPI Flash
+T20A0 001:323.145         BaseAddr:        0x90000000
+T20A0 001:323.221     Device entry modified: STM32F469AE
+T20A0 001:323.238       FlashBankInfo:
+T20A0 001:323.254         Name:            QSPI Flash
+T20A0 001:323.271         BaseAddr:        0x90000000
+T20A0 001:323.334     Device entry modified: STM32F469AG
+T20A0 001:323.347       FlashBankInfo:
+T20A0 001:323.363         Name:            QSPI Flash
+T20A0 001:323.379         BaseAddr:        0x90000000
+T20A0 001:323.442     Device entry modified: STM32F469AI
+T20A0 001:323.454       FlashBankInfo:
+T20A0 001:323.471         Name:            QSPI Flash
+T20A0 001:323.487         BaseAddr:        0x90000000
+T20A0 001:323.550     Device entry modified: STM32F469BE
+T20A0 001:323.562       FlashBankInfo:
+T20A0 001:323.579         Name:            QSPI Flash
+T20A0 001:323.595         BaseAddr:        0x90000000
+T20A0 001:323.657     Device entry modified: STM32F469BG
+T20A0 001:323.669       FlashBankInfo:
+T20A0 001:323.686         Name:            QSPI Flash
+T20A0 001:323.702         BaseAddr:        0x90000000
+T20A0 001:323.764     Device entry modified: STM32F469BI
+T20A0 001:323.776       FlashBankInfo:
+T20A0 001:323.792         Name:            QSPI Flash
+T20A0 001:323.809         BaseAddr:        0x90000000
+T20A0 001:323.872     Device entry modified: STM32F469IE
+T20A0 001:323.885       FlashBankInfo:
+T20A0 001:323.901         Name:            QSPI Flash
+T20A0 001:323.917         BaseAddr:        0x90000000
+T20A0 001:323.979     Device entry modified: STM32F469IG
+T20A0 001:323.993       FlashBankInfo:
+T20A0 001:324.010         Name:            QSPI Flash
+T20A0 001:324.026         BaseAddr:        0x90000000
+T20A0 001:324.095     Device entry modified: STM32F469II
+T20A0 001:324.108       FlashBankInfo:
+T20A0 001:324.124         Name:            QSPI Flash
+T20A0 001:324.141         BaseAddr:        0x90000000
+T20A0 001:324.217     Device entry modified: STM32F469NE
+T20A0 001:324.230       FlashBankInfo:
+T20A0 001:324.247         Name:            QSPI Flash
+T20A0 001:324.263         BaseAddr:        0x90000000
+T20A0 001:324.346     Device entry modified: STM32F469NG
+T20A0 001:324.359       FlashBankInfo:
+T20A0 001:324.376         Name:            QSPI Flash
+T20A0 001:324.392         BaseAddr:        0x90000000
+T20A0 001:324.464     Device entry modified: STM32F469NI
+T20A0 001:324.478       FlashBankInfo:
+T20A0 001:324.495         Name:            QSPI Flash
+T20A0 001:324.513         BaseAddr:        0x90000000
+T20A0 001:324.580     Device entry modified: STM32F469VE
+T20A0 001:324.592       FlashBankInfo:
+T20A0 001:324.609         Name:            QSPI Flash
+T20A0 001:324.626         BaseAddr:        0x90000000
+T20A0 001:324.691     Device entry modified: STM32F469VG
+T20A0 001:324.704       FlashBankInfo:
+T20A0 001:324.720         Name:            QSPI Flash
+T20A0 001:324.736         BaseAddr:        0x90000000
+T20A0 001:324.800     Device entry modified: STM32F469VI
+T20A0 001:324.812       FlashBankInfo:
+T20A0 001:324.828         Name:            QSPI Flash
+T20A0 001:324.844         BaseAddr:        0x90000000
+T20A0 001:324.907     Device entry modified: STM32F469ZE
+T20A0 001:324.920       FlashBankInfo:
+T20A0 001:324.936         Name:            QSPI Flash
+T20A0 001:324.953         BaseAddr:        0x90000000
+T20A0 001:325.016     Device entry modified: STM32F469ZG
+T20A0 001:325.028       FlashBankInfo:
+T20A0 001:325.044         Name:            QSPI Flash
+T20A0 001:325.061         BaseAddr:        0x90000000
+T20A0 001:325.123     Device entry modified: STM32F469ZI
+T20A0 001:325.135       FlashBankInfo:
+T20A0 001:325.152         Name:            QSPI Flash
+T20A0 001:325.168         BaseAddr:        0x90000000
+T20A0 001:325.234     Device entry modified: STM32F723IC
+T20A0 001:325.251       FlashBankInfo:
+T20A0 001:325.268         Name:            QSPI Flash
+T20A0 001:325.284         BaseAddr:        0x90000000
+T20A0 001:325.350     Device entry modified: STM32F723IE
+T20A0 001:325.364       FlashBankInfo:
+T20A0 001:325.380         Name:            QSPI Flash
+T20A0 001:325.396         BaseAddr:        0x90000000
+T20A0 001:325.462     Device entry modified: STM32F723VE
+T20A0 001:325.474       FlashBankInfo:
+T20A0 001:325.490         Name:            QSPI Flash
+T20A0 001:325.509         BaseAddr:        0x90000000
+T20A0 001:325.578     Device entry modified: STM32F723ZC
+T20A0 001:325.590       FlashBankInfo:
+T20A0 001:325.608         Name:            QSPI Flash
+T20A0 001:325.624         BaseAddr:        0x90000000
+T20A0 001:325.690     Device entry modified: STM32F723ZE
+T20A0 001:325.702       FlashBankInfo:
+T20A0 001:325.719         Name:            QSPI Flash
+T20A0 001:325.735         BaseAddr:        0x90000000
+T20A0 001:325.802     Device entry modified: STM32F745IE
+T20A0 001:325.814       FlashBankInfo:
+T20A0 001:325.831         Name:            QSPI Flash
+T20A0 001:325.847         BaseAddr:        0x90000000
+T20A0 001:325.913     Device entry modified: STM32F745IG
+T20A0 001:325.925       FlashBankInfo:
+T20A0 001:325.941         Name:            QSPI Flash
+T20A0 001:325.957         BaseAddr:        0x90000000
+T20A0 001:326.023     Device entry modified: STM32F745VE
+T20A0 001:326.035       FlashBankInfo:
+T20A0 001:326.051         Name:            QSPI Flash
+T20A0 001:326.068         BaseAddr:        0x90000000
+T20A0 001:326.130     Device entry modified: STM32F745VG
+T20A0 001:326.141       FlashBankInfo:
+T20A0 001:326.157         Name:            QSPI Flash
+T20A0 001:326.173         BaseAddr:        0x90000000
+T20A0 001:326.236     Device entry modified: STM32F745ZE
+T20A0 001:326.248       FlashBankInfo:
+T20A0 001:326.265         Name:            QSPI Flash
+T20A0 001:326.281         BaseAddr:        0x90000000
+T20A0 001:326.345     Device entry modified: STM32F745ZG
+T20A0 001:326.357       FlashBankInfo:
+T20A0 001:326.373         Name:            QSPI Flash
+T20A0 001:326.390         BaseAddr:        0x90000000
+T20A0 001:326.452     Device entry modified: STM32F746BE
+T20A0 001:326.464       FlashBankInfo:
+T20A0 001:326.480         Name:            QSPI Flash
+T20A0 001:326.497         BaseAddr:        0x90000000
+T20A0 001:326.559     Device entry modified: STM32F746BG
+T20A0 001:326.572       FlashBankInfo:
+T20A0 001:326.588         Name:            QSPI Flash
+T20A0 001:326.604         BaseAddr:        0x90000000
+T20A0 001:326.666     Device entry modified: STM32F746IE
+T20A0 001:326.678       FlashBankInfo:
+T20A0 001:326.695         Name:            QSPI Flash
+T20A0 001:326.711         BaseAddr:        0x90000000
+T20A0 001:326.775     Device entry modified: STM32F746IG
+T20A0 001:326.790       FlashBankInfo:
+T20A0 001:326.806         Name:            QSPI Flash
+T20A0 001:326.822         BaseAddr:        0x90000000
+T20A0 001:326.888     Device entry modified: STM32F746NE
+T20A0 001:326.901       FlashBankInfo:
+T20A0 001:326.917         Name:            QSPI Flash
+T20A0 001:326.934         BaseAddr:        0x90000000
+T20A0 001:326.997     Device entry modified: STM32F746NG
+T20A0 001:327.009       FlashBankInfo:
+T20A0 001:327.025         Name:            QSPI Flash
+T20A0 001:327.042         BaseAddr:        0x90000000
+T20A0 001:327.104     Device entry modified: STM32F746VE
+T20A0 001:327.117       FlashBankInfo:
+T20A0 001:327.133         Name:            QSPI Flash
+T20A0 001:327.150         BaseAddr:        0x90000000
+T20A0 001:327.214     Device entry modified: STM32F746VG
+T20A0 001:327.226       FlashBankInfo:
+T20A0 001:327.242         Name:            QSPI Flash
+T20A0 001:327.258         BaseAddr:        0x90000000
+T20A0 001:327.320     Device entry modified: STM32F746ZE
+T20A0 001:327.333       FlashBankInfo:
+T20A0 001:327.349         Name:            QSPI Flash
+T20A0 001:327.365         BaseAddr:        0x90000000
+T20A0 001:327.427     Device entry modified: STM32F746ZG
+T20A0 001:327.440       FlashBankInfo:
+T20A0 001:327.456         Name:            QSPI Flash
+T20A0 001:327.472         BaseAddr:        0x90000000
+T20A0 001:327.536     Device entry modified: STM32F756BE
+T20A0 001:327.548       FlashBankInfo:
+T20A0 001:327.564         Name:            QSPI Flash
+T20A0 001:327.581         BaseAddr:        0x90000000
+T20A0 001:327.643     Device entry modified: STM32F756BG
+T20A0 001:327.655       FlashBankInfo:
+T20A0 001:327.672         Name:            QSPI Flash
+T20A0 001:327.688         BaseAddr:        0x90000000
+T20A0 001:327.750     Device entry modified: STM32F756IE
+T20A0 001:327.762       FlashBankInfo:
+T20A0 001:327.779         Name:            QSPI Flash
+T20A0 001:327.795         BaseAddr:        0x90000000
+T20A0 001:327.857     Device entry modified: STM32F756IG
+T20A0 001:327.869       FlashBankInfo:
+T20A0 001:327.885         Name:            QSPI Flash
+T20A0 001:327.902         BaseAddr:        0x90000000
+T20A0 001:327.966     Device entry modified: STM32F756NE
+T20A0 001:327.979       FlashBankInfo:
+T20A0 001:327.995         Name:            QSPI Flash
+T20A0 001:328.011         BaseAddr:        0x90000000
+T20A0 001:328.074     Device entry modified: STM32F756NG
+T20A0 001:328.087       FlashBankInfo:
+T20A0 001:328.103         Name:            QSPI Flash
+T20A0 001:328.120         BaseAddr:        0x90000000
+T20A0 001:328.182     Device entry modified: STM32F756VE
+T20A0 001:328.194       FlashBankInfo:
+T20A0 001:328.211         Name:            QSPI Flash
+T20A0 001:328.227         BaseAddr:        0x90000000
+T20A0 001:328.289     Device entry modified: STM32F756VG
+T20A0 001:328.301       FlashBankInfo:
+T20A0 001:328.317         Name:            QSPI Flash
+T20A0 001:328.335         BaseAddr:        0x90000000
+T20A0 001:328.399     Device entry modified: STM32F756ZE
+T20A0 001:328.411       FlashBankInfo:
+T20A0 001:328.428         Name:            QSPI Flash
+T20A0 001:328.444         BaseAddr:        0x90000000
+T20A0 001:328.507     Device entry modified: STM32F756ZG
+T20A0 001:328.519       FlashBankInfo:
+T20A0 001:328.536         Name:            QSPI Flash
+T20A0 001:328.552         BaseAddr:        0x90000000
+T20A0 001:328.615     Device entry modified: STM32F765BG
+T20A0 001:328.627       FlashBankInfo:
+T20A0 001:328.644         Name:            QSPI Flash
+T20A0 001:328.660         BaseAddr:        0x90000000
+T20A0 001:328.723     Device entry modified: STM32F765BI
+T20A0 001:328.735       FlashBankInfo:
+T20A0 001:328.751         Name:            QSPI Flash
+T20A0 001:328.767         BaseAddr:        0x90000000
+T20A0 001:328.829     Device entry modified: STM32F765IG
+T20A0 001:328.845       FlashBankInfo:
+T20A0 001:328.861         Name:            QSPI Flash
+T20A0 001:328.878         BaseAddr:        0x90000000
+T20A0 001:328.940     Device entry modified: STM32F765II
+T20A0 001:328.952       FlashBankInfo:
+T20A0 001:328.968         Name:            QSPI Flash
+T20A0 001:328.984         BaseAddr:        0x90000000
+T20A0 001:329.046     Device entry modified: STM32F765NG
+T20A0 001:329.059       FlashBankInfo:
+T20A0 001:329.075         Name:            QSPI Flash
+T20A0 001:329.091         BaseAddr:        0x90000000
+T20A0 001:329.153     Device entry modified: STM32F765NI
+T20A0 001:329.165       FlashBankInfo:
+T20A0 001:329.181         Name:            QSPI Flash
+T20A0 001:329.198         BaseAddr:        0x90000000
+T20A0 001:329.261     Device entry modified: STM32F765VG
+T20A0 001:329.273       FlashBankInfo:
+T20A0 001:329.289         Name:            QSPI Flash
+T20A0 001:329.306         BaseAddr:        0x90000000
+T20A0 001:329.368     Device entry modified: STM32F765VI
+T20A0 001:329.379       FlashBankInfo:
+T20A0 001:329.396         Name:            QSPI Flash
+T20A0 001:329.412         BaseAddr:        0x90000000
+T20A0 001:329.474     Device entry modified: STM32F765ZG
+T20A0 001:329.486       FlashBankInfo:
+T20A0 001:329.502         Name:            QSPI Flash
+T20A0 001:329.519         BaseAddr:        0x90000000
+T20A0 001:329.581     Device entry modified: STM32F765ZI
+T20A0 001:329.593       FlashBankInfo:
+T20A0 001:329.609         Name:            QSPI Flash
+T20A0 001:329.626         BaseAddr:        0x90000000
+T20A0 001:329.688     Device entry modified: STM32F767BG
+T20A0 001:329.701       FlashBankInfo:
+T20A0 001:329.717         Name:            QSPI Flash
+T20A0 001:329.733         BaseAddr:        0x90000000
+T20A0 001:329.795     Device entry modified: STM32F767BI
+T20A0 001:329.807       FlashBankInfo:
+T20A0 001:329.823         Name:            QSPI Flash
+T20A0 001:329.839         BaseAddr:        0x90000000
+T20A0 001:329.901     Device entry modified: STM32F767IG
+T20A0 001:329.913       FlashBankInfo:
+T20A0 001:329.930         Name:            QSPI Flash
+T20A0 001:329.946         BaseAddr:        0x90000000
+T20A0 001:330.007     Device entry modified: STM32F767II
+T20A0 001:330.020       FlashBankInfo:
+T20A0 001:330.036         Name:            QSPI Flash
+T20A0 001:330.052         BaseAddr:        0x90000000
+T20A0 001:330.114     Device entry modified: STM32F767NG
+T20A0 001:330.125       FlashBankInfo:
+T20A0 001:330.142         Name:            QSPI Flash
+T20A0 001:330.158         BaseAddr:        0x90000000
+T20A0 001:330.221     Device entry modified: STM32F767NI
+T20A0 001:330.233       FlashBankInfo:
+T20A0 001:330.249         Name:            QSPI Flash
+T20A0 001:330.266         BaseAddr:        0x90000000
+T20A0 001:330.327     Device entry modified: STM32F767VG
+T20A0 001:330.340       FlashBankInfo:
+T20A0 001:330.356         Name:            QSPI Flash
+T20A0 001:330.372         BaseAddr:        0x90000000
+T20A0 001:330.434     Device entry modified: STM32F767VI
+T20A0 001:330.447       FlashBankInfo:
+T20A0 001:330.464         Name:            QSPI Flash
+T20A0 001:330.481         BaseAddr:        0x90000000
+T20A0 001:330.543     Device entry modified: STM32F767ZG
+T20A0 001:330.556       FlashBankInfo:
+T20A0 001:330.572         Name:            QSPI Flash
+T20A0 001:330.588         BaseAddr:        0x90000000
+T20A0 001:330.650     Device entry modified: STM32F767ZI
+T20A0 001:330.662       FlashBankInfo:
+T20A0 001:330.678         Name:            QSPI Flash
+T20A0 001:330.694         BaseAddr:        0x90000000
+T20A0 001:330.756     Device entry modified: STM32F768AI
+T20A0 001:330.773       FlashBankInfo:
+T20A0 001:330.790         Name:            QSPI Flash
+T20A0 001:330.806         BaseAddr:        0x90000000
+T20A0 001:330.869     Device entry modified: STM32F769AG
+T20A0 001:330.881       FlashBankInfo:
+T20A0 001:330.897         Name:            QSPI Flash
+T20A0 001:330.913         BaseAddr:        0x90000000
+T20A0 001:330.975     Device entry modified: STM32F769AI
+T20A0 001:330.987       FlashBankInfo:
+T20A0 001:331.004         Name:            QSPI Flash
+T20A0 001:331.020         BaseAddr:        0x90000000
+T20A0 001:331.082     Device entry modified: STM32F769BG
+T20A0 001:331.094       FlashBankInfo:
+T20A0 001:331.110         Name:            QSPI Flash
+T20A0 001:331.127         BaseAddr:        0x90000000
+T20A0 001:331.190     Device entry modified: STM32F769BI
+T20A0 001:331.202       FlashBankInfo:
+T20A0 001:331.218         Name:            QSPI Flash
+T20A0 001:331.235         BaseAddr:        0x90000000
+T20A0 001:331.298     Device entry modified: STM32F769IG
+T20A0 001:331.310       FlashBankInfo:
+T20A0 001:331.326         Name:            QSPI Flash
+T20A0 001:331.343         BaseAddr:        0x90000000
+T20A0 001:331.405     Device entry modified: STM32F769II
+T20A0 001:331.417       FlashBankInfo:
+T20A0 001:331.433         Name:            QSPI Flash
+T20A0 001:331.449         BaseAddr:        0x90000000
+T20A0 001:331.511     Device entry modified: STM32F769NG
+T20A0 001:331.524       FlashBankInfo:
+T20A0 001:331.540         Name:            QSPI Flash
+T20A0 001:331.556         BaseAddr:        0x90000000
+T20A0 001:331.618     Device entry modified: STM32F769NI
+T20A0 001:331.630       FlashBankInfo:
+T20A0 001:331.646         Name:            QSPI Flash
+T20A0 001:331.663         BaseAddr:        0x90000000
+T20A0 001:331.725     Device entry modified: STM32F777BI
+T20A0 001:331.737       FlashBankInfo:
+T20A0 001:331.753         Name:            QSPI Flash
+T20A0 001:331.770         BaseAddr:        0x90000000
+T20A0 001:331.832     Device entry modified: STM32F777II
+T20A0 001:331.844       FlashBankInfo:
+T20A0 001:331.861         Name:            QSPI Flash
+T20A0 001:331.877         BaseAddr:        0x90000000
+T20A0 001:331.939     Device entry modified: STM32F777NI
+T20A0 001:331.951       FlashBankInfo:
+T20A0 001:331.968         Name:            QSPI Flash
+T20A0 001:331.984         BaseAddr:        0x90000000
+T20A0 001:332.046     Device entry modified: STM32F777VI
+T20A0 001:332.058       FlashBankInfo:
+T20A0 001:332.074         Name:            QSPI Flash
+T20A0 001:332.091         BaseAddr:        0x90000000
+T20A0 001:332.153     Device entry modified: STM32F777ZI
+T20A0 001:332.165       FlashBankInfo:
+T20A0 001:332.181         Name:            QSPI Flash
+T20A0 001:332.198         BaseAddr:        0x90000000
+T20A0 001:332.260     Device entry modified: STM32F778AI
+T20A0 001:332.272       FlashBankInfo:
+T20A0 001:332.288         Name:            QSPI Flash
+T20A0 001:332.304         BaseAddr:        0x90000000
+T20A0 001:332.366     Device entry modified: STM32F779AI
+T20A0 001:332.378       FlashBankInfo:
+T20A0 001:332.395         Name:            QSPI Flash
+T20A0 001:332.411         BaseAddr:        0x90000000
+T20A0 001:332.473     Device entry modified: STM32F779BI
+T20A0 001:332.485       FlashBankInfo:
+T20A0 001:332.502         Name:            QSPI Flash
+T20A0 001:332.518         BaseAddr:        0x90000000
+T20A0 001:332.580     Device entry modified: STM32F779II
+T20A0 001:332.593       FlashBankInfo:
+T20A0 001:332.609         Name:            QSPI Flash
+T20A0 001:332.626         BaseAddr:        0x90000000
+T20A0 001:332.688     Device entry modified: STM32F779NI
+T20A0 001:332.700       FlashBankInfo:
+T20A0 001:332.716         Name:            QSPI Flash
+T20A0 001:332.733         BaseAddr:        0x90000000
+T20A0 001:332.794     Device entry modified: STM32H743BI
+T20A0 001:332.840       ChipInfo:
+T20A0 001:332.857         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ST\STM32H7\ST_STM32H7xx.pex
+T20A0 001:332.875     Device entry modified: STM32H743II
+T20A0 001:332.915       ChipInfo:
+T20A0 001:332.932         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ST\STM32H7\ST_STM32H7xx.pex
+T20A0 001:332.949     Device entry modified: STM32H743VI
+T20A0 001:332.989       ChipInfo:
+T20A0 001:333.006         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ST\STM32H7\ST_STM32H7xx.pex
+T20A0 001:333.023     Device entry modified: STM32H743XI
+T20A0 001:333.063       ChipInfo:
+T20A0 001:333.080         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ST\STM32H7\ST_STM32H7xx.pex
+T20A0 001:333.097     Device entry modified: STM32H743ZI
+T20A0 001:333.137       ChipInfo:
+T20A0 001:333.154         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ST\STM32H7\ST_STM32H7xx.pex
+T20A0 001:333.172     Device entry modified: STM32H753BI
+T20A0 001:333.212       ChipInfo:
+T20A0 001:333.229         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ST\STM32H7\ST_STM32H7xx.pex
+T20A0 001:333.246     Device entry modified: STM32H753II
+T20A0 001:333.286       ChipInfo:
+T20A0 001:333.303         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ST\STM32H7\ST_STM32H7xx.pex
+T20A0 001:333.320     Device entry modified: STM32H753VI
+T20A0 001:333.360       ChipInfo:
+T20A0 001:333.377         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ST\STM32H7\ST_STM32H7xx.pex
+T20A0 001:333.394     Device entry modified: STM32H753XI
+T20A0 001:333.434       ChipInfo:
+T20A0 001:333.450         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ST\STM32H7\ST_STM32H7xx.pex
+T20A0 001:333.468     Device entry modified: STM32H753ZI
+T20A0 001:333.507       ChipInfo:
+T20A0 001:333.524         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ST\STM32H7\ST_STM32H7xx.pex
+T20A0 001:333.542     Device entry modified: Z32F0642
+T20A0 001:333.555       FlashBankInfo:
+T20A0 001:333.571         Name:            Internal Flash
+T20A0 001:333.635         AlwaysPresent:   1
+T20A0 001:333.654     Device entry modified: CM40z_128_512
+T20A0 001:333.696       ChipInfo:
+T20A0 001:333.713         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\AnalogDevices\ADSP-CM40\Analog_CM40x.pex
+T20A0 001:333.730     Device entry modified: CM40z_128_256
+T20A0 001:333.770       ChipInfo:
+T20A0 001:333.786         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\AnalogDevices\ADSP-CM40\Analog_CM40x.pex
+T20A0 001:333.804     Device entry modified: CM40z_384_2048
+T20A0 001:333.844       ChipInfo:
+T20A0 001:333.861         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\AnalogDevices\ADSP-CM40\Analog_CM40x.pex
+T20A0 001:333.878     Device entry modified: CM40z_128_512
+T20A0 001:333.920     Device entry modified: CM40z_128_256
+T20A0 001:333.961     Device entry modified: CM40z_384_2048
+T20A0 001:334.003     Device entry modified: CM40z_384_2048
+T20A0 001:334.044     Device entry modified: CM40z_128_1024
+T20A0 001:334.090       ChipInfo:
+T20A0 001:334.107         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\AnalogDevices\ADSP-CM40\Analog_CM40x.pex
+T20A0 001:334.125     Device entry modified: CM40z_384_2048
+T20A0 001:334.165     Device entry modified: CM40z_384_2048
+T20A0 001:334.207     Device entry modified: CM40z_384_2048
+T20A0 001:334.248     Device entry modified: CM40z_384_2048
+T20A0 001:334.289     Device entry modified: ADSP-CM416CSWZ-BF_M0
+T20A0 001:334.329       ChipInfo:
+T20A0 001:334.345         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\AnalogDevices\ADSP-CM41\Analog_CM41x_M0.pex
+T20A0 001:334.363     Device entry modified: ADSP-CM416CSWZ-CF_M0
+T20A0 001:334.403       ChipInfo:
+T20A0 001:334.420         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\AnalogDevices\ADSP-CM41\Analog_CM41x_M0.pex
+T20A0 001:334.438     Device entry modified: ADSP-CM417CSWZ-CF_M0
+T20A0 001:334.477       ChipInfo:
+T20A0 001:334.494         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\AnalogDevices\ADSP-CM41\Analog_CM41x_M0.pex
+T20A0 001:334.511     Device entry modified: ADSP-CM417CSWZ-DF_M0
+T20A0 001:334.551       ChipInfo:
+T20A0 001:334.567         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\AnalogDevices\ADSP-CM41\Analog_CM41x_M0.pex
+T20A0 001:334.585     Device entry modified: ADSP-CM418CBCZ-BF_M0
+T20A0 001:334.624       ChipInfo:
+T20A0 001:334.641         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\AnalogDevices\ADSP-CM41\Analog_CM41x_M0.pex
+T20A0 001:334.663     Device entry modified: ADSP-CM418CBCZ-CF_M0
+T20A0 001:334.702       ChipInfo:
+T20A0 001:334.719         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\AnalogDevices\ADSP-CM41\Analog_CM41x_M0.pex
+T20A0 001:334.737     Device entry modified: ADSP-CM419CBCZ-CF_M0
+T20A0 001:334.776       ChipInfo:
+T20A0 001:334.793         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\AnalogDevices\ADSP-CM41\Analog_CM41x_M0.pex
+T20A0 001:334.811     Device entry modified: ADSP-CM419CBCZ-DF_M0
+T20A0 001:334.850       ChipInfo:
+T20A0 001:334.867         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\AnalogDevices\ADSP-CM41\Analog_CM41x_M0.pex
+T20A0 001:334.884     Device entry modified: ADSP-CM411CBCZ-AF_M4
+T20A0 001:334.924       ChipInfo:
+T20A0 001:334.941         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\AnalogDevices\ADSP-CM41\Analog_CM41x_M4.pex
+T20A0 001:334.959       FlashBankInfo:
+T20A0 001:334.975         Name:            Flash Block A
+T20A0 001:334.991         BaseAddr:        0x11000000
+T20A0 001:335.057         AlwaysPresent:   1
+T20A0 001:335.074       FlashBankInfo:
+T20A0 001:335.090         Name:            Flash Block B
+T20A0 001:335.106         BaseAddr:        0x11080000
+T20A0 001:335.168         AlwaysPresent:   1
+T20A0 001:335.187     Device entry modified: ADSP-CM411CBCZ-BF_M4
+T20A0 001:335.226       ChipInfo:
+T20A0 001:335.243         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\AnalogDevices\ADSP-CM41\Analog_CM41x_M4.pex
+T20A0 001:335.260       FlashBankInfo:
+T20A0 001:335.277         Name:            Flash Block A
+T20A0 001:335.293         BaseAddr:        0x11000000
+T20A0 001:335.354         AlwaysPresent:   1
+T20A0 001:335.373       FlashBankInfo:
+T20A0 001:335.389         Name:            Flash Block B
+T20A0 001:335.405         BaseAddr:        0x11080000
+T20A0 001:335.467         AlwaysPresent:   1
+T20A0 001:335.485     Device entry modified: ADSP-CM412CSWZ-AF_M4
+T20A0 001:335.525       ChipInfo:
+T20A0 001:335.542         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\AnalogDevices\ADSP-CM41\Analog_CM41x_M4.pex
+T20A0 001:335.559       FlashBankInfo:
+T20A0 001:335.575         Name:            Flash Block A
+T20A0 001:335.592         BaseAddr:        0x11000000
+T20A0 001:335.653         AlwaysPresent:   1
+T20A0 001:335.669       FlashBankInfo:
+T20A0 001:335.685         Name:            Flash Block B
+T20A0 001:335.701         BaseAddr:        0x11080000
+T20A0 001:335.762         AlwaysPresent:   1
+T20A0 001:335.781     Device entry modified: ADSP-CM412CBCZ-BF_M4
+T20A0 001:335.821       ChipInfo:
+T20A0 001:335.838         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\AnalogDevices\ADSP-CM41\Analog_CM41x_M4.pex
+T20A0 001:335.856       FlashBankInfo:
+T20A0 001:335.872         Name:            Flash Block A
+T20A0 001:335.888         BaseAddr:        0x11000000
+T20A0 001:335.950         AlwaysPresent:   1
+T20A0 001:335.966       FlashBankInfo:
+T20A0 001:335.982         Name:            Flash Block B
+T20A0 001:335.999         BaseAddr:        0x11080000
+T20A0 001:336.061         AlwaysPresent:   1
+T20A0 001:336.079     Device entry modified: ADSP-CM413CSWZ-BF_M4
+T20A0 001:336.118       ChipInfo:
+T20A0 001:336.135         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\AnalogDevices\ADSP-CM41\Analog_CM41x_M4.pex
+T20A0 001:336.153       FlashBankInfo:
+T20A0 001:336.169         Name:            Flash Block A
+T20A0 001:336.185         BaseAddr:        0x11000000
+T20A0 001:336.247         AlwaysPresent:   1
+T20A0 001:336.263       FlashBankInfo:
+T20A0 001:336.278         Name:            Flash Block B
+T20A0 001:336.295         BaseAddr:        0x11080000
+T20A0 001:336.357         AlwaysPresent:   1
+T20A0 001:336.374     Device entry modified: ADSP-CM413CSWZ-CF_M4
+T20A0 001:336.414       ChipInfo:
+T20A0 001:336.430         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\AnalogDevices\ADSP-CM41\Analog_CM41x_M4.pex
+T20A0 001:336.448       FlashBankInfo:
+T20A0 001:336.464         Name:            Flash Block A
+T20A0 001:336.480         BaseAddr:        0x11000000
+T20A0 001:336.541         AlwaysPresent:   1
+T20A0 001:336.558       FlashBankInfo:
+T20A0 001:336.573         Name:            Flash Block B
+T20A0 001:336.590         BaseAddr:        0x11080000
+T20A0 001:336.651         AlwaysPresent:   1
+T20A0 001:336.668     Device entry modified: ADSP-CM416CSWZ-BF_M4
+T20A0 001:336.707       ChipInfo:
+T20A0 001:336.724         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\AnalogDevices\ADSP-CM41\Analog_CM41x_M4.pex
+T20A0 001:336.741       FlashBankInfo:
+T20A0 001:336.757         Name:            Flash Block A
+T20A0 001:336.774         BaseAddr:        0x11000000
+T20A0 001:336.836         AlwaysPresent:   1
+T20A0 001:336.852       FlashBankInfo:
+T20A0 001:336.868         Name:            Flash Block B
+T20A0 001:336.885         BaseAddr:        0x11080000
+T20A0 001:336.946         AlwaysPresent:   1
+T20A0 001:336.964     Device entry modified: ADSP-CM416CSWZ-CF_M4
+T20A0 001:337.004       ChipInfo:
+T20A0 001:337.021         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\AnalogDevices\ADSP-CM41\Analog_CM41x_M4.pex
+T20A0 001:337.038       FlashBankInfo:
+T20A0 001:337.054         Name:            Flash Block A
+T20A0 001:337.071         BaseAddr:        0x11000000
+T20A0 001:337.132         AlwaysPresent:   1
+T20A0 001:337.149       FlashBankInfo:
+T20A0 001:337.164         Name:            Flash Block B
+T20A0 001:337.181         BaseAddr:        0x11080000
+T20A0 001:337.242         AlwaysPresent:   1
+T20A0 001:337.260     Device entry modified: ADSP-CM417CSWZ-CF_M4
+T20A0 001:337.299       ChipInfo:
+T20A0 001:337.316         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\AnalogDevices\ADSP-CM41\Analog_CM41x_M4.pex
+T20A0 001:337.333       FlashBankInfo:
+T20A0 001:337.349         Name:            Flash Block A
+T20A0 001:337.366         BaseAddr:        0x11000000
+T20A0 001:337.428         AlwaysPresent:   1
+T20A0 001:337.444       FlashBankInfo:
+T20A0 001:337.459         Name:            Flash Block B
+T20A0 001:337.475         BaseAddr:        0x11080000
+T20A0 001:337.536         AlwaysPresent:   1
+T20A0 001:337.554     Device entry modified: ADSP-CM417CSWZ-DF_M4
+T20A0 001:337.593       ChipInfo:
+T20A0 001:337.610         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\AnalogDevices\ADSP-CM41\Analog_CM41x_M4.pex
+T20A0 001:337.632       FlashBankInfo:
+T20A0 001:337.648         Name:            Flash Block A
+T20A0 001:337.664         BaseAddr:        0x11000000
+T20A0 001:337.726         AlwaysPresent:   1
+T20A0 001:337.742       FlashBankInfo:
+T20A0 001:337.758         Name:            Flash Block B
+T20A0 001:337.774         BaseAddr:        0x11080000
+T20A0 001:337.837         AlwaysPresent:   1
+T20A0 001:337.854     Device entry modified: ADSP-CM418CBCZ-BF_M4
+T20A0 001:337.894       ChipInfo:
+T20A0 001:337.911         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\AnalogDevices\ADSP-CM41\Analog_CM41x_M4.pex
+T20A0 001:337.928       FlashBankInfo:
+T20A0 001:337.944         Name:            Flash Block A
+T20A0 001:337.961         BaseAddr:        0x11000000
+T20A0 001:338.022         AlwaysPresent:   1
+T20A0 001:338.038       FlashBankInfo:
+T20A0 001:338.054         Name:            Flash Block B
+T20A0 001:338.070         BaseAddr:        0x11080000
+T20A0 001:338.131         AlwaysPresent:   1
+T20A0 001:338.150     Device entry modified: ADSP-CM418CBCZ-CF_M4
+T20A0 001:338.189       ChipInfo:
+T20A0 001:338.206         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\AnalogDevices\ADSP-CM41\Analog_CM41x_M4.pex
+T20A0 001:338.224       FlashBankInfo:
+T20A0 001:338.240         Name:            Flash Block A
+T20A0 001:338.256         BaseAddr:        0x11000000
+T20A0 001:338.317         AlwaysPresent:   1
+T20A0 001:338.333       FlashBankInfo:
+T20A0 001:338.348         Name:            Flash Block B
+T20A0 001:338.364         BaseAddr:        0x11080000
+T20A0 001:338.425         AlwaysPresent:   1
+T20A0 001:338.444     Device entry modified: ADSP-CM419CBCZ-CF_M4
+T20A0 001:338.483       ChipInfo:
+T20A0 001:338.500         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\AnalogDevices\ADSP-CM41\Analog_CM41x_M4.pex
+T20A0 001:338.517       FlashBankInfo:
+T20A0 001:338.533         Name:            Flash Block A
+T20A0 001:338.550         BaseAddr:        0x11000000
+T20A0 001:338.611         AlwaysPresent:   1
+T20A0 001:338.627       FlashBankInfo:
+T20A0 001:338.643         Name:            Flash Block B
+T20A0 001:338.663         BaseAddr:        0x11080000
+T20A0 001:338.725         AlwaysPresent:   1
+T20A0 001:338.743     Device entry modified: ADSP-CM419CBCZ-DF_M4
+T20A0 001:338.783       ChipInfo:
+T20A0 001:338.800         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\AnalogDevices\ADSP-CM41\Analog_CM41x_M4.pex
+T20A0 001:338.817       FlashBankInfo:
+T20A0 001:338.833         Name:            Flash Block A
+T20A0 001:338.850         BaseAddr:        0x11000000
+T20A0 001:338.911         AlwaysPresent:   1
+T20A0 001:338.927       FlashBankInfo:
+T20A0 001:338.943         Name:            Flash Block B
+T20A0 001:338.959         BaseAddr:        0x11080000
+T20A0 001:339.020         AlwaysPresent:   1
+T20A0 001:339.038     Device entry modified: ADuCM4050
+T20A0 001:339.050       FlashBankInfo:
+T20A0 001:339.067         Name:            Flash Block
+T20A0 001:339.130         AlwaysPresent:   1
+T20A0 001:339.148     Device entry modified: MAX32600
+T20A0 001:339.164       FlashBankInfo:
+T20A0 001:339.180         Name:            Internal Flash
+T20A0 001:339.243         AlwaysPresent:   1
+T20A0 001:339.262     Device entry modified: ATSAML10D14A
+T20A0 001:339.303       ChipInfo:
+T20A0 001:339.320         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\SAML1x\Atmel_SAML1x.pex
+T20A0 001:339.338     Device entry modified: ATSAML10D15A
+T20A0 001:339.379       ChipInfo:
+T20A0 001:339.395         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\SAML1x\Atmel_SAML1x.pex
+T20A0 001:339.413     Device entry modified: ATSAML10D16A
+T20A0 001:339.452       ChipInfo:
+T20A0 001:339.469         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\SAML1x\Atmel_SAML1x.pex
+T20A0 001:339.487     Device entry modified: ATSAML10E14A
+T20A0 001:339.527       ChipInfo:
+T20A0 001:339.544         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\SAML1x\Atmel_SAML1x.pex
+T20A0 001:339.561     Device entry modified: ATSAML10E15A
+T20A0 001:339.602       ChipInfo:
+T20A0 001:339.619         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\SAML1x\Atmel_SAML1x.pex
+T20A0 001:339.637     Device entry modified: ATSAML10E16A
+T20A0 001:339.678       ChipInfo:
+T20A0 001:339.694         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\SAML1x\Atmel_SAML1x.pex
+T20A0 001:339.712     Device entry modified: ATSAML11D14A
+T20A0 001:339.752       ChipInfo:
+T20A0 001:339.769         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\SAML1x\Atmel_SAML1x.pex
+T20A0 001:339.786     Device entry modified: ATSAML11D15A
+T20A0 001:339.825       ChipInfo:
+T20A0 001:339.842         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\SAML1x\Atmel_SAML1x.pex
+T20A0 001:339.860     Device entry modified: ATSAML11D16A
+T20A0 001:339.899       ChipInfo:
+T20A0 001:339.916         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\SAML1x\Atmel_SAML1x.pex
+T20A0 001:339.933     Device entry modified: ATSAML11E14A
+T20A0 001:339.973       ChipInfo:
+T20A0 001:339.989         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\SAML1x\Atmel_SAML1x.pex
+T20A0 001:340.007     Device entry modified: ATSAML11E15A
+T20A0 001:340.049       ChipInfo:
+T20A0 001:340.065         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\SAML1x\Atmel_SAML1x.pex
+T20A0 001:340.083     Device entry modified: ATSAML11E16A
+T20A0 001:340.122       ChipInfo:
+T20A0 001:340.139         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\ATMEL\SAML1x\Atmel_SAML1x.pex
+T20A0 001:340.157     Device entry modified: ARTIK05X
+T20A0 001:340.235       ChipInfo:
+T20A0 001:340.253         Script:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\Samsung\ARTIK05X.JLinkScript
+T20A0 001:340.273     Device entry created:  HC32L176
+T20A0 001:340.285       ChipInfo:
+T20A0 001:340.300         Vendor:          HDSC
+T20A0 001:340.315         Name:            HC32L176
+T20A0 001:340.330         WorkRAMAddr:     0x20000000
+T20A0 001:340.347         WorkRAMSize:     0x00002000
+T20A0 001:340.364         Core:            JLINK_CORE_CORTEX_M0
+T20A0 001:340.380       FlashBankInfo:
+T20A0 001:340.396         Name:            Flash_128K
+T20A0 001:340.480         AlwaysPresent:   1
+T20A0 001:340.496         LoaderInfo:
+T20A0 001:340.511           Name:            Flash_128K
+T20A0 001:340.526           MaxSize:         0x00020000
+T20A0 001:340.542           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\FlashHC32L17X_128K.FLM
+T20A0 001:340.556           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:340.579     Device entry created:  HC32L136
+T20A0 001:340.589       ChipInfo:
+T20A0 001:340.603         Vendor:          HDSC
+T20A0 001:340.617         Name:            HC32L136
+T20A0 001:340.632         WorkRAMAddr:     0x20000000
+T20A0 001:340.647         WorkRAMSize:     0x00002000
+T20A0 001:340.661         Core:            JLINK_CORE_CORTEX_M0
+T20A0 001:340.676       FlashBankInfo:
+T20A0 001:340.691         Name:            Flash_64K
+T20A0 001:340.765         AlwaysPresent:   1
+T20A0 001:340.780         LoaderInfo:
+T20A0 001:340.795           Name:            Flash_64K
+T20A0 001:340.810           MaxSize:         0x00010000
+T20A0 001:340.825           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\FlashHC32L13X_64K.FLM
+T20A0 001:340.840           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:340.859     Device entry created:  HC32L130
+T20A0 001:340.869       ChipInfo:
+T20A0 001:340.917         Vendor:          HDSC
+T20A0 001:340.932         Name:            HC32L130
+T20A0 001:340.947         WorkRAMAddr:     0x20000000
+T20A0 001:340.962         WorkRAMSize:     0x00002000
+T20A0 001:341.001         Core:            JLINK_CORE_CORTEX_M0
+T20A0 001:341.016       FlashBankInfo:
+T20A0 001:341.033         Name:            Flash_64K
+T20A0 001:341.116         AlwaysPresent:   1
+T20A0 001:341.131         LoaderInfo:
+T20A0 001:341.146           Name:            Flash_64K
+T20A0 001:341.161           MaxSize:         0x00010000
+T20A0 001:341.175           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\FlashHC32L13X_64K.FLM
+T20A0 001:341.190           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:341.210     Device entry created:  HC32F030
+T20A0 001:341.220       ChipInfo:
+T20A0 001:341.234         Vendor:          HDSC
+T20A0 001:341.250         Name:            HC32F030
+T20A0 001:341.265         WorkRAMAddr:     0x20000000
+T20A0 001:341.279         WorkRAMSize:     0x00002000
+T20A0 001:341.294         Core:            JLINK_CORE_CORTEX_M0
+T20A0 001:341.309       FlashBankInfo:
+T20A0 001:341.323         Name:            Flash_64K
+T20A0 001:341.393         AlwaysPresent:   1
+T20A0 001:341.408         LoaderInfo:
+T20A0 001:341.423           Name:            Flash_64K
+T20A0 001:341.438           MaxSize:         0x00010000
+T20A0 001:341.453           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\FlashHC32F030_64K.FLM
+T20A0 001:341.467           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:341.487     Device entry created:  HC32L110x4
+T20A0 001:341.499       ChipInfo:
+T20A0 001:341.515         Vendor:          HDSC
+T20A0 001:341.530         Name:            HC32L110x4
+T20A0 001:341.544         WorkRAMAddr:     0x20000000
+T20A0 001:341.559         WorkRAMSize:     0x00000800
+T20A0 001:341.574         Core:            JLINK_CORE_CORTEX_M0
+T20A0 001:341.589       FlashBankInfo:
+T20A0 001:341.604         Name:            Flash_16K
+T20A0 001:341.673         AlwaysPresent:   1
+T20A0 001:341.688         LoaderInfo:
+T20A0 001:341.703           Name:            Flash_16K
+T20A0 001:341.718           MaxSize:         0x00004000
+T20A0 001:341.733           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\FlashHC32L110_16K.FLM
+T20A0 001:341.748           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:341.764     Device entry created:  HC32L110x6
+T20A0 001:341.774       ChipInfo:
+T20A0 001:341.789         Vendor:          HDSC
+T20A0 001:341.803         Name:            HC32L110x6
+T20A0 001:341.818         WorkRAMAddr:     0x20000000
+T20A0 001:341.833         WorkRAMSize:     0x00001000
+T20A0 001:341.848         Core:            JLINK_CORE_CORTEX_M0
+T20A0 001:341.863       FlashBankInfo:
+T20A0 001:341.877         Name:            Flash_32K
+T20A0 001:341.946         AlwaysPresent:   1
+T20A0 001:341.961         LoaderInfo:
+T20A0 001:341.976           Name:            Flash_32K
+T20A0 001:341.991           MaxSize:         0x00008000
+T20A0 001:342.006           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\FlashHC32L110_32K.FLM
+T20A0 001:342.021           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:342.038     Device entry created:  HC32F002
+T20A0 001:342.048       ChipInfo:
+T20A0 001:342.063         Vendor:          HDSC
+T20A0 001:342.077         Name:            HC32F002
+T20A0 001:342.092         WorkRAMAddr:     0x20000000
+T20A0 001:342.107         WorkRAMSize:     0x00000800
+T20A0 001:342.122         Core:            JLINK_CORE_CORTEX_M0
+T20A0 001:342.137       FlashBankInfo:
+T20A0 001:342.152         Name:            Flash_18K
+T20A0 001:342.224         AlwaysPresent:   1
+T20A0 001:342.239         LoaderInfo:
+T20A0 001:342.254           Name:            Flash_18K
+T20A0 001:342.270           MaxSize:         0x00004800
+T20A0 001:342.285           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\FlashHC32F002_18K.FLM
+T20A0 001:342.301           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:342.319     Device entry created:  HC32F003
+T20A0 001:342.329       ChipInfo:
+T20A0 001:342.344         Vendor:          HDSC
+T20A0 001:342.359         Name:            HC32F003
+T20A0 001:342.373         WorkRAMAddr:     0x20000000
+T20A0 001:342.388         WorkRAMSize:     0x00000800
+T20A0 001:342.403         Core:            JLINK_CORE_CORTEX_M0
+T20A0 001:342.418       FlashBankInfo:
+T20A0 001:342.433         Name:            Flash_16K
+T20A0 001:342.501         AlwaysPresent:   1
+T20A0 001:342.516         LoaderInfo:
+T20A0 001:342.531           Name:            Flash_16K
+T20A0 001:342.546           MaxSize:         0x00004000
+T20A0 001:342.561           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\FlashHC32F003_16K.FLM
+T20A0 001:342.576           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:342.592     Device entry created:  HC32F005
+T20A0 001:342.602       ChipInfo:
+T20A0 001:342.617         Vendor:          HDSC
+T20A0 001:342.631         Name:            HC32F005
+T20A0 001:342.646         WorkRAMAddr:     0x20000000
+T20A0 001:342.661         WorkRAMSize:     0x00001000
+T20A0 001:342.675         Core:            JLINK_CORE_CORTEX_M0
+T20A0 001:342.690       FlashBankInfo:
+T20A0 001:342.705         Name:            Flash_32K
+T20A0 001:342.775         AlwaysPresent:   1
+T20A0 001:342.790         LoaderInfo:
+T20A0 001:342.806           Name:            Flash_32K
+T20A0 001:342.822           MaxSize:         0x00008000
+T20A0 001:342.837           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\FlashHC32F005_32K.FLM
+T20A0 001:342.853           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:342.870     Device entry created:  HC32L15
+T20A0 001:342.880       ChipInfo:
+T20A0 001:342.894         Vendor:          HDSC
+T20A0 001:342.909         Name:            HC32L15
+T20A0 001:342.924         WorkRAMAddr:     0x20000000
+T20A0 001:342.939         WorkRAMSize:     0x00001800
+T20A0 001:342.954         Core:            JLINK_CORE_CORTEX_M0
+T20A0 001:342.968       FlashBankInfo:
+T20A0 001:342.983         Name:            Flash_128K
+T20A0 001:343.055         AlwaysPresent:   1
+T20A0 001:343.070         LoaderInfo:
+T20A0 001:343.085           Name:            Flash_128K
+T20A0 001:343.100           MaxSize:         0x00020000
+T20A0 001:343.115           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\HC32L15.FLM
+T20A0 001:343.130           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:343.146     Device entry created:  HC32F_M14
+T20A0 001:343.157       ChipInfo:
+T20A0 001:343.172         Vendor:          HDSC
+T20A0 001:343.188         Name:            HC32F_M14
+T20A0 001:343.204         WorkRAMAddr:     0x20000000
+T20A0 001:343.221         WorkRAMSize:     0x00002000
+T20A0 001:343.237         Core:            JLINK_CORE_CORTEX_M0
+T20A0 001:343.253       FlashBankInfo:
+T20A0 001:343.270         Name:            Flash_128K
+T20A0 001:343.345         AlwaysPresent:   1
+T20A0 001:343.361         LoaderInfo:
+T20A0 001:343.378           Name:            Flash_128K
+T20A0 001:343.394           MaxSize:         0x00020000
+T20A0 001:343.410           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\HC32F_M14.FLM
+T20A0 001:343.426           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:343.447     Device entry created:  HC32L19x
+T20A0 001:343.458       ChipInfo:
+T20A0 001:343.474         Vendor:          HDSC
+T20A0 001:343.490         Name:            HC32L19x
+T20A0 001:343.506         WorkRAMAddr:     0x20000000
+T20A0 001:343.522         WorkRAMSize:     0x00008000
+T20A0 001:343.538         Core:            JLINK_CORE_CORTEX_M0
+T20A0 001:343.555       FlashBankInfo:
+T20A0 001:343.571         Name:            Flash_256K
+T20A0 001:343.647         AlwaysPresent:   1
+T20A0 001:343.664         LoaderInfo:
+T20A0 001:343.680           Name:            Flash_256K
+T20A0 001:343.698           MaxSize:         0x00040000
+T20A0 001:343.714           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\FlashHC32L19X_256K.FLM
+T20A0 001:343.731           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:343.749     Device entry created:  HC32F19x
+T20A0 001:343.759       ChipInfo:
+T20A0 001:343.775         Vendor:          HDSC
+T20A0 001:343.792         Name:            HC32F19x
+T20A0 001:343.808         WorkRAMAddr:     0x20000000
+T20A0 001:343.824         WorkRAMSize:     0x00008000
+T20A0 001:343.840         Core:            JLINK_CORE_CORTEX_M0
+T20A0 001:343.857       FlashBankInfo:
+T20A0 001:343.873         Name:            Flash_256K
+T20A0 001:343.948         AlwaysPresent:   1
+T20A0 001:343.964         LoaderInfo:
+T20A0 001:343.980           Name:            Flash_256K
+T20A0 001:343.997           MaxSize:         0x00040000
+T20A0 001:344.013           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\FlashHC32F19X_256K.FLM
+T20A0 001:344.029           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:344.049     Device entry created:  HC32F17x
+T20A0 001:344.060       ChipInfo:
+T20A0 001:344.076         Vendor:          HDSC
+T20A0 001:344.092         Name:            HC32F17x
+T20A0 001:344.108         WorkRAMAddr:     0x20000000
+T20A0 001:344.124         WorkRAMSize:     0x00004000
+T20A0 001:344.141         Core:            JLINK_CORE_CORTEX_M0
+T20A0 001:344.157       FlashBankInfo:
+T20A0 001:344.173         Name:            Flash_128K
+T20A0 001:344.248         AlwaysPresent:   1
+T20A0 001:344.264         LoaderInfo:
+T20A0 001:344.281           Name:            Flash_128K
+T20A0 001:344.297           MaxSize:         0x00020000
+T20A0 001:344.313           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\FlashHC32F17X_128K.FLM
+T20A0 001:344.329           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:344.349     Device entry created:  HC32L17x
+T20A0 001:344.360       ChipInfo:
+T20A0 001:344.376         Vendor:          HDSC
+T20A0 001:344.392         Name:            HC32L17x
+T20A0 001:344.409         WorkRAMAddr:     0x20000000
+T20A0 001:344.425         WorkRAMSize:     0x00004000
+T20A0 001:344.441         Core:            JLINK_CORE_CORTEX_M0
+T20A0 001:344.458       FlashBankInfo:
+T20A0 001:344.474         Name:            Flash_128K
+T20A0 001:344.548         AlwaysPresent:   1
+T20A0 001:344.564         LoaderInfo:
+T20A0 001:344.581           Name:            Flash_128K
+T20A0 001:344.597           MaxSize:         0x00020000
+T20A0 001:344.613           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\FlashHC32L17X_128K.FLM
+T20A0 001:344.629           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:344.648     Device entry created:  HC32F072
+T20A0 001:344.658       ChipInfo:
+T20A0 001:344.674         Vendor:          HDSC
+T20A0 001:344.691         Name:            HC32F072
+T20A0 001:344.707         WorkRAMAddr:     0x20000000
+T20A0 001:344.723         WorkRAMSize:     0x00004000
+T20A0 001:344.739         Core:            JLINK_CORE_CORTEX_M0
+T20A0 001:344.755       FlashBankInfo:
+T20A0 001:344.772         Name:            Flash_128K
+T20A0 001:344.847         AlwaysPresent:   1
+T20A0 001:344.864         LoaderInfo:
+T20A0 001:344.880           Name:            Flash_128K
+T20A0 001:344.897           MaxSize:         0x00020000
+T20A0 001:344.913           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\FlashHC32F072_128K.FLM
+T20A0 001:344.929           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:344.949     Device entry created:  HC32L07X
+T20A0 001:344.960       ChipInfo:
+T20A0 001:344.976         Vendor:          HDSC
+T20A0 001:344.992         Name:            HC32L07X
+T20A0 001:345.008         WorkRAMAddr:     0x20000000
+T20A0 001:345.025         WorkRAMSize:     0x00004000
+T20A0 001:345.041         Core:            JLINK_CORE_CORTEX_M0
+T20A0 001:345.058       FlashBankInfo:
+T20A0 001:345.074         Name:            Flash_128K
+T20A0 001:345.150         AlwaysPresent:   1
+T20A0 001:345.167         LoaderInfo:
+T20A0 001:345.183           Name:            Flash_128K
+T20A0 001:345.199           MaxSize:         0x00020000
+T20A0 001:345.215           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\FlashHC32L07X_128K.FLM
+T20A0 001:345.232           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:345.250     Device entry created:  HC32F120x6
+T20A0 001:345.261       ChipInfo:
+T20A0 001:345.277         Vendor:          HDSC
+T20A0 001:345.293         Name:            HC32F120x6
+T20A0 001:345.310         WorkRAMAddr:     0x20000000
+T20A0 001:345.326         WorkRAMSize:     0x00001000
+T20A0 001:345.342         Core:            JLINK_CORE_CORTEX_M0
+T20A0 001:345.358       FlashBankInfo:
+T20A0 001:345.375         Name:            Flash_32K
+T20A0 001:345.450         AlwaysPresent:   1
+T20A0 001:345.466         LoaderInfo:
+T20A0 001:345.483           Name:            Flash_32K
+T20A0 001:345.499           MaxSize:         0x00008000
+T20A0 001:345.515           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\HC32F120_32K.FLM
+T20A0 001:345.531           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:345.551     Device entry created:  HC32F120x8
+T20A0 001:345.562       ChipInfo:
+T20A0 001:345.578         Vendor:          HDSC
+T20A0 001:345.595         Name:            HC32F120x8
+T20A0 001:345.611         WorkRAMAddr:     0x20000000
+T20A0 001:345.627         WorkRAMSize:     0x00001000
+T20A0 001:345.644         Core:            JLINK_CORE_CORTEX_M0
+T20A0 001:345.660       FlashBankInfo:
+T20A0 001:345.676         Name:            Flash_64K
+T20A0 001:345.751         AlwaysPresent:   1
+T20A0 001:345.768         LoaderInfo:
+T20A0 001:345.784           Name:            Flash_64K
+T20A0 001:345.800           MaxSize:         0x00010000
+T20A0 001:345.817           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\HC32F120_64K.FLM
+T20A0 001:345.833           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:345.851     Device entry created:  HC32F160xA
+T20A0 001:345.862       ChipInfo:
+T20A0 001:345.878         Vendor:          HDSC
+T20A0 001:345.895         Name:            HC32F160xA
+T20A0 001:345.911         WorkRAMAddr:     0x20000000
+T20A0 001:345.927         WorkRAMSize:     0x00008000
+T20A0 001:345.943         Core:            JLINK_CORE_CORTEX_M0
+T20A0 001:345.960       FlashBankInfo:
+T20A0 001:345.976         Name:            Flash_128K
+T20A0 001:346.052         AlwaysPresent:   1
+T20A0 001:346.068         LoaderInfo:
+T20A0 001:346.085           Name:            Flash_128K
+T20A0 001:346.101           MaxSize:         0x00020000
+T20A0 001:346.117           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\HC32F160_128K.FLM
+T20A0 001:346.133           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:346.150       FlashBankInfo:
+T20A0 001:346.166         Name:            Flash_1K
+T20A0 001:346.182         BaseAddr:        0x01000800
+T20A0 001:346.257         AlwaysPresent:   1
+T20A0 001:346.274         LoaderInfo:
+T20A0 001:346.290           Name:            Flash_1K
+T20A0 001:346.306           MaxSize:         0x00000400
+T20A0 001:346.323           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\HC32F160_1K.FLM
+T20A0 001:346.339           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:346.357     Device entry created:  HC32F160xC
+T20A0 001:346.368       ChipInfo:
+T20A0 001:346.384         Vendor:          HDSC
+T20A0 001:346.400         Name:            HC32F160xC
+T20A0 001:346.416         WorkRAMAddr:     0x20000000
+T20A0 001:346.433         WorkRAMSize:     0x00008000
+T20A0 001:346.449         Core:            JLINK_CORE_CORTEX_M0
+T20A0 001:346.465       FlashBankInfo:
+T20A0 001:346.481         Name:            Flash_256K
+T20A0 001:346.557         AlwaysPresent:   1
+T20A0 001:346.573         LoaderInfo:
+T20A0 001:346.590           Name:            Flash_256K
+T20A0 001:346.606           MaxSize:         0x00040000
+T20A0 001:346.622           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\HC32F160_256K.FLM
+T20A0 001:346.638           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:346.655       FlashBankInfo:
+T20A0 001:346.671         Name:            Flash_1K
+T20A0 001:346.687         BaseAddr:        0x01000800
+T20A0 001:346.760         AlwaysPresent:   1
+T20A0 001:346.777         LoaderInfo:
+T20A0 001:346.793           Name:            Flash_1K
+T20A0 001:346.809           MaxSize:         0x00000400
+T20A0 001:346.826           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\HC32F160_1K.FLM
+T20A0 001:346.842           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:346.860     Device entry modified: HC32F460xC
+T20A0 001:346.872       ChipInfo:
+T20A0 001:346.888         WorkRAMAddr:     0x1FFF8000
+T20A0 001:346.904         WorkRAMSize:     0x0002F000
+T20A0 001:346.921       FlashBankInfo:
+T20A0 001:346.937         Name:            Flash_256K
+T20A0 001:347.012         AlwaysPresent:   1
+T20A0 001:347.029         LoaderInfo:
+T20A0 001:347.045           Name:            Flash_256K
+T20A0 001:347.062           MaxSize:         0x00040000
+T20A0 001:347.078           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\HC32F460_256K.FLM
+T20A0 001:347.094           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:347.112     Device entry modified: HC32F460xE
+T20A0 001:347.123       ChipInfo:
+T20A0 001:347.139         WorkRAMAddr:     0x1FFF8000
+T20A0 001:347.156         WorkRAMSize:     0x0002F000
+T20A0 001:347.173       FlashBankInfo:
+T20A0 001:347.189         Name:            Flash_512K
+T20A0 001:347.263         AlwaysPresent:   1
+T20A0 001:347.280         LoaderInfo:
+T20A0 001:347.296           Name:            Flash_512K
+T20A0 001:347.312           MaxSize:         0x00080000
+T20A0 001:347.328           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\HC32F460_512K.FLM
+T20A0 001:347.344           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:347.362     Device entry created:  HC32F4A0xG
+T20A0 001:347.373       ChipInfo:
+T20A0 001:347.389         Vendor:          HDSC
+T20A0 001:347.406         Name:            HC32F4A0xG
+T20A0 001:347.422         WorkRAMAddr:     0x1FFE0000
+T20A0 001:347.438         WorkRAMSize:     0x00080000
+T20A0 001:347.455         Core:            JLINK_CORE_CORTEX_M4
+T20A0 001:347.471       FlashBankInfo:
+T20A0 001:347.487         Name:            Flash_1M
+T20A0 001:347.564         AlwaysPresent:   1
+T20A0 001:347.581         LoaderInfo:
+T20A0 001:347.597           Name:            Flash_1M
+T20A0 001:347.613           MaxSize:         0x00100000
+T20A0 001:347.629           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\HC32F4A0_1M.FLM
+T20A0 001:347.646           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:347.664     Device entry created:  HC32F4A0xI
+T20A0 001:347.674       ChipInfo:
+T20A0 001:347.691         Vendor:          HDSC
+T20A0 001:347.707         Name:            HC32F4A0xI
+T20A0 001:347.723         WorkRAMAddr:     0x1FFE0000
+T20A0 001:347.739         WorkRAMSize:     0x00080000
+T20A0 001:347.756         Core:            JLINK_CORE_CORTEX_M4
+T20A0 001:347.772       FlashBankInfo:
+T20A0 001:347.788         Name:            Flash_2M
+T20A0 001:347.862         AlwaysPresent:   1
+T20A0 001:347.879         LoaderInfo:
+T20A0 001:347.895           Name:            Flash_2M
+T20A0 001:347.911           MaxSize:         0x00200000
+T20A0 001:347.927           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\HC32F4A0_2M.FLM
+T20A0 001:347.944           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:347.962     Device entry created:  HC32F4A2xI
+T20A0 001:347.973       ChipInfo:
+T20A0 001:347.990         Vendor:          HDSC
+T20A0 001:348.006         Name:            HC32F4A2xI
+T20A0 001:348.022         WorkRAMAddr:     0x1FFE0000
+T20A0 001:348.038         WorkRAMSize:     0x00080000
+T20A0 001:348.055         Core:            JLINK_CORE_CORTEX_M4
+T20A0 001:348.071       FlashBankInfo:
+T20A0 001:348.087         Name:            Flash_2M
+T20A0 001:348.161         AlwaysPresent:   1
+T20A0 001:348.178         LoaderInfo:
+T20A0 001:348.194           Name:            Flash_2M
+T20A0 001:348.210           MaxSize:         0x00200000
+T20A0 001:348.227           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\HC32F4A2_2M.FLM
+T20A0 001:348.243           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:348.262     Device entry created:  HC32F467xG
+T20A0 001:348.273       ChipInfo:
+T20A0 001:348.289         Vendor:          HDSC
+T20A0 001:348.305         Name:            HC32F467xG
+T20A0 001:348.321         WorkRAMAddr:     0x1FFE0000
+T20A0 001:348.338         WorkRAMSize:     0x00080000
+T20A0 001:348.355         Core:            JLINK_CORE_CORTEX_M4
+T20A0 001:348.371       FlashBankInfo:
+T20A0 001:348.387         Name:            Flash_1M
+T20A0 001:348.461         AlwaysPresent:   1
+T20A0 001:348.478         LoaderInfo:
+T20A0 001:348.494           Name:            Flash_1M
+T20A0 001:348.510           MaxSize:         0x00100000
+T20A0 001:348.526           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\HC32F467_1M.FLM
+T20A0 001:348.543           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:348.563     Device entry created:  HC32M120x6
+T20A0 001:348.574       ChipInfo:
+T20A0 001:348.590         Vendor:          HDSC
+T20A0 001:348.606         Name:            HC32M120x6
+T20A0 001:348.623         WorkRAMAddr:     0x20000000
+T20A0 001:348.639         WorkRAMSize:     0x00001000
+T20A0 001:348.655         Core:            JLINK_CORE_CORTEX_M0
+T20A0 001:348.671       FlashBankInfo:
+T20A0 001:348.687         Name:            Flash_32K
+T20A0 001:348.763         AlwaysPresent:   1
+T20A0 001:348.779         LoaderInfo:
+T20A0 001:348.796           Name:            Flash_32K
+T20A0 001:348.812           MaxSize:         0x00008000
+T20A0 001:348.828           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\HC32M120_32K.FLM
+T20A0 001:348.844           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:348.863     Device entry created:  HC32M423xA
+T20A0 001:348.874       ChipInfo:
+T20A0 001:348.890         Vendor:          HDSC
+T20A0 001:348.906         Name:            HC32M423xA
+T20A0 001:348.922         WorkRAMAddr:     0x1FFFE000
+T20A0 001:348.938         WorkRAMSize:     0x00004000
+T20A0 001:348.955         Core:            JLINK_CORE_CORTEX_M4
+T20A0 001:348.972       FlashBankInfo:
+T20A0 001:348.988         Name:            Flash_128K
+T20A0 001:349.062         AlwaysPresent:   1
+T20A0 001:349.078         LoaderInfo:
+T20A0 001:349.095           Name:            Flash_128K
+T20A0 001:349.111           MaxSize:         0x00020000
+T20A0 001:349.127           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\HC32M423_128K.FLM
+T20A0 001:349.144           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:349.162     Device entry created:  HC32F448xC
+T20A0 001:349.173       ChipInfo:
+T20A0 001:349.189         Vendor:          HDSC
+T20A0 001:349.205         Name:            HC32F448xC
+T20A0 001:349.222         WorkRAMAddr:     0x1FFF8000
+T20A0 001:349.238         WorkRAMSize:     0x00010000
+T20A0 001:349.255         Core:            JLINK_CORE_CORTEX_M4
+T20A0 001:349.271       FlashBankInfo:
+T20A0 001:349.287         Name:            Flash_128K
+T20A0 001:349.361         AlwaysPresent:   1
+T20A0 001:349.377         LoaderInfo:
+T20A0 001:349.393           Name:            Flash_128K
+T20A0 001:349.410           MaxSize:         0x00020000
+T20A0 001:349.426           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\HC32F448_128K.FLM
+T20A0 001:349.443           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:349.464     Device entry created:  HC32F448xE
+T20A0 001:349.475       ChipInfo:
+T20A0 001:349.491         Vendor:          HDSC
+T20A0 001:349.507         Name:            HC32F448xE
+T20A0 001:349.523         WorkRAMAddr:     0x1FFF8000
+T20A0 001:349.539         WorkRAMSize:     0x00010000
+T20A0 001:349.556         Core:            JLINK_CORE_CORTEX_M4
+T20A0 001:349.572       FlashBankInfo:
+T20A0 001:349.588         Name:            Flash_256K
+T20A0 001:349.663         AlwaysPresent:   1
+T20A0 001:349.679         LoaderInfo:
+T20A0 001:349.695           Name:            Flash_256K
+T20A0 001:349.712           MaxSize:         0x00040000
+T20A0 001:349.728           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\HC32F448_256K.FLM
+T20A0 001:349.744           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:349.762     Device entry created:  HC32F451xE
+T20A0 001:349.773       ChipInfo:
+T20A0 001:349.789         Vendor:          HDSC
+T20A0 001:349.806         Name:            HC32F451xE
+T20A0 001:349.822         WorkRAMAddr:     0x1FFF8000
+T20A0 001:349.838         WorkRAMSize:     0x0002F000
+T20A0 001:349.855         Core:            JLINK_CORE_CORTEX_M4
+T20A0 001:349.871       FlashBankInfo:
+T20A0 001:349.887         Name:            Flash_512K
+T20A0 001:349.962         AlwaysPresent:   1
+T20A0 001:349.978         LoaderInfo:
+T20A0 001:349.994           Name:            Flash_512K
+T20A0 001:350.011           MaxSize:         0x00080000
+T20A0 001:350.027           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\HC32F451_512K.FLM
+T20A0 001:350.043           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:350.065     Device entry created:  HC32F452xE
+T20A0 001:350.076       ChipInfo:
+T20A0 001:350.092         Vendor:          HDSC
+T20A0 001:350.108         Name:            HC32F452xE
+T20A0 001:350.125         WorkRAMAddr:     0x1FFF8000
+T20A0 001:350.141         WorkRAMSize:     0x0002F000
+T20A0 001:350.158         Core:            JLINK_CORE_CORTEX_M4
+T20A0 001:350.174       FlashBankInfo:
+T20A0 001:350.190         Name:            Flash_512K
+T20A0 001:350.265         AlwaysPresent:   1
+T20A0 001:350.282         LoaderInfo:
+T20A0 001:350.298           Name:            Flash_512K
+T20A0 001:350.314           MaxSize:         0x00080000
+T20A0 001:350.330           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\HC32F452_512K.FLM
+T20A0 001:350.347           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:350.365     Device entry created:  HC32F472xC
+T20A0 001:350.378       ChipInfo:
+T20A0 001:350.395         Vendor:          HDSC
+T20A0 001:350.411         Name:            HC32F472xC
+T20A0 001:350.427         WorkRAMAddr:     0x1FFF8000
+T20A0 001:350.443         WorkRAMSize:     0x00010000
+T20A0 001:350.460         Core:            JLINK_CORE_CORTEX_M4
+T20A0 001:350.476       FlashBankInfo:
+T20A0 001:350.492         Name:            Flash_256K
+T20A0 001:350.566         AlwaysPresent:   1
+T20A0 001:350.583         LoaderInfo:
+T20A0 001:350.599           Name:            Flash_256K
+T20A0 001:350.615           MaxSize:         0x00040000
+T20A0 001:350.632           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\HC32F472_256K.FLM
+T20A0 001:350.648           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:350.666     Device entry created:  HC32F472xE
+T20A0 001:350.677       ChipInfo:
+T20A0 001:350.692         Vendor:          HDSC
+T20A0 001:350.709         Name:            HC32F472xE
+T20A0 001:350.725         WorkRAMAddr:     0x1FFF8000
+T20A0 001:350.741         WorkRAMSize:     0x00010000
+T20A0 001:350.758         Core:            JLINK_CORE_CORTEX_M4
+T20A0 001:350.774       FlashBankInfo:
+T20A0 001:350.790         Name:            Flash_512K
+T20A0 001:350.866         AlwaysPresent:   1
+T20A0 001:350.883         LoaderInfo:
+T20A0 001:350.900           Name:            Flash_512K
+T20A0 001:350.916           MaxSize:         0x00080000
+T20A0 001:350.932           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\HC32F472_512K.FLM
+T20A0 001:350.948           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:350.967     Device entry created:  HC32F334x8
+T20A0 001:350.978       ChipInfo:
+T20A0 001:350.994         Vendor:          HDSC
+T20A0 001:351.010         Name:            HC32F334x8
+T20A0 001:351.026         WorkRAMAddr:     0x1FFFC000
+T20A0 001:351.043         WorkRAMSize:     0x00008000
+T20A0 001:351.060         Core:            JLINK_CORE_CORTEX_M4
+T20A0 001:351.076       FlashBankInfo:
+T20A0 001:351.092         Name:            Flash_64K
+T20A0 001:351.166         AlwaysPresent:   1
+T20A0 001:351.183         LoaderInfo:
+T20A0 001:351.199           Name:            Flash_64K
+T20A0 001:351.216           MaxSize:         0x00010000
+T20A0 001:351.232           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\HC32F334_64K.FLM
+T20A0 001:351.248           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:351.269     Device entry created:  HC32F334xA
+T20A0 001:351.280       ChipInfo:
+T20A0 001:351.296         Vendor:          HDSC
+T20A0 001:351.312         Name:            HC32F334xA
+T20A0 001:351.328         WorkRAMAddr:     0x1FFFC000
+T20A0 001:351.344         WorkRAMSize:     0x00008000
+T20A0 001:351.361         Core:            JLINK_CORE_CORTEX_M4
+T20A0 001:351.378       FlashBankInfo:
+T20A0 001:351.394         Name:            Flash_128K
+T20A0 001:351.470         AlwaysPresent:   1
+T20A0 001:351.486         LoaderInfo:
+T20A0 001:351.502           Name:            Flash_128K
+T20A0 001:351.518           MaxSize:         0x00020000
+T20A0 001:351.535           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\HC32F334_128K.FLM
+T20A0 001:351.551           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:351.571     Device entry created:  HC32F155xA
+T20A0 001:351.580       ChipInfo:
+T20A0 001:351.595         Vendor:          HDSC
+T20A0 001:351.611         Name:            HC32F155xA
+T20A0 001:351.628         WorkRAMAddr:     0x20000000
+T20A0 001:351.645         WorkRAMSize:     0x00008000
+T20A0 001:351.660         Core:            JLINK_CORE_CORTEX_M0
+T20A0 001:351.675       FlashBankInfo:
+T20A0 001:351.690         Name:            Flash_128K
+T20A0 001:351.758         AlwaysPresent:   1
+T20A0 001:351.773         LoaderInfo:
+T20A0 001:351.788           Name:            Flash_128K
+T20A0 001:351.803           MaxSize:         0x00020000
+T20A0 001:351.818           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\HC32F155_128K.FLM
+T20A0 001:351.832           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:351.851     Device entry created:  HC32F155xC
+T20A0 001:351.861       ChipInfo:
+T20A0 001:351.875         Vendor:          HDSC
+T20A0 001:351.890         Name:            HC32F155xC
+T20A0 001:351.905         WorkRAMAddr:     0x20000000
+T20A0 001:351.920         WorkRAMSize:     0x00008000
+T20A0 001:351.935         Core:            JLINK_CORE_CORTEX_M0
+T20A0 001:351.950       FlashBankInfo:
+T20A0 001:351.965         Name:            Flash_256K
+T20A0 001:352.033         AlwaysPresent:   1
+T20A0 001:352.048         LoaderInfo:
+T20A0 001:352.063           Name:            Flash_256K
+T20A0 001:352.077           MaxSize:         0x00040000
+T20A0 001:352.092           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\HC32F155_256K.FLM
+T20A0 001:352.107           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:352.123     Device entry created:  HC32F115
+T20A0 001:352.133       ChipInfo:
+T20A0 001:352.148         Vendor:          HDSC
+T20A0 001:352.163         Name:            HC32F115
+T20A0 001:352.178         WorkRAMAddr:     0x20000000
+T20A0 001:352.225         WorkRAMSize:     0x00001000
+T20A0 001:352.240         Core:            JLINK_CORE_CORTEX_M0
+T20A0 001:352.257       FlashBankInfo:
+T20A0 001:352.274         Name:            Flash_64K
+T20A0 001:352.352         AlwaysPresent:   1
+T20A0 001:352.368         LoaderInfo:
+T20A0 001:352.383           Name:            Flash_64K
+T20A0 001:352.417           MaxSize:         0x00010000
+T20A0 001:352.432           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\HC32F115_64K.FLM
+T20A0 001:352.446           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:352.465     Device entry created:  HC32L16xC
+T20A0 001:352.475       ChipInfo:
+T20A0 001:352.489         Vendor:          HDSC
+T20A0 001:352.504         Name:            HC32L16xC
+T20A0 001:352.518         WorkRAMAddr:     0x20000000
+T20A0 001:352.533         WorkRAMSize:     0x00008000
+T20A0 001:352.547         Core:            JLINK_CORE_CORTEX_M0
+T20A0 001:352.562       FlashBankInfo:
+T20A0 001:352.576         Name:            Flash_256K
+T20A0 001:352.644         AlwaysPresent:   1
+T20A0 001:352.659         LoaderInfo:
+T20A0 001:352.674           Name:            Flash_256K
+T20A0 001:352.688           MaxSize:         0x00040000
+T20A0 001:352.703           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\HC32L16x_256KB.FLM
+T20A0 001:352.717           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:352.734     Device entry created:  HC32L16xA
+T20A0 001:352.744       ChipInfo:
+T20A0 001:352.758         Vendor:          HDSC
+T20A0 001:352.773         Name:            HC32L16xA
+T20A0 001:352.787         WorkRAMAddr:     0x20000000
+T20A0 001:352.802         WorkRAMSize:     0x00004000
+T20A0 001:352.816         Core:            JLINK_CORE_CORTEX_M0
+T20A0 001:352.831       FlashBankInfo:
+T20A0 001:352.846         Name:            Flash_128K
+T20A0 001:352.914         AlwaysPresent:   1
+T20A0 001:352.929         LoaderInfo:
+T20A0 001:352.943           Name:            Flash_128K
+T20A0 001:352.958           MaxSize:         0x00020000
+T20A0 001:352.972           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\HC32L16x_128KB.FLM
+T20A0 001:352.987           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:353.005     Device entry created:  HC32L18xC
+T20A0 001:353.015       ChipInfo:
+T20A0 001:353.029         Vendor:          HDSC
+T20A0 001:353.043         Name:            HC32L18xC
+T20A0 001:353.058         WorkRAMAddr:     0x20000000
+T20A0 001:353.072         WorkRAMSize:     0x00008000
+T20A0 001:353.087         Core:            JLINK_CORE_CORTEX_M0
+T20A0 001:353.101       FlashBankInfo:
+T20A0 001:353.116         Name:            Flash_256K
+T20A0 001:353.183         AlwaysPresent:   1
+T20A0 001:353.197         LoaderInfo:
+T20A0 001:353.212           Name:            Flash_256K
+T20A0 001:353.226           MaxSize:         0x00040000
+T20A0 001:353.241           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\HC32L18x_256KB.FLM
+T20A0 001:353.255           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:353.271     Device entry created:  HC32L18xA
+T20A0 001:353.281       ChipInfo:
+T20A0 001:353.295         Vendor:          HDSC
+T20A0 001:353.310         Name:            HC32L18xA
+T20A0 001:353.324         WorkRAMAddr:     0x20000000
+T20A0 001:353.339         WorkRAMSize:     0x00008000
+T20A0 001:353.353         Core:            JLINK_CORE_CORTEX_M0
+T20A0 001:353.368       FlashBankInfo:
+T20A0 001:353.382         Name:            Flash_128K
+T20A0 001:353.448         AlwaysPresent:   1
+T20A0 001:353.463         LoaderInfo:
+T20A0 001:353.477           Name:            Flash_128K
+T20A0 001:353.491           MaxSize:         0x00020000
+T20A0 001:353.506           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\HC32L18x_128KB.FLM
+T20A0 001:353.520           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:353.539     Device entry created:  HC32F420xA
+T20A0 001:353.549       ChipInfo:
+T20A0 001:353.563         Vendor:          HDSC
+T20A0 001:353.578         Name:            HC32F420xA
+T20A0 001:353.593         WorkRAMAddr:     0x20000000
+T20A0 001:353.607         WorkRAMSize:     0x00006000
+T20A0 001:353.623         Core:            JLINK_CORE_CORTEX_M4
+T20A0 001:353.637       FlashBankInfo:
+T20A0 001:353.652         Name:            Flash_128K
+T20A0 001:353.718         AlwaysPresent:   1
+T20A0 001:353.732         LoaderInfo:
+T20A0 001:353.747           Name:            Flash_128K
+T20A0 001:353.761           MaxSize:         0x00020000
+T20A0 001:353.776           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\HC32F420_128KB.FLM
+T20A0 001:353.790           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:353.808     Device entry created:  HC32F052
+T20A0 001:353.818       ChipInfo:
+T20A0 001:353.833         Vendor:          HDSC
+T20A0 001:353.847         Name:            HC32F052
+T20A0 001:353.861         WorkRAMAddr:     0x20000000
+T20A0 001:353.876         WorkRAMSize:     0x00004000
+T20A0 001:353.891         Core:            JLINK_CORE_CORTEX_M0
+T20A0 001:353.905       FlashBankInfo:
+T20A0 001:353.919         Name:            Flash_128K
+T20A0 001:353.985         AlwaysPresent:   1
+T20A0 001:354.000         LoaderInfo:
+T20A0 001:354.014           Name:            Flash_128K
+T20A0 001:354.029           MaxSize:         0x00020000
+T20A0 001:354.044           Loader:          C:\Users\DY-0205\AppData\Roaming\SEGGER\JLinkDevices\Devices\HDSC\HC32F052_128K.FLM
+T20A0 001:354.058           LoaderType:      FLASH_ALGO_TYPE_OPEN
+T20A0 001:354.190   Ref file found at: C:\Keil_v5\ARM\Segger\JLinkDevices.ref
+T20A0 001:354.284   REF file references invalid XML file: C:\Program Files\SEGGER\JLink\JLinkDevices.xml
+T20A0 001:354.408 - 1140.047ms returns 0x00
+T20A0 001:354.435 JLINK_ExecCommand("Device = ARMCM3", ...). 
+T20A0 001:354.457   Device "CORTEX-M3" selected.
+T20A0 001:354.674 - 0.234ms returns 0x00
+T20A0 001:354.689 JLINK_ExecCommand("DisableConnectionTimeout", ...). 
+T20A0 001:354.701 - 0.005ms returns 0x01
+T20A0 001:354.712 JLINK_GetHardwareVersion()
+T20A0 001:354.723 - 0.015ms returns 97000
+T20A0 001:354.733 JLINK_GetDLLVersion()
+T20A0 001:354.744 - 0.015ms returns 79000
+T20A0 001:354.756 JLINK_GetOEMString(...)
+T20A0 001:354.768 JLINK_GetFirmwareString(...)
+T20A0 001:354.778 - 0.014ms
+T20A0 001:354.802 JLINK_GetDLLVersion()
+T20A0 001:354.812 - 0.014ms returns 79000
+T20A0 001:354.822 JLINK_GetCompileDateTime()
+T20A0 001:354.832 - 0.014ms
+T20A0 001:354.843 JLINK_GetFirmwareString(...)
+T20A0 001:354.853 - 0.014ms
+T20A0 001:354.863 JLINK_GetHardwareVersion()
+T20A0 001:354.873 - 0.014ms returns 97000
+T20A0 001:354.884 JLINK_GetSN()
+T20A0 001:354.893 - 0.014ms returns 602712544
+T20A0 001:354.904 JLINK_GetOEMString(...)
+T20A0 001:354.916 JLINK_TIF_Select(JLINKARM_TIF_SWD)
+T20A0 001:355.564 - 0.660ms returns 0x00
+T20A0 001:355.584 JLINK_HasError()
+T20A0 001:355.600 JLINK_SetSpeed(2000)
+T20A0 001:355.713 - 0.125ms
+T20A0 001:355.930 JLINK_HasError()
+T20A0 001:355.944 JLINK_SetResetType(JLINKARM_RESET_TYPE_NORMAL)
+T20A0 001:355.954 - 0.015ms returns JLINKARM_RESET_TYPE_NORMAL
+T20A0 001:355.965 JLINK_Reset()
+T20A0 001:356.952   Found SW-DP with ID 0x0BC11477
+T20A0 001:359.508   DPIDR: 0x0BC11477
+T20A0 001:359.582   CoreSight SoC-400 or earlier
+T20A0 001:359.599   Scanning AP map to find all available APs
+T20A0 001:360.059   AP[1]: Stopped AP scan as end of AP map has been reached
+T20A0 001:360.078   AP[0]: AHB-AP (IDR: 0x04770031)
+T20A0 001:360.094   Iterating through AP map to find AHB-AP to use
+T20A0 001:361.027   AP[0]: Core found
+T20A0 001:361.060   AP[0]: AHB-AP ROM base: 0xE00FF000
+T20A0 001:361.440   CPUID register: 0x410CC601. Implementer code: 0x41 (ARM)
+T20A0 001:361.473   Found Cortex-M0 r0p1, Little endian.
+T20A0 001:361.495   
   ***** Warning: 
-T75B4 000:361.095   Identified core does not match configuration. (Found: Cortex-M0, Configured: Cortex-M3)
-T75B4 000:361.361   -- Max. mem block: 0x00010A80
-T75B4 000:361.716   CPU_ReadMem(4 bytes @ 0xE000EDF0)
-T75B4 000:362.101   CPU_WriteMem(4 bytes @ 0xE000EDF0)
-T75B4 000:362.507   CPU_ReadMem(4 bytes @ 0xE0002000)
-T75B4 000:362.816   FPUnit: 4 code (BP) slots and 0 literal slots
-T75B4 000:362.853   CPU_ReadMem(4 bytes @ 0xE000EDFC)
-T75B4 000:363.228   CPU_WriteMem(4 bytes @ 0xE000EDFC)
-T75B4 000:363.614   CPU_ReadMem(4 bytes @ 0xE0001000)
-T75B4 000:364.005   CPU_WriteMem(4 bytes @ 0xE0001000)
-T75B4 000:364.401   CoreSight components:
-T75B4 000:364.433   ROMTbl[0] @ E00FF000
-T75B4 000:364.449   CPU_ReadMem(64 bytes @ 0xE00FF000)
-T75B4 000:365.284   CPU_ReadMem(32 bytes @ 0xE000EFE0)
-T75B4 000:365.920   [0][0]: E000E000 CID B105E00D PID 000BB008 SCS
-T75B4 000:365.947   CPU_ReadMem(32 bytes @ 0xE0001FE0)
-T75B4 000:366.525   [0][1]: E0001000 CID B105E00D PID 000BB00A DWT
-T75B4 000:366.554   CPU_ReadMem(32 bytes @ 0xE0002FE0)
-T75B4 000:367.142   [0][2]: E0002000 CID B105E00D PID 000BB00B FPB
-T75B4 000:367.206   CPU is running
-T75B4 000:367.223   CPU_WriteMem(4 bytes @ 0xE000EDF0)
-T75B4 000:367.628   CPU is running
-T75B4 000:367.659   CPU_WriteMem(4 bytes @ 0xE000EDFC)
-T75B4 000:368.086   Reset: Halt core after reset via DEMCR.VC_CORERESET.
-T75B4 000:368.433   Reset: Reset device via AIRCR.SYSRESETREQ.
-T75B4 000:368.450   CPU is running
-T75B4 000:368.467   CPU_WriteMem(4 bytes @ 0xE000ED0C)
-T75B4 000:421.553   CPU_ReadMem(4 bytes @ 0xE000EDF0)
-T75B4 000:421.886   CPU_ReadMem(4 bytes @ 0xE000EDF0)
-T75B4 000:425.876   CPU_WriteMem(4 bytes @ 0xE000EDFC)
-T75B4 000:431.684   CPU_ReadMem(4 bytes @ 0xE000EDF0)
-T75B4 000:435.898   CPU_WriteMem(4 bytes @ 0xE0002000)
-T75B4 000:436.484   CPU_ReadMem(4 bytes @ 0xE000EDFC)
-T75B4 000:436.913   CPU_ReadMem(4 bytes @ 0xE0001000)
-T75B4 000:437.333   CPU_WriteMem(4 bytes @ 0xE0001000)
-T75B4 000:437.809 - 82.712ms
-T75B4 000:437.883 JLINK_GetId()
-T75B4 000:438.173 - 0.305ms returns 0x0BC11477
-T75B4 000:446.763 JLINK_GetFirmwareString(...)
-T75B4 000:446.818 - 0.070ms
-T75B4 001:376.774 JLINK_Close()
-T75B4 001:377.076   CPU_ReadMem(4 bytes @ 0xE0001000)
-T75B4 001:377.384   CPU_WriteMem(4 bytes @ 0xE0001000)
-T75B4 001:377.761   CPU_WriteMem(4 bytes @ 0xE0001004)
-T75B4 001:387.866 - 11.113ms
-T75B4 001:387.894   
-T75B4 001:387.906   Closed
+T20A0 001:361.511   Identified core does not match configuration. (Found: Cortex-M0, Configured: Cortex-M3)
+T20A0 001:361.729   -- Max. mem block: 0x00010A80
+T20A0 001:362.041   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T20A0 001:362.338   CPU_WriteMem(4 bytes @ 0xE000EDF0)
+T20A0 001:362.667   CPU_ReadMem(4 bytes @ 0xE0002000)
+T20A0 001:362.993   FPUnit: 4 code (BP) slots and 0 literal slots
+T20A0 001:363.039   CPU_ReadMem(4 bytes @ 0xE000EDFC)
+T20A0 001:363.338   CPU_WriteMem(4 bytes @ 0xE000EDFC)
+T20A0 001:363.666   CPU_ReadMem(4 bytes @ 0xE0001000)
+T20A0 001:363.992   CPU_WriteMem(4 bytes @ 0xE0001000)
+T20A0 001:364.335   CoreSight components:
+T20A0 001:364.352   ROMTbl[0] @ E00FF000
+T20A0 001:364.368   CPU_ReadMem(64 bytes @ 0xE00FF000)
+T20A0 001:365.245   CPU_ReadMem(32 bytes @ 0xE000EFE0)
+T20A0 001:365.841   [0][0]: E000E000 CID B105E00D PID 000BB008 SCS
+T20A0 001:365.906   CPU_ReadMem(32 bytes @ 0xE0001FE0)
+T20A0 001:366.458   [0][1]: E0001000 CID B105E00D PID 000BB00A DWT
+T20A0 001:366.529   CPU_ReadMem(32 bytes @ 0xE0002FE0)
+T20A0 001:367.080   [0][2]: E0002000 CID B105E00D PID 000BB00B FPB
+T20A0 001:367.191   CPU is running
+T20A0 001:367.208   CPU_WriteMem(4 bytes @ 0xE000EDF0)
+T20A0 001:367.546   CPU is running
+T20A0 001:367.581   CPU_WriteMem(4 bytes @ 0xE000EDFC)
+T20A0 001:367.886   Reset: Halt core after reset via DEMCR.VC_CORERESET.
+T20A0 001:368.305   Reset: Reset device via AIRCR.SYSRESETREQ.
+T20A0 001:368.322   CPU is running
+T20A0 001:368.338   CPU_WriteMem(4 bytes @ 0xE000ED0C)
+T20A0 001:421.326   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T20A0 001:421.765   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T20A0 001:425.785   CPU_WriteMem(4 bytes @ 0xE000EDFC)
+T20A0 001:431.601   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T20A0 001:435.477   CPU_WriteMem(4 bytes @ 0xE0002000)
+T20A0 001:435.911   CPU_ReadMem(4 bytes @ 0xE000EDFC)
+T20A0 001:436.252   CPU_ReadMem(4 bytes @ 0xE0001000)
+T20A0 001:436.611   CPU_WriteMem(4 bytes @ 0xE0001000)
+T20A0 001:437.007 - 81.058ms
+T20A0 001:437.042 JLINK_GetId()
+T20A0 001:437.253 - 0.218ms returns 0x0BC11477
+T20A0 001:446.208 JLINK_GetFirmwareString(...)
+T20A0 001:446.240 - 0.037ms
+T20A0 002:232.871 JLINK_Close()
+T20A0 002:233.152   CPU_ReadMem(4 bytes @ 0xE0001000)
+T20A0 002:233.491   CPU_WriteMem(4 bytes @ 0xE0001000)
+T20A0 002:233.866   CPU_WriteMem(4 bytes @ 0xE0001004)
+T20A0 002:244.120 - 11.336ms
+T20A0 002:244.214   
+T20A0 002:244.226   Closed

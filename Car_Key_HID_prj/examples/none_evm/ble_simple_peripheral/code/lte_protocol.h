@@ -42,6 +42,9 @@ enum {
 	LTE_VIRT_AT = 0X0D,
 	LTE_DELETE_BONDE = 0X0F,
 	LTE_ENTER_SLEEP = 0X0E,
+	LTE_OTA_START = 0X10,
+	LTE_OTA_DATA = 0X11,
+	LTE_OTA_END = 0X12,
 };
 void ble_rcv_parse(void);
 void ble_send_cmd(uint8_t cmd, uint8_t ok);

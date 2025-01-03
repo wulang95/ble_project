@@ -25,3 +25,13 @@
 .\objects\lte_protocol.o: ..\..\..\..\components\driver\include\driver_iomux.h
 .\objects\lte_protocol.o: ..\..\..\..\components\modules\os\include\os_task.h
 .\objects\lte_protocol.o: ..\..\..\..\components\driver\include\driver_rtc.h
+.\objects\lte_protocol.o: ..\..\..\..\components\modules\os\include\os_timer.h
+.\objects\lte_protocol.o: ..\code\app_ota.h
+.\objects\lte_protocol.o: ..\..\..\..\components\driver\include\driver_flash.h
+.\objects\lte_protocol.o: ..\..\..\..\components\modules\platform\include\jump_table.h
+.\objects\lte_protocol.o: ..\..\..\..\components\modules\common\include\co_math.h
+.\objects\lte_protocol.o: ..\..\..\..\components\modules\sys\include\sys_utils.h
+.\objects\lte_protocol.o: ..\..\..\..\components\driver\include\driver_wdt.h
+.\objects\lte_protocol.o: ..\..\..\..\components\driver\include\driver_pmu.h
+.\objects\lte_protocol.o: ..\..\..\..\components\driver\include\driver_pmu_regs.h
+.\objects\lte_protocol.o: ..\..\..\..\components\driver\include\driver_frspim.h

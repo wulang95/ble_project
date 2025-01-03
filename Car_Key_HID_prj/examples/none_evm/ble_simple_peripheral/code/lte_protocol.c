@@ -12,7 +12,13 @@
 #include "driver_system.h"
 #include "os_task.h"
 #include "driver_rtc.h"
-#if DEBUG_EN == 0
+#include "os_timer.h"
+#include "app_ota.h"
+#include "driver_flash.h"
+#include "jump_table.h"
+#include "sys_utils.h"
+#include "driver_wdt.h"
+#if DEBUG_EN == 1
 #define BLE_DEBUG(a, b, c)	print_data(a, b, c)
 #else
 #define BLE_DEBUG(a, b,c)
@@ -111,6 +117,10 @@ void ble_send_cmd(uint8_t cmd, uint8_t ok)
 			case LTE_CON_PARAM:
 			case LTE_DELETE_BONDE:
 			case LTE_ENTER_SLEEP:
+			case LTE_OTA_START:
+			case LTE_OTA_DATA:
+			case LTE_OTA_END:
+			case LTE_CLOSE_CON:
 				data[lenth++] = 0x00;
 				data[lenth++] = 0x01;
 				if(ok == R_OK)
@@ -144,6 +154,23 @@ void ble_send_cmd(uint8_t cmd, uint8_t ok)
 		BLE_DEBUG("ble_send", data, lenth);
 		uart_put_data_noint(UART0, data, lenth);
 }
+struct ble_ota_config_stu{
+    uint32_t firm_ver;
+    uint32_t ota_crc;
+    uint32_t total;
+};
+struct ble_ota_control_stu{
+		uint16_t pack_num;
+		uint16_t last_num;
+		uint8_t data_len;
+		uint32_t offset;
+		uint32_t firmware_offset;
+		uint8_t data[128];
+		uint8_t data_save[256];
+		uint32_t ota_adress; 
+};
+struct ble_ota_config_stu ble_ota_config;
+struct ble_ota_control_stu ble_ota_control;
 void ble_protol_process(uint8_t cmd, uint8_t *data, uint16_t len)
 {
 		co_printf("cmd:%02x\r\n", cmd);
@@ -178,6 +205,7 @@ void ble_protol_process(uint8_t cmd, uint8_t *data, uint16_t len)
 			break; 
 			case LTE_START_ADV:
 				sp_start_adv();
+		//		sp_start_adv();
 				res = R_OK;
 				ble_send_cmd(LTE_START_ADV, res);
 			break;
@@ -185,6 +213,7 @@ void ble_protol_process(uint8_t cmd, uint8_t *data, uint16_t len)
 				adv_stop();
 				res = R_OK;
 				ble_send_cmd(LTE_STOP_ADV, res);
+			break;
 			case LTE_CLOSE_CON:
 				adv_disconnect();
 				res = R_OK;
@@ -249,6 +278,68 @@ void ble_protol_process(uint8_t cmd, uint8_t *data, uint16_t len)
 				system_sleep_enable();
 				os_user_loop_event_clear();
 				rtc_alarm(RTC_A,12000);
+			break;
+			case LTE_OTA_START:
+				memcpy(&ble_ota_config, data, sizeof(ble_ota_config));
+				co_printf("firm_ver:%0x, ota_crc:%0x, total:%d\r\n", ble_ota_config.firm_ver, ble_ota_config.ota_crc, ble_ota_config.total);
+				res = R_OK;
+				ble_ota_control.ota_adress = app_otas_get_storage_address();
+				ble_ota_control.offset = 0;
+				ble_ota_control.last_num = -1;
+				co_printf("cur_adr,:%0x, storage_adr:%0x\r\n",  app_otas_get_curr_code_address(), ble_ota_control.ota_adress);
+				app_set_ota_state(1);
+				app_otas_flash_read(ble_ota_control.ota_adress, ble_ota_control.data_save,256);
+        flash_erase(ble_ota_control.ota_adress, 0x1000);
+        app_otas_save_data(ble_ota_control.ota_adress, ble_ota_control.data_save, 256);
+				app_ota_erase();	
+				ble_send_cmd(LTE_OTA_START, res);
+			break;
+			case LTE_OTA_DATA:
+				res = R_OK;
+				ble_ota_control.pack_num = data[1] << 8 | data[0];
+				ble_ota_control.data_len = len - 2;
+				co_printf("pack_num:%d\r\n", ble_ota_control.pack_num);
+				if(ble_ota_control.pack_num != ble_ota_control.last_num) {	
+						ble_ota_control.last_num = ble_ota_control.pack_num;
+						memcpy(ble_ota_control.data, &data[2], ble_ota_control.data_len);
+						if(ble_ota_control.pack_num == 0) {
+								memcpy(&ble_ota_control.data_save[0], ble_ota_control.data, ble_ota_control.data_len);
+						} else if(ble_ota_control.pack_num == 1) {
+								memcpy(&ble_ota_control.data_save[128], ble_ota_control.data, ble_ota_control.data_len);
+								ble_ota_control.firmware_offset = (uint32_t)&((struct jump_table_t *)0x01000000)->firmware_version- 0x01000000;
+								if(*(uint32_t *)((uint32_t)ble_ota_control.data_save + ble_ota_control.firmware_offset) <= app_otas_get_curr_firmwave_version()){
+											uint32_t new_bin_ver = app_otas_get_curr_firmwave_version() + 1;
+                      co_printf("old_ver:%08X\r\n",*(uint32_t *)((uint32_t)ble_ota_control.data_save + ble_ota_control.firmware_offset));
+                      co_printf("new_ver:%08X\r\n",new_bin_ver);
+                     *(uint32_t *)((uint32_t)ble_ota_control.data_save + ble_ota_control.firmware_offset) = new_bin_ver;
+							}
+						} else {
+								app_otas_save_data(ble_ota_control.ota_adress + ble_ota_control.offset, ble_ota_control.data, ble_ota_control.data_len);
+						}					
+						ble_ota_control.offset += ble_ota_control.data_len;
+						ble_send_cmd(LTE_OTA_DATA, res);
+				} else {
+						ble_send_cmd(LTE_OTA_DATA, res);
+				}
+			break;
+			case LTE_OTA_END:
+				if(ota_data_check(ble_ota_config.total - 256, ble_ota_control.ota_adress + 256) == ble_ota_config.ota_crc){
+						co_printf("BLE OTA IS OK\r\n");
+						res = R_OK;
+						ble_send_cmd(LTE_OTA_END, res);
+						wdt_feed();
+						co_delay_100us(1000);
+						app_set_ota_state(0);
+						uart_finish_transfers(UART1_BASE);
+						app_otas_save_first_pkt(ble_ota_control.ota_adress, ble_ota_control.data_save, 256);
+						
+				} else {
+						co_printf("CRC is fail!\r\n");
+						res = 1;
+						app_set_ota_state(0);
+						ble_send_cmd(LTE_OTA_END, res);
+				}
+			break;
 		}
 }
 

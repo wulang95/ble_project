@@ -87,6 +87,9 @@ static struct adv_data_s{
 		uint8_t data_s[31];
 		uint16_t len;
 }adv_s;
+
+gap_bond_info_t bond_info;
+
 void set_dev_data(uint8_t *data, uint16_t len)
 {
 		uint16_t i = 0;
@@ -156,6 +159,7 @@ os_timer_t sp_timer;
 /*
  * LOCAL FUNCTIONS (本地函数)
  */
+
 /*
  * EXTERN FUNCTIONS (外部函数)
  */
@@ -244,7 +248,25 @@ void app_gap_evt_cb(gap_event_t *p_event)
             dev_discon_ctrl();
 						pmu_set_gpio_value(GPIO_PORT_D, BIT(5), 0);
 						os_timer_stop(&update_param_timer);
-            gap_start_advertising(0);
+						sp_start_adv();
+					//	sp_start_adv();
+//						gap_adv_param_t adv_param;
+//		
+//					gap_bond_manager_get_info(0, &bond_info);
+//					co_printf("bond_info state:%d\r\n", bond_info.bond_flag);
+//					if(bond_info.bond_flag) {
+//						memcpy(adv_param.peer_mac_addr.addr.addr, bond_info.peer_addr.addr.addr, sizeof(bond_info.peer_addr.addr.addr));
+//						co_printf("bond_info adr:%02X%02X%02X%02X%02X%02X\r\n", bond_info.peer_addr.addr.addr[5],bond_info.peer_addr.addr.addr[4],\
+//						bond_info.peer_addr.addr.addr[3],bond_info.peer_addr.addr.addr[2], bond_info.peer_addr.addr.addr[1],bond_info.peer_addr.addr.addr[0]);
+//					}
+//					adv_param.adv_mode = GAP_ADV_MODE_UNDIRECT;
+//					adv_param.adv_addr_type = GAP_ADDR_TYPE_PUBLIC;
+//					adv_param.adv_chnl_map = GAP_ADV_CHAN_ALL;
+//					adv_param.adv_filt_policy = GAP_ADV_ALLOW_SCAN_ANY_CON_ANY;
+//					adv_param.adv_intv_min = ble_adv_con_param.adv_param.adv_intv_min;
+//					adv_param.adv_intv_max = ble_adv_con_param.adv_param.adv_intv_max; 
+//		//			gap_set_advertising_param(&adv_param);
+//            gap_start_advertising(0);
         }
         break;
 
@@ -311,21 +333,26 @@ void sp_start_adv(void)
 		uint8_t name_len;
     // Set advertising parameters
     gap_adv_param_t adv_param;
-    adv_param.adv_mode = GAP_ADV_MODE_UNDIRECT;
+		
+		gap_bond_manager_get_info(0, &bond_info);
+		co_printf("bond_info state:%d\r\n", bond_info.bond_flag);
+//		if(bond_info.bond_flag) {
+//			adv_param.adv_mode = GAP_ADV_MODE_HDC_DIRECT;
+//			memcpy(adv_param.peer_mac_addr.addr.addr, bond_info.peer_addr.addr.addr, sizeof(bond_info.peer_addr.addr.addr));
+//			co_printf("bond_info adr:%02X%02X%02X%02X%02X%02X\r\n", adv_param.peer_mac_addr.addr.addr[5],adv_param.peer_mac_addr.addr.addr[4],\
+//				adv_param.peer_mac_addr.addr.addr[3],adv_param.peer_mac_addr.addr.addr[2], adv_param.peer_mac_addr.addr.addr[1],adv_param.peer_mac_addr.addr.addr[0]);
+//		} else {
+//			adv_param.adv_mode = GAP_ADV_MODE_UNDIRECT;
+//		}
+		adv_param.adv_mode = GAP_ADV_MODE_UNDIRECT;
     adv_param.adv_addr_type = GAP_ADDR_TYPE_PUBLIC;
     adv_param.adv_chnl_map = GAP_ADV_CHAN_ALL;
     adv_param.adv_filt_policy = GAP_ADV_ALLOW_SCAN_ANY_CON_ANY;
     adv_param.adv_intv_min = ble_adv_con_param.adv_param.adv_intv_min;
     adv_param.adv_intv_max = ble_adv_con_param.adv_param.adv_intv_max; 
-        
+       
     gap_set_advertising_param(&adv_param);
 
-//    mac_addr_t g_addr;
-//    uint8_t adv_data_len = sizeof(adv_data);
-//    gap_address_get(&g_addr);
-//    for(uint8_t i = 0;i < 6;i++)
-//        adv_data[adv_data_len-1-i] = g_addr.addr[i];
-    // Set advertising data & scan response data
 	name_len = adv_d.data_d[0];
 	name_len -= 1;
 	memcpy(ble_name, &adv_d.data_d[2], name_len);
@@ -343,6 +370,7 @@ void sp_start_adv(void)
 		gap_set_advertising_rsp_data(adv_s.data_s, adv_s.len);
     // Start advertising
 		co_printf("Start advertising...\r\n");
+		
 		gap_start_advertising(0);
 
 		gap_set_link_rssi_report(true);
@@ -385,7 +413,7 @@ void simple_peripheral_init(void)
         .bond_auth = true,	//need bond auth
     };
 #endif
-#if 1
+#if 0
     gap_security_param_t param =
     {
         .mitm = true,		// use PIN code during bonding
@@ -396,7 +424,7 @@ void simple_peripheral_init(void)
         .password = 123456,	//set PIN code, it is a dec num between 100000 ~ 999999
     };
 #endif
-#if 0
+#if 1
     gap_security_param_t param =
     {
         .mitm = false,	// dont use PIN code during bonding
@@ -409,16 +437,14 @@ void simple_peripheral_init(void)
 #endif
 		// Initialize security related settings.
     gap_security_param_init(&param);
-    
     gap_set_cb_func(app_gap_evt_cb);
 
     Smoothing_Filter_init(&rssi_filter_id);
 		//enable bond manage module, which will record bond key and peer service info into flash. 
 		//and read these info from flash when func: "gap_bond_manager_init" executes.
-    gap_bond_manager_init(BLE_BONDING_INFO_SAVE_ADDR, BLE_REMOTE_SERVICE_SAVE_ADDR, 8, true);
-    //gap_bond_manager_delete_all();
+    gap_bond_manager_init(BLE_BONDING_INFO_SAVE_ADDR, BLE_REMOTE_SERVICE_SAVE_ADDR, 1, true);
+    gap_bond_manager_delete_all();
     gap_set_dev_appearance(GAP_APPEARE_GENERIC_HID);
-    
     mac_addr_t addr;
     gap_address_get(&addr);
     co_printf("Local BDADDR: 0x%02X%02X%02X%02X%02X%02X\r\n", addr.addr[5], addr.addr[4], addr.addr[3], addr.addr[2], addr.addr[1], addr.addr[0]);
