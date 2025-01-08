@@ -65,6 +65,7 @@ enum pmu_aldo_voltage_t
     PMU_ALDO_VOL_2_5 = 0xa0,
     PMU_ALDO_VOL_2_3 = 0x90,
     PMU_ALDO_VOL_2_1 = 0x80,
+    PMU_ALDO_VOL_1_8 = 0x30,
 };
 
 enum pmu_lp_clk_src_t
@@ -111,6 +112,16 @@ enum charge_term_vol_t
     CHG_VOL_4_40V    =   6,
 };
 
+enum otd_threshold_t{
+    OTD_TEMPERATURE_114,
+    OTD_TEMPERATURE_102,
+    OTD_TEMPERATURE_90,
+    OTD_TEMPERATURE_78,
+    OTD_TEMPERATURE_66,
+    OTD_TEMPERATURE_54,
+    OTD_TEMPERATURE_42,
+    OTD_TEMPERATURE_30,
+};
 /*
  * GLOBAL VARIABLES
  */
@@ -470,6 +481,17 @@ void pmu_set_led2_as_pwm(void);
  * @return  None.
  */
 void pmu_enable_charge(enum charge_current_t cur,enum charge_term_vol_t vol,bool en);
+
+/*********************************************************************
+ * @fn      pmu_otd_threshold_set
+ *
+ * @brief   Set temperature range to trigger OTD 
+ *
+ * @param   threshold_value   - threshold range, @ref enum otd_threshold_t
+ *
+ * @return  None.
+ */
+void pmu_otd_threshold_set(enum otd_threshold_t threshold_value);
 
 #endif  //_DRIVER_PMU_H
 

@@ -48,6 +48,16 @@ void co_delay_100us(uint32_t num);
 /*
  * num should not be greater than 8_000_000
  */
+ /*********************************************************************
+ * @fn      system_get_spare_exmem
+ *
+ * @brief   Gets exmem unused regional base address and length.
+ * 
+ * @param   base:   return exmem unused regional base address.
+ *          length: return exmem unused regional length.
+ */
+void system_get_spare_exmem(uint32_t *base, uint32_t *length);
+
 void co_delay_10us(uint32_t num);
 void cpu_delay_100us(uint32_t num);
 float Smoothing_Filter_handle(uint8_t filter_id,float input);

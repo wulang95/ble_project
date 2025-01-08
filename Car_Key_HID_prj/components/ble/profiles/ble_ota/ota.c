@@ -24,6 +24,7 @@
 #include "flash_usage_config.h"
 #ifdef OTA_CRC_CHECK
 #include "os_timer.h"
+
 uint32_t Crc32CalByByte(int crc,uint8_t* ptr, int len);
 uint8_t app_otas_crc_cal(uint32_t firmware_length,uint32_t new_bin_addr,uint32_t crc_data_t);
 void enable_cache(uint8_t invalid_ram);
@@ -108,8 +109,6 @@ static uint32_t app_otas_get_image_size(void)
     return jump_table_tmp->image_size;
 }
 
-
-
 __attribute__((section("ram_code"))) static void app_otas_save_data(uint32_t dest, uint8_t *src, uint32_t len)
 {
     uint32_t current_remap_address, remap_size;
@@ -151,6 +150,46 @@ __attribute__((section("ram_code"))) static void app_otas_save_data(uint32_t des
         ke_free((void *)buffer);
     */
 }
+
+#ifdef OTA_FOR_FR8012HAQ_J
+#define REG_BLE_WR(addr, value)      (*(volatile uint32_t *)(addr)) = (value)
+#define REG_BLE_RD(addr)             (*(volatile uint32_t *)(addr))
+
+__attribute__((section("ram_code"))) static void app_otas_flash_read(uint32_t dest, uint8_t *src, uint32_t len)
+{
+    uint32_t current_remap_address, remap_size;
+    current_remap_address = system_regs->remap_virtual_addr;
+    remap_size = system_regs->remap_length;
+
+    GLOBAL_INT_DISABLE();
+    system_regs->remap_virtual_addr = 0;
+    system_regs->remap_length = 0;
+    disable_cache();
+    flash_read(dest,len,src);
+    enable_cache(true);
+    system_regs->remap_virtual_addr = current_remap_address;
+    system_regs->remap_length = remap_size;
+    GLOBAL_INT_RESTORE();
+}
+
+__attribute__((section("ram_code"))) static void app_otas_save_first_pkt(uint32_t dest,uint8_t *src,uint32_t len)
+{
+    uint8_t * first_page_data = NULL;
+    __disable_irq();
+    REG_BLE_WR(0x40000000, (REG_BLE_RD(0x40000000) & ~((uint32_t)0x80000000)) | ((uint32_t)1<< 31));
+    co_delay_100us(100);
+    first_page_data = (uint8_t *)0x40002000;
+    memset(first_page_data,0,0x1000);
+
+    app_otas_flash_read(dest,first_page_data,0x1000);
+    memcpy(first_page_data,src,len);
+    flash_erase(dest,0x1000);
+    app_otas_save_data(dest,first_page_data,0x1000);
+   
+    uart_finish_transfers(UART1_BASE);        
+    platform_reset_patch(0);
+}
+#endif
 
 void ota_clr_buffed_pkt(uint8_t conidx)
 {
@@ -375,6 +414,17 @@ void app_otas_recv_data(uint8_t conidx,uint8_t *p_data,uint16_t len)
 #endif
             if(rsp_hdr->rsp.page_erase.base_address == new_bin_base)
             {
+#ifdef OTA_FOR_FR8012HAQ_J
+                uint8_t * head_pkt = NULL;
+                head_pkt = os_malloc(256);
+                if(head_pkt)
+                {
+                    app_otas_flash_read(rsp_hdr->rsp.page_erase.base_address,head_pkt,256);
+                    flash_erase(rsp_hdr->rsp.page_erase.base_address, 0x1000);
+                    app_otas_save_data(rsp_hdr->rsp.page_erase.base_address,head_pkt,256);
+                    os_free(head_pkt);
+                }
+#else                
                 for(uint16_t offset = 256; offset < 4096; offset += 256)
                 {
 #ifdef FLASH_PROTECT
@@ -385,6 +435,7 @@ void app_otas_recv_data(uint8_t conidx,uint8_t *p_data,uint16_t len)
                     flash_protect_enable(0);
 #endif
                 }
+#endif                
             }
             else
                 flash_erase(rsp_hdr->rsp.page_erase.base_address, 0x1000);
@@ -415,7 +466,7 @@ void app_otas_recv_data(uint8_t conidx,uint8_t *p_data,uint16_t len)
                     first_pkt.len = 0;
                 }
             }
-#ifdef OTA_CRC_CHECK
+#ifdef OTA_CRC_CHECK			
             if((rsp_hdr->rsp.write_data.base_address !=(ota_addr_check + ota_addr_check_len)) &&
                 (rsp_hdr->rsp.write_data.base_address !=ota_addr_check)){//for OTA write addr error  no req
                 co_printf("rsp_hdr->rsp.write_data.base_address = %x\r\nota_addr_check=%x,\r\nlen = %d\r\nSUM=%x\r\n",rsp_hdr->rsp.write_data.base_address,ota_addr_check,len,rsp_hdr->rsp.write_data.base_address + len);
@@ -426,7 +477,7 @@ void app_otas_recv_data(uint8_t conidx,uint8_t *p_data,uint16_t len)
                 ota_addr_check = rsp_hdr->rsp.write_data.base_address;
                 ota_addr_check_len = rsp_hdr->rsp.write_data.length;
             }
-#endif
+#endif				
             if( rsp_hdr->rsp.write_data.base_address <= (new_bin_base + rsp_hdr->rsp.write_data.length *(first_pkt.malloced_pkt_num-1)) )
             {
                 if(first_pkt.buf != NULL)
@@ -493,6 +544,10 @@ void app_otas_recv_data(uint8_t conidx,uint8_t *p_data,uint16_t len)
 #ifdef OTA_CRC_CHECK
                 if(app_otas_crc_cal(cmd_hdr->cmd.fir_crc_data.firmware_length,new_bin_base,cmd_hdr->cmd.fir_crc_data.CRC32_data)){
 #endif			   
+#ifdef OTA_FOR_FR8012HAQ_J
+                co_printf("crc32 check success\r\n");
+                app_otas_save_first_pkt(new_bin_base,first_pkt.buf,256);
+#else                    
 #ifdef FLASH_PROTECT
                 flash_protect_disable(0);
 #endif	
@@ -502,6 +557,7 @@ void app_otas_recv_data(uint8_t conidx,uint8_t *p_data,uint16_t len)
 #endif	
 				co_printf("crc32 check success\r\n");
                 app_otas_save_data(new_bin_base,first_pkt.buf,256);
+#endif                    
 #ifdef OTA_CRC_CHECK				
                 }
                 else{
@@ -512,11 +568,13 @@ void app_otas_recv_data(uint8_t conidx,uint8_t *p_data,uint16_t len)
                 }
 #endif			   
             }
+#ifndef OTA_FOR_FR8012HAQ_J            
             app_set_ota_state(0);
             uart_finish_transfers(UART1_BASE);
             ota_clr_buffed_pkt(conidx);
             //NVIC_SystemReset();
             platform_reset_patch(0);
+#endif            
             break;
         default:
             rsp_hdr->result = OTA_RSP_UNKNOWN_CMD;

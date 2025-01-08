@@ -6,7 +6,7 @@
 #include "driver_plf.h"
 #include "sys_utils.h"
 //#include "apb2spi.h"
-#include "driver_uart.h"
+//#include "uart.h"
 
 extern void platform_reset_patch(uint32_t error);
 __attribute__((section("ram_code"))) void HardFault_Handler_C(unsigned int* hardfault_args)
@@ -50,13 +50,9 @@ __attribute__((section("ram_code"))) void HardFault_Handler_C(unsigned int* hard
     flash_erase(USER_FLASH_BASE_ADDR, 0);
     flash_write(USER_FLASH_BASE_ADDR,12, &tmp[0]);
 #endif
-    uart_finish_transfers(UART1);
 
     //store_reset_info(RST_CAUSE_CRASH);
-    //platform_reset_patch(0);
-    //while(1);
-    wdt_init(WDT_ACT_RST_CHIP,1);
-    ool_write(PMU_REG_WTD_CTRL, ool_read(PMU_REG_WTD_CTRL) | PMU_WTD_EN );
+    platform_reset_patch(0);
     while(1);
 }
 

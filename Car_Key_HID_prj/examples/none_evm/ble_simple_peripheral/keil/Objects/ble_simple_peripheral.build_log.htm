@@ -22,14 +22,102 @@ Dialog DLL:      TCM.DLL V1.14.14.0
  
 <h2>Project:</h2>
 D:\wulang\IOT软件开发\ENG_IOT\ble\ble稳定版加无感解锁\Car_Key_HID_prj\examples\none_evm\ble_simple_peripheral\keil\ble_simple_peripheral.uvprojx
-Project File Date:  01/02/2025
+Project File Date:  01/08/2025
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 3 (build 300)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
-Build target 'ble_simple_peripheral'
+Rebuild target 'ble_simple_peripheral'
+compiling hid_service.c...
+..\..\..\..\components\ble\profiles\ble_hid\hid_service.c(175): warning:  #550-D: variable "hid_link_enable" was set but never used
+  static bool hid_link_enable[CFG_CON] = {0};
+..\..\..\..\components\ble\profiles\ble_hid\hid_service.c: 1 warning, 0 errors
+compiling user_task.c...
+compiling app_ota.c...
+..\code\app_ota.h(29): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\code\app_ota.c(177): warning:  #177-D: function "app_otas_get_image_size" was declared but never referenced
+  static uint32_t app_otas_get_image_size(void)
+..\code\app_ota.c: 2 warnings, 0 errors
+compiling simple_gatt_service.c...
+..\code\lte_protocol.h(52): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\..\..\..\components\ble\profiles\ble_simple_profile\simple_gatt_service.c: 1 warning, 0 errors
+compiling driver_keyscan.c...
+compiling ble_simple_peripheral.c...
+..\code\lte_protocol.h(52): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\code\ble_simple_peripheral.c(442): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "const uint8_t *"
+  		uart_put_data_noint(
+ART0, mac_str, sizeof(mac_str));
+..\code\ble_simple_peripheral.c: 2 warnings, 0 errors
+compiling driver_pmu_qdec.c...
+compiling proj_main.c...
+..\code\lte_protocol.h(52): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\code\app_ota.h(29): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\code\proj_main.c(59): warning:  #167-D: argument of type "void (*)(void *)" is incompatible with parameter of type "void (*)(void)"
+  		os_user_loop_event_set(&user_loop_callback);
+..\code\proj_main.c(274): warning:  #167-D: argument of type "void (*)(void *)" is incompatible with parameter of type "void (*)(void)"
+  		os_user_loop_event_set(&user_loop_callback);
+..\code\proj_main.c: 4 warnings, 0 errors
+compiling driver_iic.c...
+compiling car_key_protocol.c...
+..\code\lte_protocol.h(52): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\code\car_key_protocol.c(93): warning:  #177-D: variable "dev_con_flag" was declared but never referenced
+  static uint8_t dev_con_flag = 0,dev_con_ready = 0;
+..\code\car_key_protocol.c(100): warning:  #177-D: variable "rssi_car_door_task_id" was declared but never referenced
+  static uint16_t rssi_car_door_task_id;
+..\code\car_key_protocol.c: 3 warnings, 0 errors
+compiling lte_protocol.c...
+..\code\lte_protocol.h(52): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\code\app_ota.h(29): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\code\lte_protocol.c(28): warning:  #1295-D: Deprecated declaration adv_disconnect - give arg types
+  extern void adv_disconnect();
+..\code\lte_protocol.c(31): warning:  #1295-D: Deprecated declaration adv_stop - give arg types
+  extern void adv_stop();
+..\code\lte_protocol.c(59): warning:  #177-D: variable "i" was declared but never referenced
+  		uint16_t lenth = 0, i;
+..\code\lte_protocol.c(132): warning:  #1182-D: a declaration cannot have a label
+  				mac_addr_t addr;
+..\code\lte_protocol.c(187): warning:  #68-D: integer conversion resulted in a change of sign
+  					res = 
+_FAIL;
+..\code\lte_protocol.c(200): warning:  #68-D: integer conversion resulted in a change of sign
+  						res = 
+_FAIL;
+..\code\lte_protocol.c(250): warning:  #1182-D: a declaration cannot have a label
+  				struct adv_param_s adv_p;		
+..\code\lte_protocol.c(252): warning:  #68-D: integer conversion resulted in a change of sign
+  						res = 
+_FAIL;
+..\code\lte_protocol.c(262): warning:  #1182-D: a declaration cannot have a label
+  				struct adv_con_param_s adv_con_p;
+..\code\lte_protocol.c(264): warning:  #68-D: integer conversion resulted in a change of sign
+  						res = 
+_FAIL;
+..\code\lte_protocol.c(293): warning:  #68-D: integer conversion resulted in a change of sign
+  				ble_ota_control.last_num = -1;
+..\code\lte_protocol.c: 13 warnings, 0 errors
+compiling driver_pmu.c...
+compiling driver_wdt.c...
+compiling driver_rtc.c...
+compiling driver_uart.c...
+compiling driver_i2s.c...
+compiling driver_exti.c...
+assembling app_boot_vectors.s...
+compiling driver_timer.c...
+compiling driver_efuse.c...
+compiling core_cm3_isr.c...
+compiling patch.c...
+linking...
+Program Size: Code=102072 RO-data=6120 RW-data=1064 ZI-data=4448  
 After Build - User command #1: fromelf.exe  --text  -c -o Output/ble_simple_peripheral.txt  Objects/ble_simple_peripheral.axf
 After Build - User command #2: fromelf.exe  --bin -o Output/ble_simple_peripheral.bin  Objects/ble_simple_peripheral.axf
-".\Objects\ble_simple_peripheral.axf" - 0 Error(s), 0 Warning(s).
+".\Objects\ble_simple_peripheral.axf" - 0 Error(s), 26 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -47,7 +135,7 @@ Package Vendor: ARM
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:4.3.0
-Build Time Elapsed:  00:00:00
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

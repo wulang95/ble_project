@@ -88,7 +88,7 @@ void user_custom_parameters(void)
     memcpy(__jump_table.addr.addr,id_data.unique_id,6);
     __jump_table.system_clk = SYSTEM_SYS_CLK_48M;
     jump_table_set_static_keys_store_offset(JUMP_TABLE_STATIC_KEY_OFFSET);
-    
+    ble_set_addr_type(BLE_ADDR_TYPE_PUBLIC);
     retry_handshake();
 }
 

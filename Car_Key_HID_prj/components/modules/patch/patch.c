@@ -10,8 +10,9 @@
 #include "driver_flash.h"
 #include "flash_usage_config.h"
 
+#define UPDATE_CHANEL_MAP_EN              0
 #define PATCH_MAP_BASE_ADDR             0x20002000
-
+#define ENABLE_CHECK_CONN_IND_RSSI_PATCH  0
 /* Suppress warning messages */
 #if defined(__CC_ARM)
 // Suppress warning message: extended constant initialiser used
@@ -30,6 +31,10 @@ struct patch_element_t
 extern void *ke_malloc_user(uint32_t size, uint8_t type);
 extern void ke_free_user(void* mem_ptr);
 #endif
+
+#if ENABLE_CHECK_CONN_IND_RSSI_PATCH
+bool lld_adv_pkt_rx_patch(uint8_t act_id);
+#endif
 void pmu_calibration_start(uint8_t type, uint16_t counter);
 void pmu_calibration_stop(void);
 uint16_t pmu_get_isr_state(void);
@@ -44,7 +49,10 @@ uint8_t lld_con_llcp_tx_patch(uint8_t, void *);
 uint8_t lld_con_data_tx_patch(uint8_t, void *);
 void vPortSuppressTicksAndSleep_patch( uint32_t xExpectedIdleTime );
 void adv_tx_free_imp(uint16_t buf);
-
+void llm_ch_map_update_patch(void);
+uint8_t lld_adv_start_patch(uint8_t act_id, void * params);
+void lld_adv_frm_isr_patch(uint8_t act_id, uint32_t timestamp, bool abort);
+void lld_con_sched_patch(uint8_t link_id, uint32_t clock, bool sync);
 /*
  * keil debug breakpoint will take place FPB entry at the beginning of patch table with increasing
  * direction, so use patch entry point start at the end of patch table with decreasing direction.
@@ -59,7 +67,12 @@ struct patch_element_t patch_elements[] =
         .replace_function = adv_tx_free_imp,
     },
     [14] = {
+        #if ENABLE_CHECK_CONN_IND_RSSI_PATCH
+        .patch_pc = 0x0000f9d2,
+        .replace_function = lld_adv_pkt_rx_patch,
+        #else
         .patch_pc = 0x00000001,
+        #endif
     },
     /*
      * (con_par->instant_proc.type == INSTANT_PROC_NO_PROC), this judgement will keep slave latency stopped once
@@ -67,7 +80,8 @@ struct patch_element_t patch_elements[] =
      * will make the system working with higher power consumption in deep sleep mode.
      */
     [13] = {
-        .patch_pc = 0x00011f4c, // replace processing in if (sync) condition, take reference in svc_handler
+        .patch_pc = 0x00011f06,
+        .replace_function = lld_con_sched_patch,
     },
     [12] = {
         //.patch_pc = 0x0000849c, // check adv interval in set adv parameter cmd handler
@@ -106,9 +120,16 @@ struct patch_element_t patch_elements[] =
     },
 #endif
 #endif
+#if  UPDATE_CHANEL_MAP_EN
     [9] = {
-        .patch_pc = 0x00012f30, // disable LLM_CH_MAP_TO temporary
+        .patch_pc = 0x00018c32, 
+        .replace_function = llm_ch_map_update_patch,
     },
+#else
+    [9] = {
+        .patch_pc = 0x00012f30, 
+    },    
+#endif
     [8] = {
         .patch_pc = 0x00012410, // replace em_ble_rxmaxbuf_set(cs_idx, LE_MAX_OCTETS) in lld_con_start
     },
@@ -116,7 +137,11 @@ struct patch_element_t patch_elements[] =
         .patch_pc = 0x0001e500, // 0x0001e500,
     },
     [6] = {
+#if defined(CFG_HCI_CODE) || defined(CFG_FT_CODE)
+        .patch_pc = 0x00000001,
+#else
         .patch_pc = 0x0001e808,
+#endif
     },
 
     // this position has been taken in private mesh application, search FPB_CompSet for details
@@ -154,14 +179,22 @@ __attribute__((aligned(64))) uint32_t patch_map[16] =
     0xBF00DF03,
     0xBF00DF04,
     0x46080141,
+#if defined(CFG_HCI_CODE) || defined(CFG_FT_CODE)
+    0x00000000,
+#else
     (uint32_t)llc_patch_1,
+#endif
     0x0001F8FD,
     0xEB01201B, // 8
+#if  UPDATE_CHANEL_MAP_EN
+    0xBF00DF09,
+#else
     0xBF00BF00,
+#endif
     0xBF00DF0a, //10
     0xe002d87f,
     0xBF00DF0c, // 0xe002d87f, // 12
-    0xDF0CBF00,
+    0xBF00DF0D,//0xDF0CBF00,
     0xBF00DF0E,
     0xBF00DF0F,
 };
@@ -209,9 +242,15 @@ __attribute__((section("ram_code"))) void patch_set_entry(void)
 }
 __attribute__((section("ram_code"))) void patch_reset_entry(void)
 {
-    patch_elements[9].patch_pc = 0x00012f30; 
-    patch_elements[8].patch_pc = 0x00012410;
+    #if UPDATE_CHANEL_MAP_EN
+    patch_elements[9].patch_pc = 0x00018c32; 
+    patch_elements[9].replace_function = llm_ch_map_update_patch;
+    patch_map[9] = 0xBF00DF09;
+    #else
+    patch_elements[9].patch_pc = 0x00012f30;
     patch_map[9] = 0xBF00BF00;
+    #endif
+    patch_elements[8].patch_pc = 0x00012410;
     patch_map[8] = 0xEB012000 | __jump_table.max_rx_buffer_size;
 }
 
@@ -360,12 +399,7 @@ __attribute__((section("ram_code"))) void flash_write(uint32_t offset, uint32_t 
     flash_protect_disable(0);
 #endif	
     if(((offset >= 2*__jump_table.image_size) 
-#ifdef FOR_4M_FLASH    
-            && (offset < 0x80000)
-#elif FOR_2M_FLASH
-            && (offset < 0x40000)
-#endif
-            ) || (app_get_ota_state()))
+            && (offset < FLASH_MAX_SIZE)) || (app_get_ota_state()))
     {
         while(length) {
             if(offset < 1*1024*1024) {
@@ -424,12 +458,7 @@ __attribute__((section("ram_code"))) void flash_erase(uint32_t offset, uint32_t 
     flash_protect_disable(0);
 #endif	
     if(((offset >= 2*__jump_table.image_size) 
-#ifdef FOR_4M_FLASH    
-        && (offset < 0x80000)
-#elif FOR_2M_FLASH
-        && (offset < 0x40000)
-#endif
-        ) || (app_get_ota_state()))
+            && (offset < FLASH_MAX_SIZE)) || (app_get_ota_state()))
         flash_erase_(offset, length);
 #ifdef FLASH_PROTECT
     flash_protect_enable(0);
@@ -444,6 +473,8 @@ __attribute__((section("ram_code"))) void flash_read(uint32_t offset, uint32_t l
     uint32_t last_space;
     void (*flash_read_)(uint32_t offset, uint32_t length, uint8_t *buffer) = (void (*)(uint32_t, uint32_t, uint8_t *))0x00004809;
     
+    if(offset >= FLASH_MAX_SIZE)
+        return;
     while(length) {
         if(offset < 1*1024*1024) {
             last_space = 1*1024*1024-offset;

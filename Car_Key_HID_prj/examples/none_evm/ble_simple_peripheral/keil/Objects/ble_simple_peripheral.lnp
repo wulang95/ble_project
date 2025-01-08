@@ -6,7 +6,6 @@
 ".\objects\lte_protocol.o"
 ".\objects\app_ota.o"
 ".\objects\simple_gatt_service.o"
-".\objects\dev_info_service.o"
 ".\objects\hid_service.o"
 ".\objects\driver_iic.o"
 ".\objects\driver_pmu.o"

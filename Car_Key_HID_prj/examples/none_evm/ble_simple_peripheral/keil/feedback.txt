@@ -1,4 +1,4 @@
-;#<FEEDBACK># ARM Linker, 5060300: Last Updated: Fri Jan 03 17:56:14 2025
+;#<FEEDBACK># ARM Linker, 5060300: Last Updated: Wed Jan 08 14:33:22 2025
 ;VERSION 0.2
 ;FILE adv_check_mode.o
 __asm___16_adv_check_mode_c_9741a236____REV16 <= USED 0
@@ -16,11 +16,8 @@ __asm___5_app_c_836484a2____REVSH <= USED 0
 __asm___5_app_c_836484a2____RRX <= USED 0
 ble_aes128_start <= USED 0
 ble_gap_get_peer_info <= USED 0
-ble_set_addr_type <= USED 0
 ble_set_diagport <= USED 0
-ble_set_ral <= USED 0
 ble_set_rlsv_addr_renew_time <= USED 0
-ble_set_wl <= USED 0
 gap_lecb_add_credit <= USED 0
 gap_lecb_conn_req <= USED 0
 gap_lecb_disconn_req <= USED 0
@@ -48,13 +45,14 @@ ota_test <= USED 0
 ;FILE app_proj_event.o
 ;FILE app_sec.o
 ble_sec_clr_fixed_ltk <= USED 0
+ble_sec_nc_rsp <= USED 0
 ble_sec_remove_bond <= USED 0
 ble_sec_send_paring_password <= USED 0
-ble_sec_send_security_req <= USED 0
 ble_sec_set_fixed_ltk <= USED 0
 ble_sec_start_bond <= USED 0
 ble_sec_start_enc_req <= USED 0
 bond_info_add <= USED 0
+gap_pairing_rsp <= USED 0
 gap_security_check_rand_ediv <= USED 0
 ;FILE app_task.o
 ;FILE attc.o
@@ -81,9 +79,6 @@ dev_msg_store <= USED 0
 __asm___14_core_cm3_isr_c_5a2a0181____REV16 <= USED 0
 __asm___14_core_cm3_isr_c_5a2a0181____REVSH <= USED 0
 __asm___14_core_cm3_isr_c_5a2a0181____RRX <= USED 0
-;FILE dev_info_service.o
-dis_gatt_add_service <= USED 0
-dis_gatt_op_cmp_handler <= USED 0
 ;FILE driver_efuse.o
 __asm___14_driver_efuse_c_9109bb6a____REV16 <= USED 0
 __asm___14_driver_efuse_c_9109bb6a____REVSH <= USED 0
@@ -113,16 +108,22 @@ i2s_send_data <= USED 0
 i2s_start <= USED 0
 i2s_stop <= USED 0
 ;FILE driver_iic.o
-__asm___12_driver_iic_c_8d61f799____REV16 <= USED 0
-__asm___12_driver_iic_c_8d61f799____REVSH <= USED 0
-__asm___12_driver_iic_c_8d61f799____RRX <= USED 0
-iic0_isr <= USED 0
+__asm___12_driver_iic_c_c86a542b____REV16 <= USED 0
+__asm___12_driver_iic_c_c86a542b____REVSH <= USED 0
+__asm___12_driver_iic_c_c86a542b____RRX <= USED 0
+iic0_isr_ram <= USED 0
+iic1_isr_ram <= USED 0
+iic_get_status <= USED 0
 iic_init <= USED 0
+iic_int_disable <= USED 0
+iic_int_enable <= USED 0
 iic_read_byte <= USED 0
 iic_read_bytes <= USED 0
+iic_read_bytes_no_regaddr <= USED 0
 iic_write_byte <= USED 0
 iic_write_bytes <= USED 0
 iic_write_bytes_imp <= USED 0
+iic_write_bytes_no_regaddr <= USED 0
 ;FILE driver_keyscan.o
 keyscan_init <= USED 0
 keyscan_test <= USED 0
@@ -136,6 +137,7 @@ pmu_disable_irq <= USED 0
 pmu_enable_charge <= USED 0
 pmu_get_gpio_port_value <= USED 0
 pmu_get_gpio_value <= USED 0
+pmu_otd_threshold_set <= USED 0
 pmu_set_aldo_voltage <= USED 0
 pmu_set_led1_as_pwm <= USED 0
 pmu_set_led1_value <= USED 0
@@ -194,6 +196,7 @@ flash_read_id <= USED 0
 gap_address_set <= USED 0
 gap_bond_manager_add_info <= USED 0
 gap_bond_manager_delete <= USED 0
+gap_bond_manager_delete_by_idx <= USED 0
 gap_conn_phy_update <= USED 0
 gap_get_conn_phy <= USED 0
 gap_get_encryption_status <= USED 0
@@ -202,14 +205,15 @@ gap_get_latest_conn_parameter <= USED 0
 gap_get_link_features <= USED 0
 gap_get_link_rssi <= USED 0
 gap_get_link_version <= USED 0
+gap_keymissing_disconnect_req <= USED 0
 gap_param_update_rsp <= USED 0
 gap_sec_clr_fixed_ltk <= USED 0
+gap_sec_nc_rsp <= USED 0
 gap_sec_set_fixed_ltk <= USED 0
 gap_security_enc_req <= USED 0
 gap_security_get_bond_req <= USED 0
 gap_security_get_bond_status <= USED 0
 gap_security_pairing_req <= USED 0
-gap_security_req <= USED 0
 gap_security_send_pairing_password <= USED 0
 gap_set_advertising_data1 <= USED 0
 gap_set_advertising_param1 <= USED 0
@@ -218,10 +222,9 @@ gap_set_channel_map <= USED 0
 gap_set_mtu <= USED 0
 gap_set_per_adv_data <= USED 0
 gap_set_per_adv_data1 <= USED 0
-gap_set_ral <= USED 0
-gap_set_wl <= USED 0
 gap_start_advertising1 <= USED 0
 gap_start_conn <= USED 0
+gap_start_conn_customer <= USED 0
 gap_start_conn_long_range <= USED 0
 gap_start_conn_whitelist <= USED 0
 gap_start_per_sync <= USED 0
@@ -262,16 +265,23 @@ gatt_client_write_cmd_with_handle <= USED 0
 gatt_client_write_req <= USED 0
 gatt_client_write_req_with_handle <= USED 0
 gatt_delete_svc <= USED 0
+gatt_delete_svc_internal <= USED 0
+gatt_delete_svc_list <= USED 0
 gatt_discovery_all_peer_svc <= USED 0
 gatt_discovery_peer_svc <= USED 0
+gatt_get_client_read_handle <= USED 0
+gatt_get_notification_handle <= USED 0
 gatt_get_svc_hdl <= USED 0
 gatt_get_task_no_from_prf_id <= USED 0
 gatt_indication <= USED 0
 gatt_indication_with_handle <= USED 0
 gatt_msg_default <= USED 0
+gatt_mtu_exchange_req <= USED 0
 gatt_svc_changed_req <= USED 0
 ;FILE gattc.o
 gattc_get_op_seq_num <= USED 0
+;FILE gattc_task.o
+gattc_trans_timeout_ctrl <= USED 0
 ;FILE gattm.o
 ;FILE hid_service.o
 hid_gatt_op_cmp_handler <= USED 0
@@ -292,7 +302,6 @@ l2cc_dbg_pdu_unpack <= USED 0
 __asm___14_lte_protocol_c_79fcb127____REV16 <= USED 0
 __asm___14_lte_protocol_c_79fcb127____REVSH <= USED 0
 __asm___14_lte_protocol_c_79fcb127____RRX <= USED 0
-print_data <= USED 0
 test_protol <= USED 0
 ;FILE m_al_activity.o
 gapm_activity_created_ind_handler <= USED 0
@@ -775,12 +784,15 @@ dbg_log <= USED 0
 gatt_get_tx_buf_nb <= USED 0
 patch_get_con_evt_cnt <= USED 0
 patch_set_event_cnt_target <= USED 0
-;FILE patch_rf.o
-__asm___10_patch_rf_c_e73c1e89____REV16 <= USED 0
-__asm___10_patch_rf_c_e73c1e89____REVSH <= USED 0
-__asm___10_patch_rf_c_e73c1e89____RRX <= USED 0
+;FILE patch_rf_fcc.o
+__asm___14_patch_rf_fcc_c_e73c1e89____REV16 <= USED 0
+__asm___14_patch_rf_fcc_c_e73c1e89____REVSH <= USED 0
+__asm___14_patch_rf_fcc_c_e73c1e89____RRX <= USED 0
+lc_update_check <= USED 0
+patch_fast_scan_set <= USED 0
 system_latency_disable <= USED 0
 system_set_conn_sleep_max_during <= USED 0
+test_start <= USED 0
 ;FILE patch_rtos.o
 __asm___12_patch_rtos_c_ea38be2b____REV16 <= USED 0
 __asm___12_patch_rtos_c_ea38be2b____REVSH <= USED 0
@@ -830,6 +842,7 @@ hex4bit_to_char <= USED 0
 hex_arr_to_str <= USED 0
 str_to_hex_arr <= USED 0
 str_to_val <= USED 0
+system_get_spare_exmem <= USED 0
 system_optimize_power_consumption_set <= USED 0
 system_power_off <= USED 0
 system_prevent_sleep_clear <= USED 0
@@ -840,6 +853,7 @@ val_to_str <= USED 0
 ;FILE user_bond_manage.o
 ble_bond_addr_check_result <= USED 0
 ble_bond_clr_info <= USED 0
+ble_bond_clr_info_by_idx <= USED 0
 ble_bond_get_last_bond_idx <= USED 0
 gatt_load_peer_svc_from_flash <= USED 0
 ;FILE user_task.o

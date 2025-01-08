@@ -88,7 +88,6 @@ static struct adv_data_s{
 		uint16_t len;
 }adv_s;
 
-gap_bond_info_t bond_info;
 
 void set_dev_data(uint8_t *data, uint16_t len)
 {
@@ -174,7 +173,7 @@ os_timer_t sp_timer;
 void param_timer_func(void *arg)
 {
     co_printf("param_timer_func\r\n");
-    gatt_mtu_exchange_req(0);
+//    gatt_mtu_exchange_req(0);
     gap_conn_param_update(0, ble_adv_con_param.adv_con_param.min_intv,\
 		ble_adv_con_param.adv_con_param.max_intv, \
 		ble_adv_con_param.adv_con_param.slave_latency,\
@@ -237,7 +236,7 @@ void app_gap_evt_cb(gap_event_t *p_event)
             os_timer_start(&update_param_timer,2000,0);
 						pmu_set_gpio_value(GPIO_PORT_D, BIT(5), 1);
 					
-            //gap_security_req(p_event->param.slave_connect.conidx);
+            gap_security_req(p_event->param.slave_connect.conidx);
         }
         break;
 
@@ -249,24 +248,6 @@ void app_gap_evt_cb(gap_event_t *p_event)
 						pmu_set_gpio_value(GPIO_PORT_D, BIT(5), 0);
 						os_timer_stop(&update_param_timer);
 						sp_start_adv();
-					//	sp_start_adv();
-//						gap_adv_param_t adv_param;
-//		
-//					gap_bond_manager_get_info(0, &bond_info);
-//					co_printf("bond_info state:%d\r\n", bond_info.bond_flag);
-//					if(bond_info.bond_flag) {
-//						memcpy(adv_param.peer_mac_addr.addr.addr, bond_info.peer_addr.addr.addr, sizeof(bond_info.peer_addr.addr.addr));
-//						co_printf("bond_info adr:%02X%02X%02X%02X%02X%02X\r\n", bond_info.peer_addr.addr.addr[5],bond_info.peer_addr.addr.addr[4],\
-//						bond_info.peer_addr.addr.addr[3],bond_info.peer_addr.addr.addr[2], bond_info.peer_addr.addr.addr[1],bond_info.peer_addr.addr.addr[0]);
-//					}
-//					adv_param.adv_mode = GAP_ADV_MODE_UNDIRECT;
-//					adv_param.adv_addr_type = GAP_ADDR_TYPE_PUBLIC;
-//					adv_param.adv_chnl_map = GAP_ADV_CHAN_ALL;
-//					adv_param.adv_filt_policy = GAP_ADV_ALLOW_SCAN_ANY_CON_ANY;
-//					adv_param.adv_intv_min = ble_adv_con_param.adv_param.adv_intv_min;
-//					adv_param.adv_intv_max = ble_adv_con_param.adv_param.adv_intv_max; 
-//		//			gap_set_advertising_param(&adv_param);
-//            gap_start_advertising(0);
         }
         break;
 
@@ -334,23 +315,31 @@ void sp_start_adv(void)
     // Set advertising parameters
     gap_adv_param_t adv_param;
 		
-		gap_bond_manager_get_info(0, &bond_info);
-		co_printf("bond_info state:%d\r\n", bond_info.bond_flag);
-//		if(bond_info.bond_flag) {
-//			adv_param.adv_mode = GAP_ADV_MODE_HDC_DIRECT;
-//			memcpy(adv_param.peer_mac_addr.addr.addr, bond_info.peer_addr.addr.addr, sizeof(bond_info.peer_addr.addr.addr));
-//			co_printf("bond_info adr:%02X%02X%02X%02X%02X%02X\r\n", adv_param.peer_mac_addr.addr.addr[5],adv_param.peer_mac_addr.addr.addr[4],\
-//				adv_param.peer_mac_addr.addr.addr[3],adv_param.peer_mac_addr.addr.addr[2], adv_param.peer_mac_addr.addr.addr[1],adv_param.peer_mac_addr.addr.addr[0]);
-//		} else {
-//			adv_param.adv_mode = GAP_ADV_MODE_UNDIRECT;
-//		}
-		adv_param.adv_mode = GAP_ADV_MODE_UNDIRECT;
+		gap_bond_info_t info;
+    gap_bond_manager_get_info(0, &info);
+    co_printf("bond_flag= %d\r\n", info.bond_flag);
+    if (info.bond_flag)
+    {
+        gap_mac_addr_t mac_set[1];
+        memcpy(&mac_set[0], &info.peer_addr, sizeof(gap_mac_addr_t));
+        gap_set_wl(&mac_set[0], 1);
+
+        gap_ral_t ral_set[1];
+        memcpy(&ral_set[0].addr, &info.peer_addr, sizeof(gap_mac_addr_t));
+        memcpy(ral_set[0].peer_irk, info.peer_irk, 16);
+        gap_set_ral(&ral_set[0], 1);
+        adv_param.adv_filt_policy = GAP_ADV_ALLOW_SCAN_WLST_CON_WLST;
+    }
+    else
+        adv_param.adv_filt_policy = GAP_ADV_ALLOW_SCAN_ANY_CON_ANY;
+
+    adv_param.adv_mode = GAP_ADV_MODE_UNDIRECT;
     adv_param.adv_addr_type = GAP_ADDR_TYPE_PUBLIC;
     adv_param.adv_chnl_map = GAP_ADV_CHAN_ALL;
-    adv_param.adv_filt_policy = GAP_ADV_ALLOW_SCAN_ANY_CON_ANY;
+    //  adv_param.adv_filt_policy = GAP_ADV_ALLOW_SCAN_ANY_CON_ANY;
     adv_param.adv_intv_min = ble_adv_con_param.adv_param.adv_intv_min;
-    adv_param.adv_intv_max = ble_adv_con_param.adv_param.adv_intv_max; 
-       
+    adv_param.adv_intv_max = ble_adv_con_param.adv_param.adv_intv_max;
+
     gap_set_advertising_param(&adv_param);
 
 	name_len = adv_d.data_d[0];
@@ -455,7 +444,6 @@ void simple_peripheral_init(void)
     // Adding services to database
     sp_gatt_add_service();  
     hid_gatt_add_service();
-//		sp_start_adv();
 }
 
 

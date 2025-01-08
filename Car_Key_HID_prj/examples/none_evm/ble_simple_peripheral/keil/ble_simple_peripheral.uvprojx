@@ -430,11 +430,6 @@
               <FilePath>..\..\..\..\components\ble\profiles\ble_simple_profile\simple_gatt_service.h</FilePath>
             </File>
             <File>
-              <FileName>dev_info_service.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\components\ble\profiles\ble_dev_info\dev_info_service.c</FilePath>
-            </File>
-            <File>
               <FileName>hid_service.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\components\ble\profiles\ble_hid\hid_service.c</FilePath>

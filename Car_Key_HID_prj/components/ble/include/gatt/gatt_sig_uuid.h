@@ -98,9 +98,6 @@
 #define CYCPWR_SERV_UUID                0x1818  // Cycling Power
 #define LOC_NAV_SERV_UUID               0x1819  // Location and Navigation
 #define IPSS_SERV_UUID                  0x1820  // Internet Protocol Support
-
-
-
 #define FITMACHINE_SERV_UUID            0x1826  // Fitmachine
 
 /**

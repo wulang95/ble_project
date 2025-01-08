@@ -208,7 +208,11 @@ static uint16_t gap_gatt_msg_handler(gatt_msg_t *p_msg)
             }
             else if(p_msg->att_idx == IDX_GAP_ICON)
             {
-                gap_set_dev_appearance((uint16_t)(p_msg->param.msg.p_msg_data));
+                if(p_msg->param.msg.msg_len == sizeof(uint16_t))
+                {
+                    uint16_t appearance = p_msg->param.msg.p_msg_data[0] | (p_msg->param.msg.p_msg_data[1] << 8);
+                    gap_set_dev_appearance(appearance);
+                }
             }
             break;
 

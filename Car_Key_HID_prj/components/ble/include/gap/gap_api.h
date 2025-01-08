@@ -223,11 +223,12 @@ typedef enum
     GAP_EVT_PER_SYNC_ESTABLISHED,   //!< Per_sync is established
     GAP_EVT_PER_SYNC_END,           //!< Periodic adv sync event ended
     GAP_EVT_ADV_REPORT,             //!< Scan result report
+    GAP_EVT_REMOTE_SCAN_REQUEST,    //!< Remote device send scan request
     GAP_EVT_CONN_END,               //!< Connecion action is ended
     GAP_EVT_PEER_FEATURE,           //!< Got peer device supported features
     GAP_EVT_MTU,                    //!< MTU exchange event
     GAP_EVT_LINK_RSSI,              //!< Got RSSI value of link peer device
-    GAP_EVT_LINK_VER,              //!< Got version value of link peer device
+    GAP_EVT_LINK_VER,               //!< Got version value of link peer device
 
     GAP_SEC_EVT_MASTER_AUTH_REQ,    //!< As master role, got authentication request from slave
     GAP_SEC_EVT_MASTER_ENCRYPT,     //!< Link is encryted as master role
@@ -238,6 +239,9 @@ typedef enum
     GAP_SEC_EVT_BOND_FAIL,          //!< Link bond is failed
     GAP_SEC_EVT_BOND_SUCCESS,       //!< Link bond is successful
     GAP_SEC_EVT_PIN_CODE_REQ,       //!< Link bond request pin code inpu
+    GAP_SEC_EVT_PEER_IDENTITY_ADDR, //!< Identity address of bonding device
+    GAP_SEC_EVT_LTK_MISSING,        //!< Link key missing
+    GAP_SEC_EVT_NC_REQ,             //!< Secure connect NC(Numeric Comparison) requset
 
     GAP_LECB_CONNECT,           //!< Connected as lecb
     GAP_LECB_DISCONNECT,        //!< disconnected as lecb
@@ -363,6 +367,14 @@ typedef struct
     uint8_t         *data;          //!< Report data
 } gap_evt_adv_report_t;
 
+// Indicate reception of scan request
+typedef struct
+{
+    uint8_t actv_idx;               //!< Activity adv identifier
+    gap_mac_addr_t trans_addr;      //!< Transmitter device address
+} gap_evt_scan_request_t;
+
+
 // link peer device version
 typedef struct
 {
@@ -419,7 +431,17 @@ typedef struct
     uint8_t reason;             //!< Reason of enc fail
 } gap_evt_bond_fail_t;
 
+typedef struct{
+    uint8_t conidx;
+    mac_addr_t addr;
+    uint8_t addr_type;
+} gap_evt_bond_peer_identity_addr_t;
 
+typedef struct
+{
+    uint8_t  conidx;
+    uint32_t nc_data;
+} gap_evt_secure_connect_nc_req_t;
 
 // LE credit based connection indication
 typedef struct
@@ -510,6 +532,7 @@ typedef struct
         uint8_t                         per_sync_end_status;    //!< Per_sync event end status
         gap_evt_per_sync_ready_t        per_sync_ready;         //!< Per_sync is established
         gap_evt_adv_report_t            *adv_rpt;               //!< Scanning results
+        gap_evt_scan_request_t          scan_request;           //!< Remote device scan request
         uint8_t                         conn_end_reason;        //!< Connection end reason
         gap_evt_peer_feature_t          peer_feature;           //!< Peer device supported features
         gattc_mtu_t                     mtu;                    //!< MTU size
@@ -523,7 +546,10 @@ typedef struct
         uint8_t                         bond_start_conidx;   //!< link index, in which link, bond started
         uint8_t                         bond_success_conidx;   //!< link index, in which link, bond successed 
         gap_evt_bond_fail_t             bond_fail;   //!< link index, in which link, bond failed 
+        gap_evt_bond_peer_identity_addr_t peer_identity_addr;
+        uint8_t                         bond_ltk_missing_conidx; //!< link index, in which link, bond linkkey missing
         uint8_t                         bond_pin_code_req_conidx; //!< link index, in which link, bond procedure need pin code input
+        gap_evt_secure_connect_nc_req_t bond_secure_connect_nc_req;  //!< For GAP_SEC_EVT_NC_REQ Event.
 
         gap_lecb_conn_param_t           lecb_conn;
         gap_lecb_disconnect_t           lecb_disconn;
@@ -581,7 +607,7 @@ typedef struct
     uint8_t  io_cap;            //!< IO capbilities, see @ GAP_IO_CAP_DEFINES
     uint8_t  pair_init_mode;    //!< If initialize pairing procesure or not, see @ GAP_PAIRING_MODE_DEFINES
     bool     bond_auth;         //!< Bond_auth enable/disable,if true, then will distribute encryption key,and will check this key_req when bonding.
-    uint32_t password;          //!< Password.range:[000,000 , 999,999]. The keboard device shall ensure that all 6 digits are inputed ¡§C including zeros.
+    uint32_t password;          //!< Password.range:[000,000 , 999,999]. The keboard device shall ensure that all 6 digits are inputed ï¿½ï¿½C including zeros.
 } gap_security_param_t;
 
 // Gap bond information
@@ -733,7 +759,16 @@ void gap_set_per_adv_data1(uint8_t *p_per_adv_data, uint16_t per_adv_data_len);
 void gap_start_advertising1(uint16_t duration);
 void gap_stop_advertising1(void);
 /*****************functions for adv1 ****************/
-
+/*********************************************************************
+* @fn      patch_fast_scan_set
+*
+* @brief   Enable fast scan
+*
+* @param   flag - true: enable fast scan. false: disable fast scan.
+*
+* @return  None.
+*/
+void patch_fast_scan_set(bool flag);
 /*********************************************************************
 * @fn      gap_start_scan
 *
@@ -877,6 +912,20 @@ void gap_address_get(mac_addr_t *addr);
  * @return  None.
  */
 void gap_address_set(mac_addr_t *addr);
+
+/*********************************************************************
+ * @fn      gap_peer_identity_addr_get
+ *
+ * @brief   Used to get peer identity address after binding is finised.
+ *
+ * @param   conidx  - connection index
+ *          addr    - pointer used to store peer address
+ *          addr_type - pointer used to store peer address type, 0=public/1=private random
+ *
+ * @return  True: get peer identity address successfully.
+ */
+bool gap_peer_identity_addr_get(uint8_t conidx, mac_addr_t *addr, uint8_t *addr_type);
+
 /*********************************************************************
  * @fn      gap_set_mtu
  *
@@ -1006,7 +1055,16 @@ uint8_t gap_get_connect_num(void);
  * @return  None.
  */
 void gap_set_link_rssi_report(bool enable);
-
+/*********************************************************************
+ * @fn      rssi_threshold_set
+ *
+ * @brief   Set rssi threshold when connect ind packet.
+ *          
+ * @param   rssi  - range(0~-100)
+ *
+ * @return  None.
+ */
+void rssi_threshold_set(int8_t rssi);
 /*********************************************************************
  * @fn      gap_get_link_rssi
  *
@@ -1138,6 +1196,17 @@ void gap_bond_manager_delete_all(void);
 void gap_bond_manager_delete(uint8_t *mac_addr, uint8_t addr_type);
 
 /*********************************************************************
+ * @fn      gap_bond_manager_delete_by_idx
+ *
+ * @brief   Erase a bond information by store index.
+ *
+ * @param   bond_idx    - bond device store index.
+ *
+ * @return  None.
+ */
+void gap_bond_manager_delete_by_idx(uint8_t bond_idx);
+
+/*********************************************************************
  * @fn      gap_sec_set_fixed_ltk
  *
  * @brief   Set fixed ltk which wil be used during bonding, and encrption. 
@@ -1238,6 +1307,19 @@ bool gap_security_get_bond_req(void);
  */
 void gap_security_req(uint8_t conidx);
 
+/*********************************************************************
+ * @fn      gap_sec_nc_rsp
+ *
+ * @brief   When initiating an NC request from the peer, determine whether to accept the request.
+ *          For GAP_SEC_EVT_NC_REQ Event.
+ *
+ * @param   conidx      - connection index.
+ *          accept      - determine whether to accept the request.
+ *
+ * @return  None.
+ */
+void gap_sec_send_nc_rsp(uint8_t conidx, bool accept);
+
 /**********************************************************************
  * @fn      gap_get_latest_conn_parameter
  *
@@ -1282,7 +1364,19 @@ void gap_param_update_rsp(gap_evt_link_param_update_rsp_t *rsp);
  */
 void gap_set_channel_map(gap_channel_map_t *channel_map);
 
+/**********************************************************************
+ * @fn      gap_pairing_rsp
+ *
+ * @brief   rsp     - Whether to accept peer pairing request
+ *
+ * @param   accept_en     - true - accept peer pairing request
+ *                        - false - Do not accept peer pairing requests
+ *
+ * @return  None
+ */
+void gap_pairing_rsp(bool accept_en);
 
 #endif // end of #ifndef GAP_API_H
+
 
 

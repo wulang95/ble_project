@@ -17,4 +17,3 @@
 .\objects\core_cm3_isr.o: ..\..\..\..\components\modules\platform\include\cmsis_armcc.h
 .\objects\core_cm3_isr.o: ..\..\..\..\components\modules\platform\include\ll.h
 .\objects\core_cm3_isr.o: ..\..\..\..\components\modules\sys\include\sys_utils.h
-.\objects\core_cm3_isr.o: ..\..\..\..\components\driver\include\driver_uart.h

@@ -11,6 +11,7 @@
 #ifdef OTA_CRC_CHECK
 #define OTA_TIMEOUT  5000
 #endif
+//#define OTA_FOR_FR8012HAQ_J
 typedef enum 
 {
     OTA_CMD_NVDS_TYPE,

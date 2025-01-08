@@ -152,6 +152,11 @@ void ble_send_cmd(uint8_t cmd, uint8_t ok)
 		data[lenth++] = check&0xff;
 		data[lenth++] = check>>8;
 		BLE_DEBUG("ble_send", data, lenth);
+		while(lenth > 50){
+				uart_put_data_noint(UART0, data, 50);
+				lenth -= 50;
+				co_delay_100us(500);
+		} 
 		uart_put_data_noint(UART0, data, lenth);
 }
 struct ble_ota_config_stu{

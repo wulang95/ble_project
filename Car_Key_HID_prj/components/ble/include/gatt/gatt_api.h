@@ -133,16 +133,18 @@ typedef struct
 */
 typedef enum
 {
-    GATTC_MSG_READ_REQ,         //!< GATT client read request
-    GATTC_MSG_WRITE_REQ,        //!< GATT client write request
-    GATTC_MSG_ATT_INFO_REQ,     //!< GATT client att information request
-    GATTC_MSG_NTF_REQ,          //!< GATT client notification received
-    GATTC_MSG_IND_REQ,          //!< GATT client indication received
-    GATTC_MSG_READ_IND,         //!< GATT client read response received
-    GATTC_MSG_CMP_EVT,          //!< GATT client message complete event
-    GATTC_MSG_LINK_CREATE,      //!< A Link is established
-    GATTC_MSG_LINK_LOST,        //!< A Link is lost
-    GATTC_MSG_SVC_REPORT,       //!< GATT client received peer service report
+    GATTC_MSG_READ_REQ,             //!< GATT client read request
+    GATTC_MSG_WRITE_REQ,            //!< GATT client write request
+    GATTC_MSG_ATT_INFO_REQ,         //!< GATT client att information request
+    GATTC_MSG_NTF_REQ,              //!< GATT client notification received
+    GATTC_MSG_IND_REQ,              //!< GATT client indication received
+    GATTC_MSG_READ_IND,             //!< GATT client read response received
+    GATTC_MSG_CMP_EVT,              //!< GATT client message complete event
+    GATTC_MSG_LINK_CREATE,          //!< A Link is established
+    GATTC_MSG_LINK_LOST,            //!< A Link is lost
+    GATTC_MSG_SVC_REPORT,           //!< GATT client received peer service report
+
+    GATTC_MSG_HANDLE_ERROR = 0x80,  //!< Application cannot deal message correctly, error code is stored in gatt_msg_t->op->status
 } gatt_msg_evt_t;
 
 /**
@@ -445,7 +447,9 @@ void gatt_add_client_uuid(gatt_uuid_t att_tb[], uint8_t att_nb, uint8_t conn_idx
        gatt_delete_svc((uint8_t *)&svc_uuid,2);
    }
  */
-void gatt_delete_svc(uint8_t *svc_uuid,uint8_t uuid_size);
+void gatt_delete_svc(uint8_t svc_id,uint8_t *svc_uuid,uint8_t uuid_size);
+void gatt_delete_svc_internal(uint8_t *svc_uuid,uint8_t uuid_size);
+
 
 /*********************************************************************
  * @fn      gatt_get_svc_hdl

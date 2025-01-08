@@ -284,20 +284,34 @@ void pmu_set_gpio_value(enum system_port_t port, uint8_t bits, uint8_t value)
         ool_write(sel_reg, (ool_read(sel_reg) | bits ) );
 }
 
+/*********************************************************************
+ * @fn      pmu_otd_threshold_set
+ *
+ * @brief   Set temperature range to trigger OTD 
+ *
+ * @param   threshold_value   - threshold range, @ref enum otd_threshold_t
+ *
+ * @return  None.
+ */
+void pmu_otd_threshold_set(enum otd_threshold_t threshold_value)
+{    
+    ool_write(PMU_REG_OTD_PKVDDH_CTRL,ool_read(PMU_REG_OTD_PKVDDH_CTRL)&0xF8|threshold_value);
+}
+
 void pmu_set_led2_value(uint8_t value)
 {
-//    if( value == 0 )
-//    {
-//        ool_write(PMU_REG_LED_CTRL, ool_read(PMU_REG_LED_CTRL) & (~ (BIT(6)|BIT(2)) ) );  //set as output,clr bit6 bit2
-//        ool_write(PMU_REG_LED_PULL, ool_read(PMU_REG_LED_PULL) | BIT(6) );  //pull down
-//    }
-//    else
-//    {
-//        ool_write(PMU_REG_LED_CTRL, ool_read(PMU_REG_LED_CTRL) | BIT(6) );  //set as input      0x40
-//        ool_write(PMU_REG_LED_PULL, ool_read(PMU_REG_LED_PULL) & (~ BIT(6)) );  //pull up
-//    }
+    if( value == 0 )
+    {
+        ool_write(PMU_REG_LED_CTRL, ool_read(PMU_REG_LED_CTRL) & (~ (BIT(6)|BIT(2)) ) );  //set as output,clr bit6 bit2
+        ool_write(PMU_REG_LED_PULL, ool_read(PMU_REG_LED_PULL) | BIT(6) );  //pull down
+    }
+    else
+    {
+        ool_write(PMU_REG_LED_CTRL, ool_read(PMU_REG_LED_CTRL) | BIT(6) );  //set as input      0x40
+        ool_write(PMU_REG_LED_PULL, ool_read(PMU_REG_LED_PULL) & (~ BIT(6)) );  //pull up
+    }
 //another method
-
+/*
     if( value == 0 )
     {
         ool_write(PMU_REG_LED_CTRL, 0x00);
@@ -306,6 +320,7 @@ void pmu_set_led2_value(uint8_t value)
     {
         ool_write(PMU_REG_LED_CTRL, 0x04 );
     }
+*/
 }
 void pmu_set_led2_as_pwm(void)
 {
@@ -480,7 +495,7 @@ void pmu_sub_init(void)
     /* change BUCK setting for better sensitivity performance */
     ool_write(PMU_REG_BUCK_CTRL0, 0x40);
     /* set BUCK voltage to min */
-    ool_write(PMU_REG_BUCK_CTRL1, 0x25);
+    ool_write(PMU_REG_BUCK_CTRL1, 0x45);
 
     /* set DLDO voltage to min */
     //ool_write(PMU_REG_DLDO_CTRL, 0x42);
@@ -488,15 +503,13 @@ void pmu_sub_init(void)
     /* separate PKVDD and PKVDDH */
     ool_write(PMU_REG_ALDO_BG_CTRL, 0x06);
     ool_write(PMU_REG_ALDO_BG_CTRL, 0x0e);
-    ool_write(PMU_REG_PKVDD_CTRL, 0x09 | 0xa4);
-    ool_write(PMU_REG_PKVDD_CTRL, 0x49 | 0xa4);
+    ool_write(PMU_REG_PKVDD_CTRL, 0x09 | 0x24);
+    ool_write(PMU_REG_PKVDD_CTRL, 0x49 | 0x24);
+    ool_write(PMU_REG_PKPD_CTRL_CFG, 0xa0);
 
     /* set PKVDDH to min */
     ool_write(PMU_REG_OTD_PKVDDH_CTRL, ool_read(PMU_REG_OTD_PKVDDH_CTRL) & 0xcf);
 
-    #ifdef CFG_FT_CODE
-    ool_write(PMU_REG_PKVDD_CTRL2, (ool_read(PMU_REG_PKVDD_CTRL2) & 0xF0) | 0x09);
-    #else   // CFG_FT_CODE
     /* set PKVDD voltage to 0.85v */
     uint32_t data0, data1, data2;
     uint8_t dldo_v = 0;
@@ -521,7 +534,6 @@ void pmu_sub_init(void)
     }
     /* set DLDO voltage to lower value */
     ool_write(PMU_REG_DLDO_CTRL, 0x62);
-    #endif  // CFG_FT_CODE
 
     /*
         1. set PMU interrupt wake up pmu ctrl first
@@ -631,9 +643,7 @@ void pmu_sub_init(void)
     ool_write(PMU_REG_DIAG_SEL, 0x42);
 #endif
 
-#ifndef CFG_FT_CODE
     pmu_bg_trim(data2);
-#endif
 }
 
 /*********************************************************************
