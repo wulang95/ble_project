@@ -99,8 +99,9 @@ static uint8_t car_door_open_flag = 0; // 0-close 1-open
 static uint32_t rssi_change_time = 0;
 static uint16_t rssi_car_door_task_id;
 static uint16_t key_direction_confirm_cnt = 5,key_direction_option_cnt = 10;
-
+extern uint8_t bond_flag;
 car_key_con_s car_key_con;
+uint8_t hid_unlock_flag;
 /*
  * PUBLIC FUNCTIONS (È«¾Öº¯Êý)
  */
@@ -187,13 +188,20 @@ __attribute__((section("ram_code"))) void dev_rssi_trend_cal_func(int8_t rssi)
 {
     uint8_t open_or_close_door = 0;
     uint32_t during_time = 0;
-    if(!dev_con_ready || (dev_store_msg_p.auto_door_ctrl_flag==0))
+		static uint16_t rssi_count = 0;
+    if(!dev_con_ready || (dev_store_msg_p.auto_door_ctrl_flag==0) || bond_flag == 0)
     {
         rssi_forward_cnt = 0;
         rssi_backward_cnt = 0;
         return;
     }
-
+		
+		if(rssi_count++ > 100 && hid_unlock_flag == 1) {
+				dev_rssi_send_event(1);
+				rssi_count = 0;
+				hid_unlock_flag = 0;
+		}
+		/*
     if(((rssi - rssi_cur) > RSSI_ADJUST_VAL) &&\
         ((rssi_change_trend == RSSI_TREND_INIT) || (rssi_change_trend == KEEP_AWAY_FROM_CAR)))
     {
@@ -205,13 +213,13 @@ __attribute__((section("ram_code"))) void dev_rssi_trend_cal_func(int8_t rssi)
         {
             rssi_forward_cnt = 0;
 
-            /************change trend ctrl**************/
+            
             if((rssi_change_trend == RSSI_TREND_INIT) || (rssi_change_trend == KEEP_AWAY_FROM_CAR))
             {
                 rssi_change_trend = CLOSE_TO_CAR;
                 rssi_change_time = system_get_curr_time();
             }
-            /************change trend ctrl**************/
+           
 
             
         }
@@ -228,13 +236,13 @@ __attribute__((section("ram_code"))) void dev_rssi_trend_cal_func(int8_t rssi)
         {
             rssi_backward_cnt = 0;
 
-            /************change trend ctrl**************/
+        
             if((rssi_change_trend == RSSI_TREND_INIT) || (rssi_change_trend == CLOSE_TO_CAR))
             {
                 rssi_change_trend = KEEP_AWAY_FROM_CAR;
                 rssi_change_time = system_get_curr_time();
             }
-            /************change trend ctrl**************/
+          
 
             
         }
@@ -319,7 +327,7 @@ __attribute__((section("ram_code"))) void dev_rssi_trend_cal_func(int8_t rssi)
             }
         }
         break;
-    }
+    }*/
 }
 
 

@@ -23,7 +23,6 @@
 #else
 #define BLE_DEBUG(a, b,c)
 #endif
-uint8_t key_close_open_flag;
 uint8_t ack_flag;
 extern void adv_disconnect();
 extern void set_dev_name(uint8_t *name, uint16_t len);
@@ -233,17 +232,9 @@ void ble_protol_process(uint8_t cmd, uint8_t *data, uint16_t len)
 				dev_ntf_data_to_app(ENG_AT_CHAR3_VALUE, data, len);
 				break;
 			case LTE_OPEN_KEY:
-				if(data[0] == 0x00)
-					key_close_open_flag = 0x01;  //¿ªËø
-				else 
-					key_close_open_flag = 0x03;   
 				car_key_con.flag = 0;
 			break;
 			case LTE_CLOSE_KEY:
-				if(data[0] == 0x00)
-					key_close_open_flag = 0x02;  //¹ØËø
-				else 
-					key_close_open_flag = 0x03;
 				car_key_con.flag = 0;
 			break;
 			case LTE_ADV_PARAM:
@@ -381,6 +372,7 @@ void ble_rcv_parse()
 						cmd = res;
 						step = 3;
 						check_sum += res;
+						data[data_len++] = res;
 						break;
 					case 3:
 						len = res << 8;

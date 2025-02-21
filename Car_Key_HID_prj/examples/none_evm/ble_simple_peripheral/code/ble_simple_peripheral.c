@@ -88,6 +88,7 @@ static struct adv_data_s{
 		uint16_t len;
 }adv_s;
 
+uint8_t bond_flag;
 
 void set_dev_data(uint8_t *data, uint16_t len)
 {
@@ -154,7 +155,7 @@ void set_ble_adv_con_param(uint16_t min, uint16_t max, uint16_t lay, uint16_t ti
 os_timer_t update_param_timer;
 static uint8_t rssi_filter_id;
 os_timer_t sp_timer;
- 
+extern uint8_t hid_unlock_flag;
 /*
  * LOCAL FUNCTIONS (±¾µØº¯Êý)
  */
@@ -235,7 +236,14 @@ void app_gap_evt_cb(gap_event_t *p_event)
             //gatt_mtu_exchange_req(p_event->param.slave_connect.conidx);
             os_timer_start(&update_param_timer,2000,0);
 						pmu_set_gpio_value(GPIO_PORT_D, BIT(5), 1);
-					
+						gap_bond_info_t info;
+						gap_bond_manager_get_info(0, &info);
+						if(info.bond_flag) {
+								bond_flag = 1;
+						} else {
+							bond_flag = 0;
+						}
+						hid_unlock_flag = 1;
             gap_security_req(p_event->param.slave_connect.conidx);
         }
         break;
@@ -427,7 +435,7 @@ void simple_peripheral_init(void)
 		// Initialize security related settings.
     gap_security_param_init(&param);
     gap_set_cb_func(app_gap_evt_cb);
-
+		bond_flag = 0;
     Smoothing_Filter_init(&rssi_filter_id);
 		//enable bond manage module, which will record bond key and peer service info into flash. 
 		//and read these info from flash when func: "gap_bond_manager_init" executes.

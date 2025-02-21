@@ -49,6 +49,19 @@ const struct jump_table_image_t _jump_table_image __attribute__((section("jump_t
 };
 
 
+__attribute__((section("ram_code"))) void rtc_isr_ram(uint8_t rtc_idx)
+{
+    if(rtc_idx == RTC_A)
+    {
+				
+    }
+    if(rtc_idx == RTC_B)
+    {
+        ;
+    }
+}
+
+
 __attribute__((section("ram_code"))) void pmu_gpio_isr_ram(void)
 {
 		
@@ -111,6 +124,7 @@ __attribute__((section("ram_code"))) void user_entry_before_sleep_imp(void)
 	pmu_set_pin_pull(GPIO_PORT_D, (1<<GPIO_BIT_4), true);
 	pmu_port_wakeup_func_set(GPIO_PD4);
 	wdt_feed();
+	rtc_alarm(RTC_A,12000);
 }
 
 /*********************************************************************
