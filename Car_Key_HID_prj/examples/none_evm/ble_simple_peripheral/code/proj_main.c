@@ -217,9 +217,10 @@ void user_loop_callback(void *arg)
 				printf("cat1 is week");
 		}
 		ble_rcv_parse();	
-		if(system_get_curr_time() - cur_time > 2000) {
+		if(system_get_curr_time() - cur_time > 10000) {
 			co_printf("ble heart\r\n");
 			cur_time = system_get_curr_time();
+			ble_send_cmd(CMD_BLE_HEART, 0);
 		}
 		if(car_key_con.flag== 1){   //Open
 			if(system_get_curr_time() - car_key_con.cur_time > car_key_con.time) {
@@ -286,4 +287,5 @@ void user_entry_after_ble_init(void)
     simple_peripheral_init();
 		wdt_feed();
 		os_user_loop_event_set(&user_loop_callback);
+		ble_send_cmd(CMD_BLE_SIGN, 0);
 }

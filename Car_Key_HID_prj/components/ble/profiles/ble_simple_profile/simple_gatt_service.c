@@ -88,7 +88,7 @@ const gatt_attribute_t simple_profile_att_table[ENG_IDX_NB] =
     // Simple gatt Service Declaration
     [ENG_IDX_SERVICE]                        =   {
                                                     { UUID_SIZE_2, UUID16_ARR(GATT_PRIMARY_SERVICE_UUID) },     /* UUID */
-                                                    GATT_PROP_READ,                                             /* Permissions */
+                                                    GATT_PROP_READ|GATT_PROP_WRITE,                                             /* Permissions */
                                                     UUID_SIZE_2,                                                /* Max size of the value */     /* Service UUID size in service declaration */
                                                     (uint8_t*)sp_svc_uuid,                                      /* Value of the attribute */    /* Service UUID value in service declaration */
                                                 },
@@ -103,7 +103,7 @@ const gatt_attribute_t simple_profile_att_table[ENG_IDX_NB] =
         // Characteristic 1 Value                  
         [ENG_R_CHAR1_VALUE]                =   {
                                                     { UUID_SIZE_2, UUID16_ARR(ENG_CHAR1_RX_UUID)},                 /* UUID */
-                                                    GATT_PROP_READ | GATT_PROP_NOTI,                           /* Permissions */
+                                                    GATT_PROP_NOTI,                           /* Permissions */
                                                     300,                                         /* Max size of the value */
                                                     NULL,                                                       /* Value of the attribute */    /* Can assign a buffer here, or can be assigned in the application by user */
                                                 },        
@@ -134,14 +134,14 @@ const gatt_attribute_t simple_profile_att_table[ENG_IDX_NB] =
         // Characteristic 2 Value   
         [ENG_W_CHAR2_VALUE]                =   {
                                                     { UUID_SIZE_2, UUID16_ARR(ENG_CHAR2_TX_UUID)},                 /* UUID */
-                                                    GATT_PROP_WRITE,                                             /* Permissions */
+                                                    GATT_PROP_WRITE|GATT_PROP_NOTI,                                             /* Permissions */
                                                     300,                                         /* Max size of the value */
                                                     NULL,                                                       /* Value of the attribute */	/* Can assign a buffer here, or can be assigned in the application by user */
                                                 },   
         // Characteristic 2 User Description
         [ENG_W_CHAR2_USER_DESCRIPTION]     =   {
                                                     { UUID_SIZE_2, UUID16_ARR(GATT_CHAR_USER_DESC_UUID) },       /* UUID */
-                                                    GATT_PROP_READ,                                             /* Permissions */
+                                                    GATT_PROP_READ|GATT_PROP_WRITE,                                             /* Permissions */
                                                     SP_CHAR2_DESC_LEN,                                          /* Max size of the value */
                                                     (uint8_t *)sp_char2_desc,                                   /* Value of the attribute */
                                                 },

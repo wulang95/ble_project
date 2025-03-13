@@ -120,6 +120,8 @@ void ble_send_cmd(uint8_t cmd, uint8_t ok)
 			case LTE_OTA_DATA:
 			case LTE_OTA_END:
 			case LTE_CLOSE_CON:
+			case CMD_BLE_SIGN:
+			case CMD_BLE_HEART:
 				data[lenth++] = 0x00;
 				data[lenth++] = 0x01;
 				if(ok == R_OK)

@@ -15,6 +15,7 @@ Section Cross References
     proj_main.o(i.user_entry_after_ble_init) refers to ble_simple_peripheral.o(i.simple_peripheral_init) for simple_peripheral_init
     proj_main.o(i.user_entry_after_ble_init) refers to driver_wdt.o(i.wdt_feed) for wdt_feed
     proj_main.o(i.user_entry_after_ble_init) refers to os_task.o(i.os_user_loop_event_set) for os_user_loop_event_set
+    proj_main.o(i.user_entry_after_ble_init) refers to lte_protocol.o(i.ble_send_cmd) for ble_send_cmd
     proj_main.o(i.user_entry_after_ble_init) refers to proj_main.o(.data) for .data
     proj_main.o(i.user_entry_after_ble_init) refers to proj_main.o(i.user_loop_callback) for user_loop_callback
     proj_main.o(i.user_entry_before_ble_init) refers to driver_pmu.o(i.pmu_set_sys_power_mode) for pmu_set_sys_power_mode
@@ -7709,78 +7710,78 @@ Image Symbol Table
     i.trng_init_                             0x01015ea0   Section        0  sys_utils.o(i.trng_init_)
     i.user_custom_parameters                 0x01015f00   Section        0  proj_main.o(i.user_custom_parameters)
     i.user_entry_after_ble_init              0x01015f58   Section        0  proj_main.o(i.user_entry_after_ble_init)
-    i.user_entry_before_ble_init             0x0101600c   Section        0  proj_main.o(i.user_entry_before_ble_init)
-    i.user_init_static_memory                0x010160b0   Section        0  entry.o(i.user_init_static_memory)
-    i.user_loop_callback                     0x010160d8   Section        0  proj_main.o(i.user_loop_callback)
-    i.user_task_func                         0x010161b4   Section        0  user_task.o(i.user_task_func)
-    user_task_func                           0x010161b5   Thumb Code    44  user_task.o(i.user_task_func)
-    i.user_task_init                         0x010161fc   Section        0  user_task.o(i.user_task_init)
-    i.wdt_feed                               0x01016214   Section        0  driver_wdt.o(i.wdt_feed)
-    i.wdt_init                               0x0101621c   Section        0  driver_wdt.o(i.wdt_init)
-    i.wdt_start                              0x01016298   Section        0  driver_wdt.o(i.wdt_start)
-    .constdata                               0x010162c0   Section       12  ble_simple_peripheral.o(.constdata)
-    .constdata                               0x010162cc   Section       68  user_task.o(.constdata)
-    .constdata                               0x01016310   Section     1024  app_ota.o(.constdata)
-    .constdata                               0x01016710   Section        2  simple_gatt_service.o(.constdata)
-    .constdata                               0x01016712   Section       17  simple_gatt_service.o(.constdata)
-    .constdata                               0x01016723   Section       17  simple_gatt_service.o(.constdata)
-    .constdata                               0x01016734   Section       17  simple_gatt_service.o(.constdata)
-    .constdata                               0x01016748   Section      336  simple_gatt_service.o(.constdata)
-    .constdata                               0x01016898   Section        2  hid_service.o(.constdata)
-    .constdata                               0x0101689c   Section      932  hid_service.o(.constdata)
-    hid_report_map                           0x010168a0   Data         144  hid_service.o(.constdata)
-    .constdata                               0x01016c40   Section        4  app.o(.constdata)
-    appm_add_svc_func_list                   0x01016c40   Data           4  app.o(.constdata)
-    .constdata                               0x01016c44   Section       16  flash.o(.constdata)
-    .constdata                               0x01016c54   Section      216  app_task.o(.constdata)
-    appm_msg_handler_tab                     0x01016c54   Data         216  app_task.o(.constdata)
-    .constdata                               0x01016d2c   Section       12  app_task.o(.constdata)
-    .constdata                               0x01016d38   Section       48  app_sec.o(.constdata)
-    .constdata                               0x01016d68   Section        8  app_sec.o(.constdata)
-    .constdata                               0x01016d70   Section       88  gapm.o(.constdata)
-    gapm_att_db                              0x01016d70   Data          88  gapm.o(.constdata)
-    .constdata                               0x01016dc8   Section       36  gattm.o(.constdata)
-    gattm_att_db                             0x01016dcc   Data          32  gattm.o(.constdata)
-    .constdata                               0x01016dec   Section       96  l2cc_task.o(.constdata)
-    l2cc_msg_handler_tab                     0x01016dec   Data          96  l2cc_task.o(.constdata)
-    .constdata                               0x01016e4c   Section       12  l2cc_task.o(.constdata)
-    .constdata                               0x01016e58   Section      304  gapc_task.o(.constdata)
-    gapc_msg_handler_tab                     0x01016e58   Data         304  gapc_task.o(.constdata)
-    .constdata                               0x01016f88   Section       12  gapc_task.o(.constdata)
-    .constdata                               0x01016f94   Section      512  gapm_task.o(.constdata)
-    gapm_hci_cmd_cmp_event_handler_tab       0x01016f94   Data         408  gapm_task.o(.constdata)
-    gapm_hci_cmd_stat_event_handler_tab      0x0101712c   Data          24  gapm_task.o(.constdata)
-    gapm_hci_le_event_handler_tab            0x01017144   Data          80  gapm_task.o(.constdata)
-    .constdata                               0x01017194   Section      272  gapm_task.o(.constdata)
-    gapm_msg_handler_tab                     0x01017194   Data         272  gapm_task.o(.constdata)
-    .constdata                               0x010172a4   Section       12  gapm_task.o(.constdata)
-    .constdata                               0x010172b0   Section       25  smpc.o(.constdata)
-    smpc_pair_method                         0x010172b0   Data          25  smpc.o(.constdata)
-    .constdata                               0x010172cc   Section      140  atts.o(.constdata)
-    atts_rights                              0x010172cc   Data          36  atts.o(.constdata)
-    .constdata                               0x01017358   Section      224  gattc_task.o(.constdata)
-    gattc_msg_handler_tab                    0x01017358   Data         224  gattc_task.o(.constdata)
-    .constdata                               0x01017438   Section       12  gattc_task.o(.constdata)
-    .constdata                               0x01017444   Section        8  gattm_task.o(.constdata)
-    gattm_msg_handler_tab                    0x01017444   Data           8  gattm_task.o(.constdata)
-    .constdata                               0x0101744c   Section       12  gattm_task.o(.constdata)
-    .constdata                               0x01017458   Section      276  l2cc_pdu.o(.constdata)
-    l2cc_signaling_pkt_format                0x01017458   Data          92  l2cc_pdu.o(.constdata)
-    l2cc_security_pkt_format                 0x010174b4   Data          60  l2cc_pdu.o(.constdata)
-    l2cc_attribute_pkt_format                0x010174f0   Data         124  l2cc_pdu.o(.constdata)
-    .constdata                               0x0101756c   Section       64  l2cc_sig.o(.constdata)
-    .constdata                               0x010175ac   Section      216  gapc_hci.o(.constdata)
-    hci_cmd_cmp_event_handler_tab            0x010175ac   Data          72  gapc_hci.o(.constdata)
-    hci_cmd_stat_event_handler_tab           0x010175f4   Data          48  gapc_hci.o(.constdata)
-    hci_le_event_handler_tab                 0x01017624   Data          56  gapc_hci.o(.constdata)
-    hci_event_handler_tab                    0x0101765c   Data          40  gapc_hci.o(.constdata)
-    .constdata                               0x01017684   Section       24  gapc_sig.o(.constdata)
-    .constdata                               0x0101769c   Section       60  smpc_util.o(.constdata)
-    .constdata                               0x010176d8   Section       60  smpc_util.o(.constdata)
-    .constdata                               0x01017714   Section      112  attc.o(.constdata)
-    .conststring                             0x01017784   Section      421  user_task.o(.conststring)
-    .conststring                             0x0101792c   Section       47  mesh_api.o(.conststring)
-    .conststring                             0x0101795c   Section      109  l2cc_pdu.o(.conststring)
+    i.user_entry_before_ble_init             0x01016014   Section        0  proj_main.o(i.user_entry_before_ble_init)
+    i.user_init_static_memory                0x010160b8   Section        0  entry.o(i.user_init_static_memory)
+    i.user_loop_callback                     0x010160e0   Section        0  proj_main.o(i.user_loop_callback)
+    i.user_task_func                         0x010161c4   Section        0  user_task.o(i.user_task_func)
+    user_task_func                           0x010161c5   Thumb Code    44  user_task.o(i.user_task_func)
+    i.user_task_init                         0x0101620c   Section        0  user_task.o(i.user_task_init)
+    i.wdt_feed                               0x01016224   Section        0  driver_wdt.o(i.wdt_feed)
+    i.wdt_init                               0x0101622c   Section        0  driver_wdt.o(i.wdt_init)
+    i.wdt_start                              0x010162a8   Section        0  driver_wdt.o(i.wdt_start)
+    .constdata                               0x010162d0   Section       12  ble_simple_peripheral.o(.constdata)
+    .constdata                               0x010162dc   Section       68  user_task.o(.constdata)
+    .constdata                               0x01016320   Section     1024  app_ota.o(.constdata)
+    .constdata                               0x01016720   Section        2  simple_gatt_service.o(.constdata)
+    .constdata                               0x01016722   Section       17  simple_gatt_service.o(.constdata)
+    .constdata                               0x01016733   Section       17  simple_gatt_service.o(.constdata)
+    .constdata                               0x01016744   Section       17  simple_gatt_service.o(.constdata)
+    .constdata                               0x01016758   Section      336  simple_gatt_service.o(.constdata)
+    .constdata                               0x010168a8   Section        2  hid_service.o(.constdata)
+    .constdata                               0x010168ac   Section      932  hid_service.o(.constdata)
+    hid_report_map                           0x010168b0   Data         144  hid_service.o(.constdata)
+    .constdata                               0x01016c50   Section        4  app.o(.constdata)
+    appm_add_svc_func_list                   0x01016c50   Data           4  app.o(.constdata)
+    .constdata                               0x01016c54   Section       16  flash.o(.constdata)
+    .constdata                               0x01016c64   Section      216  app_task.o(.constdata)
+    appm_msg_handler_tab                     0x01016c64   Data         216  app_task.o(.constdata)
+    .constdata                               0x01016d3c   Section       12  app_task.o(.constdata)
+    .constdata                               0x01016d48   Section       48  app_sec.o(.constdata)
+    .constdata                               0x01016d78   Section        8  app_sec.o(.constdata)
+    .constdata                               0x01016d80   Section       88  gapm.o(.constdata)
+    gapm_att_db                              0x01016d80   Data          88  gapm.o(.constdata)
+    .constdata                               0x01016dd8   Section       36  gattm.o(.constdata)
+    gattm_att_db                             0x01016ddc   Data          32  gattm.o(.constdata)
+    .constdata                               0x01016dfc   Section       96  l2cc_task.o(.constdata)
+    l2cc_msg_handler_tab                     0x01016dfc   Data          96  l2cc_task.o(.constdata)
+    .constdata                               0x01016e5c   Section       12  l2cc_task.o(.constdata)
+    .constdata                               0x01016e68   Section      304  gapc_task.o(.constdata)
+    gapc_msg_handler_tab                     0x01016e68   Data         304  gapc_task.o(.constdata)
+    .constdata                               0x01016f98   Section       12  gapc_task.o(.constdata)
+    .constdata                               0x01016fa4   Section      512  gapm_task.o(.constdata)
+    gapm_hci_cmd_cmp_event_handler_tab       0x01016fa4   Data         408  gapm_task.o(.constdata)
+    gapm_hci_cmd_stat_event_handler_tab      0x0101713c   Data          24  gapm_task.o(.constdata)
+    gapm_hci_le_event_handler_tab            0x01017154   Data          80  gapm_task.o(.constdata)
+    .constdata                               0x010171a4   Section      272  gapm_task.o(.constdata)
+    gapm_msg_handler_tab                     0x010171a4   Data         272  gapm_task.o(.constdata)
+    .constdata                               0x010172b4   Section       12  gapm_task.o(.constdata)
+    .constdata                               0x010172c0   Section       25  smpc.o(.constdata)
+    smpc_pair_method                         0x010172c0   Data          25  smpc.o(.constdata)
+    .constdata                               0x010172dc   Section      140  atts.o(.constdata)
+    atts_rights                              0x010172dc   Data          36  atts.o(.constdata)
+    .constdata                               0x01017368   Section      224  gattc_task.o(.constdata)
+    gattc_msg_handler_tab                    0x01017368   Data         224  gattc_task.o(.constdata)
+    .constdata                               0x01017448   Section       12  gattc_task.o(.constdata)
+    .constdata                               0x01017454   Section        8  gattm_task.o(.constdata)
+    gattm_msg_handler_tab                    0x01017454   Data           8  gattm_task.o(.constdata)
+    .constdata                               0x0101745c   Section       12  gattm_task.o(.constdata)
+    .constdata                               0x01017468   Section      276  l2cc_pdu.o(.constdata)
+    l2cc_signaling_pkt_format                0x01017468   Data          92  l2cc_pdu.o(.constdata)
+    l2cc_security_pkt_format                 0x010174c4   Data          60  l2cc_pdu.o(.constdata)
+    l2cc_attribute_pkt_format                0x01017500   Data         124  l2cc_pdu.o(.constdata)
+    .constdata                               0x0101757c   Section       64  l2cc_sig.o(.constdata)
+    .constdata                               0x010175bc   Section      216  gapc_hci.o(.constdata)
+    hci_cmd_cmp_event_handler_tab            0x010175bc   Data          72  gapc_hci.o(.constdata)
+    hci_cmd_stat_event_handler_tab           0x01017604   Data          48  gapc_hci.o(.constdata)
+    hci_le_event_handler_tab                 0x01017634   Data          56  gapc_hci.o(.constdata)
+    hci_event_handler_tab                    0x0101766c   Data          40  gapc_hci.o(.constdata)
+    .constdata                               0x01017694   Section       24  gapc_sig.o(.constdata)
+    .constdata                               0x010176ac   Section       60  smpc_util.o(.constdata)
+    .constdata                               0x010176e8   Section       60  smpc_util.o(.constdata)
+    .constdata                               0x01017724   Section      112  attc.o(.constdata)
+    .conststring                             0x01017794   Section      421  user_task.o(.conststring)
+    .conststring                             0x0101793c   Section       47  mesh_api.o(.conststring)
+    .conststring                             0x0101796c   Section      109  l2cc_pdu.o(.conststring)
     RESET                                    0x20000000   Section      128  app_boot_vectors.o(RESET)
     ram_code_front                           0x20000b60   Section        0  entry.o(ram_code_front)
     Long Thumb to Thumb Veneer to rf_parameter_calib 0x20000d73   Thumb Code    10  anon$$obj.o(Veneer$$Code)
@@ -9318,7 +9319,7 @@ Image Symbol Table
     ble_sec_resolve_address                  0x01005ce1   Thumb Code    70  app_sec.o(i.ble_sec_resolve_address)
     ble_sec_send_security_req                0x01005d27   Thumb Code    36  app_sec.o(i.ble_sec_send_security_req)
     ble_sec_set_pairing_param                0x01005d4d   Thumb Code    10  app_sec.o(i.ble_sec_set_pairing_param)
-    ble_send_cmd                             0x01005d5d   Thumb Code   222  lte_protocol.o(i.ble_send_cmd)
+    ble_send_cmd                             0x01005d5d   Thumb Code   224  lte_protocol.o(i.ble_send_cmd)
     ble_send_data                            0x01005e51   Thumb Code    92  lte_protocol.o(i.ble_send_data)
     ble_set_addr_type                        0x01005ebd   Thumb Code    26  app.o(i.ble_set_addr_type)
     ble_set_evt_func                         0x01005edd   Thumb Code    14  app.o(i.ble_set_evt_func)
@@ -9703,49 +9704,49 @@ Image Symbol Table
     system_sleep_enable                      0x01015ded   Thumb Code     8  sys_utils.o(i.system_sleep_enable)
     trng_init_                               0x01015ea1   Thumb Code    90  sys_utils.o(i.trng_init_)
     user_custom_parameters                   0x01015f01   Thumb Code    84  proj_main.o(i.user_custom_parameters)
-    user_entry_after_ble_init                0x01015f59   Thumb Code    78  proj_main.o(i.user_entry_after_ble_init)
-    user_entry_before_ble_init               0x0101600d   Thumb Code   154  proj_main.o(i.user_entry_before_ble_init)
-    user_init_static_memory                  0x010160b1   Thumb Code    38  entry.o(i.user_init_static_memory)
-    user_loop_callback                       0x010160d9   Thumb Code   178  proj_main.o(i.user_loop_callback)
-    user_task_init                           0x010161fd   Thumb Code    14  user_task.o(i.user_task_init)
-    wdt_feed                                 0x01016215   Thumb Code     8  driver_wdt.o(i.wdt_feed)
-    wdt_init                                 0x0101621d   Thumb Code   124  driver_wdt.o(i.wdt_init)
-    wdt_start                                0x01016299   Thumb Code    40  driver_wdt.o(i.wdt_start)
-    crc_table                                0x01016310   Data        1024  app_ota.o(.constdata)
-    sp_svc_uuid                              0x01016710   Data           2  simple_gatt_service.o(.constdata)
-    sp_char1_desc                            0x01016712   Data          17  simple_gatt_service.o(.constdata)
-    sp_char2_desc                            0x01016723   Data          17  simple_gatt_service.o(.constdata)
-    sp_char3_desc                            0x01016734   Data          17  simple_gatt_service.o(.constdata)
-    simple_profile_att_table                 0x01016748   Data         336  simple_gatt_service.o(.constdata)
-    hid_svc_uuid                             0x01016898   Data           2  hid_service.o(.constdata)
-    hid_info_value                           0x0101689c   Data           4  hid_service.o(.constdata)
-    hid_profile_att_table                    0x01016930   Data         784  hid_service.o(.constdata)
-    sec_sector_erase_cmd                     0x01016c44   Data           4  flash.o(.constdata)
-    sec_sector_read_cmd                      0x01016c48   Data           4  flash.o(.constdata)
-    sec_sector_write_cmd                     0x01016c4c   Data           4  flash.o(.constdata)
-    page_erase_cmd                           0x01016c50   Data           4  flash.o(.constdata)
-    TASK_DESC_APP                            0x01016d2c   Data          12  app_task.o(.constdata)
-    app_sec_msg_handler_list                 0x01016d38   Data          48  app_sec.o(.constdata)
-    app_sec_handlers                         0x01016d68   Data           8  app_sec.o(.constdata)
-    TASK_DESC_L2CC                           0x01016e4c   Data          12  l2cc_task.o(.constdata)
-    TASK_DESC_GAPC                           0x01016f88   Data          12  gapc_task.o(.constdata)
-    TASK_DESC_GAPM                           0x010172a4   Data          12  gapm_task.o(.constdata)
-    atts_handlers                            0x010172f0   Data         104  atts.o(.constdata)
-    TASK_DESC_GATTC                          0x01017438   Data          12  gattc_task.o(.constdata)
-    TASK_DESC_GATTM                          0x0101744c   Data          12  gattm_task.o(.constdata)
-    l2cc_sig_handlers                        0x0101756c   Data          64  l2cc_sig.o(.constdata)
-    gapc_sig_handlers                        0x01017684   Data          24  gapc_sig.o(.constdata)
-    smpc_construct_pdu                       0x0101769c   Data          60  smpc_util.o(.constdata)
-    smpc_recv_pdu                            0x010176d8   Data          60  smpc_util.o(.constdata)
-    attc_handlers                            0x01017714   Data         112  attc.o(.constdata)
-    Load$$ER_BOOT$$Base                      0x010179cc   Number         0  anon$$obj.o ABSOLUTE
-    Load$$ER_BOOT$$Limit                     0x01017a4c   Number         0  anon$$obj.o ABSOLUTE
-    Load$$USER_RE_RAM_FRONT$$Base            0x01017a4c   Number         0  anon$$obj.o ABSOLUTE
-    Load$$USER_RE_RAM$$Base                  0x01017a88   Number         0  anon$$obj.o ABSOLUTE
-    Load$$USER_RE_RAM_FRONT$$Limit           0x01017a88   Number         0  anon$$obj.o ABSOLUTE
-    Load$$ER_RW$$RW$$Base                    0x0101a5e8   Number         0  anon$$obj.o ABSOLUTE
-    Load$$USER_RE_RAM$$Limit                 0x0101a5e8   Number         0  anon$$obj.o ABSOLUTE
-    Load$$ER_RW$$RW$$Limit                   0x0101aa20   Number         0  anon$$obj.o ABSOLUTE
+    user_entry_after_ble_init                0x01015f59   Thumb Code    86  proj_main.o(i.user_entry_after_ble_init)
+    user_entry_before_ble_init               0x01016015   Thumb Code   154  proj_main.o(i.user_entry_before_ble_init)
+    user_init_static_memory                  0x010160b9   Thumb Code    38  entry.o(i.user_init_static_memory)
+    user_loop_callback                       0x010160e1   Thumb Code   188  proj_main.o(i.user_loop_callback)
+    user_task_init                           0x0101620d   Thumb Code    14  user_task.o(i.user_task_init)
+    wdt_feed                                 0x01016225   Thumb Code     8  driver_wdt.o(i.wdt_feed)
+    wdt_init                                 0x0101622d   Thumb Code   124  driver_wdt.o(i.wdt_init)
+    wdt_start                                0x010162a9   Thumb Code    40  driver_wdt.o(i.wdt_start)
+    crc_table                                0x01016320   Data        1024  app_ota.o(.constdata)
+    sp_svc_uuid                              0x01016720   Data           2  simple_gatt_service.o(.constdata)
+    sp_char1_desc                            0x01016722   Data          17  simple_gatt_service.o(.constdata)
+    sp_char2_desc                            0x01016733   Data          17  simple_gatt_service.o(.constdata)
+    sp_char3_desc                            0x01016744   Data          17  simple_gatt_service.o(.constdata)
+    simple_profile_att_table                 0x01016758   Data         336  simple_gatt_service.o(.constdata)
+    hid_svc_uuid                             0x010168a8   Data           2  hid_service.o(.constdata)
+    hid_info_value                           0x010168ac   Data           4  hid_service.o(.constdata)
+    hid_profile_att_table                    0x01016940   Data         784  hid_service.o(.constdata)
+    sec_sector_erase_cmd                     0x01016c54   Data           4  flash.o(.constdata)
+    sec_sector_read_cmd                      0x01016c58   Data           4  flash.o(.constdata)
+    sec_sector_write_cmd                     0x01016c5c   Data           4  flash.o(.constdata)
+    page_erase_cmd                           0x01016c60   Data           4  flash.o(.constdata)
+    TASK_DESC_APP                            0x01016d3c   Data          12  app_task.o(.constdata)
+    app_sec_msg_handler_list                 0x01016d48   Data          48  app_sec.o(.constdata)
+    app_sec_handlers                         0x01016d78   Data           8  app_sec.o(.constdata)
+    TASK_DESC_L2CC                           0x01016e5c   Data          12  l2cc_task.o(.constdata)
+    TASK_DESC_GAPC                           0x01016f98   Data          12  gapc_task.o(.constdata)
+    TASK_DESC_GAPM                           0x010172b4   Data          12  gapm_task.o(.constdata)
+    atts_handlers                            0x01017300   Data         104  atts.o(.constdata)
+    TASK_DESC_GATTC                          0x01017448   Data          12  gattc_task.o(.constdata)
+    TASK_DESC_GATTM                          0x0101745c   Data          12  gattm_task.o(.constdata)
+    l2cc_sig_handlers                        0x0101757c   Data          64  l2cc_sig.o(.constdata)
+    gapc_sig_handlers                        0x01017694   Data          24  gapc_sig.o(.constdata)
+    smpc_construct_pdu                       0x010176ac   Data          60  smpc_util.o(.constdata)
+    smpc_recv_pdu                            0x010176e8   Data          60  smpc_util.o(.constdata)
+    attc_handlers                            0x01017724   Data         112  attc.o(.constdata)
+    Load$$ER_BOOT$$Base                      0x010179dc   Number         0  anon$$obj.o ABSOLUTE
+    Load$$ER_BOOT$$Limit                     0x01017a5c   Number         0  anon$$obj.o ABSOLUTE
+    Load$$USER_RE_RAM_FRONT$$Base            0x01017a5c   Number         0  anon$$obj.o ABSOLUTE
+    Load$$USER_RE_RAM$$Base                  0x01017a98   Number         0  anon$$obj.o ABSOLUTE
+    Load$$USER_RE_RAM_FRONT$$Limit           0x01017a98   Number         0  anon$$obj.o ABSOLUTE
+    Load$$ER_RW$$RW$$Base                    0x0101a5f8   Number         0  anon$$obj.o ABSOLUTE
+    Load$$USER_RE_RAM$$Limit                 0x0101a5f8   Number         0  anon$$obj.o ABSOLUTE
+    Load$$ER_RW$$RW$$Limit                   0x0101aa30   Number         0  anon$$obj.o ABSOLUTE
     Image$$ER_BOOT$$Base                     0x20000000   Number         0  anon$$obj.o ABSOLUTE
     __jump_table                             0x20000080   Data           0  syscall.txt ABSOLUTE
     app_storage_base_addr_index              0x200000dc   Data           0  syscall.txt ABSOLUTE
@@ -10075,7 +10076,7 @@ Memory Map of the image
 
   Image Entry point : 0x010015d9
 
-  Load Region ROM (Base: 0x01000000, Size: 0x0001aa24, Max: 0x00030000, ABSOLUTE)
+  Load Region ROM (Base: 0x01000000, Size: 0x0001aa34, Max: 0x00030000, ABSOLUTE)
 
     Execution Region ER_TABLE (Base: 0x01000000, Size: 0x0000005c, Max: 0xffffffff, ABSOLUTE)
 
@@ -10088,7 +10089,7 @@ Memory Map of the image
     0x0100001c   0x00000040   Data   RO         1771    jump_table_4        fr8010h_stack.lib(jump_table.o)
 
 
-    Execution Region ER_RO (Base: 0x0100005c, Size: 0x00017970, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Base: 0x0100005c, Size: 0x00017980, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -11052,62 +11053,62 @@ Memory Map of the image
     0x01015df4   0x000000ac   Code   RO         1850    i.trng_flow_w_specific_smp_cnt  fr8010h_stack.lib(sys_utils.o)
     0x01015ea0   0x00000060   Code   RO         1851    i.trng_init_        fr8010h_stack.lib(sys_utils.o)
     0x01015f00   0x00000058   Code   RO            4    i.user_custom_parameters  proj_main.o
-    0x01015f58   0x000000b4   Code   RO            5    i.user_entry_after_ble_init  proj_main.o
-    0x0101600c   0x000000a4   Code   RO            6    i.user_entry_before_ble_init  proj_main.o
-    0x010160b0   0x00000026   Code   RO         1739    i.user_init_static_memory  fr8010h_stack.lib(entry.o)
-    0x010160d6   0x00000002   PAD
-    0x010160d8   0x000000dc   Code   RO            7    i.user_loop_callback  proj_main.o
-    0x010161b4   0x00000048   Code   RO          309    i.user_task_func    user_task.o
-    0x010161fc   0x00000018   Code   RO          310    i.user_task_init    user_task.o
-    0x01016214   0x00000008   Code   RO         1061    i.wdt_feed          driver_wdt.o
-    0x0101621c   0x0000007c   Code   RO         1062    i.wdt_init          driver_wdt.o
-    0x01016298   0x00000028   Code   RO         1063    i.wdt_start         driver_wdt.o
-    0x010162c0   0x0000000c   Data   RO          214    .constdata          ble_simple_peripheral.o
-    0x010162cc   0x00000044   Data   RO          311    .constdata          user_task.o
-    0x01016310   0x00000400   Data   RO          477    .constdata          app_ota.o
-    0x01016710   0x00000002   Data   RO          541    .constdata          simple_gatt_service.o
-    0x01016712   0x00000011   Data   RO          542    .constdata          simple_gatt_service.o
-    0x01016723   0x00000011   Data   RO          543    .constdata          simple_gatt_service.o
-    0x01016734   0x00000011   Data   RO          544    .constdata          simple_gatt_service.o
-    0x01016745   0x00000003   PAD
-    0x01016748   0x00000150   Data   RO          545    .constdata          simple_gatt_service.o
-    0x01016898   0x00000002   Data   RO          587    .constdata          hid_service.o
-    0x0101689a   0x00000002   PAD
-    0x0101689c   0x000003a4   Data   RO          588    .constdata          hid_service.o
-    0x01016c40   0x00000004   Data   RO         1686    .constdata          fr8010h_stack.lib(app.o)
-    0x01016c44   0x00000010   Data   RO         1930    .constdata          fr8010h_stack.lib(flash.o)
-    0x01016c54   0x000000d8   Data   RO         1965    .constdata          fr8010h_stack.lib(app_task.o)
-    0x01016d2c   0x0000000c   Data   RO         1966    .constdata          fr8010h_stack.lib(app_task.o)
-    0x01016d38   0x00000030   Data   RO         2124    .constdata          fr8010h_stack.lib(app_sec.o)
-    0x01016d68   0x00000008   Data   RO         2125    .constdata          fr8010h_stack.lib(app_sec.o)
-    0x01016d70   0x00000058   Data   RO         2269    .constdata          fr8010h_stack.lib(gapm.o)
-    0x01016dc8   0x00000024   Data   RO         2374    .constdata          fr8010h_stack.lib(gattm.o)
-    0x01016dec   0x00000060   Data   RO         2396    .constdata          fr8010h_stack.lib(l2cc_task.o)
-    0x01016e4c   0x0000000c   Data   RO         2397    .constdata          fr8010h_stack.lib(l2cc_task.o)
-    0x01016e58   0x00000130   Data   RO         2606    .constdata          fr8010h_stack.lib(gapc_task.o)
-    0x01016f88   0x0000000c   Data   RO         2607    .constdata          fr8010h_stack.lib(gapc_task.o)
-    0x01016f94   0x00000200   Data   RO         2702    .constdata          fr8010h_stack.lib(gapm_task.o)
-    0x01017194   0x00000110   Data   RO         2703    .constdata          fr8010h_stack.lib(gapm_task.o)
-    0x010172a4   0x0000000c   Data   RO         2704    .constdata          fr8010h_stack.lib(gapm_task.o)
-    0x010172b0   0x00000019   Data   RO         2745    .constdata          fr8010h_stack.lib(smpc.o)
-    0x010172c9   0x00000003   PAD
-    0x010172cc   0x0000008c   Data   RO         2838    .constdata          fr8010h_stack.lib(atts.o)
-    0x01017358   0x000000e0   Data   RO         2899    .constdata          fr8010h_stack.lib(gattc_task.o)
-    0x01017438   0x0000000c   Data   RO         2900    .constdata          fr8010h_stack.lib(gattc_task.o)
-    0x01017444   0x00000008   Data   RO         2932    .constdata          fr8010h_stack.lib(gattm_task.o)
-    0x0101744c   0x0000000c   Data   RO         2933    .constdata          fr8010h_stack.lib(gattm_task.o)
-    0x01017458   0x00000114   Data   RO         2983    .constdata          fr8010h_stack.lib(l2cc_pdu.o)
-    0x0101756c   0x00000040   Data   RO         3003    .constdata          fr8010h_stack.lib(l2cc_sig.o)
-    0x010175ac   0x000000d8   Data   RO         3074    .constdata          fr8010h_stack.lib(gapc_hci.o)
-    0x01017684   0x00000018   Data   RO         3102    .constdata          fr8010h_stack.lib(gapc_sig.o)
-    0x0101769c   0x0000003c   Data   RO         3408    .constdata          fr8010h_stack.lib(smpc_util.o)
-    0x010176d8   0x0000003c   Data   RO         3409    .constdata          fr8010h_stack.lib(smpc_util.o)
-    0x01017714   0x00000070   Data   RO         3456    .constdata          fr8010h_stack.lib(attc.o)
-    0x01017784   0x000001a5   Data   RO          312    .conststring        user_task.o
-    0x01017929   0x00000003   PAD
-    0x0101792c   0x0000002f   Data   RO         2525    .conststring        fr8010h_stack.lib(mesh_api.o)
-    0x0101795b   0x00000001   PAD
-    0x0101795c   0x0000006d   Data   RO         2984    .conststring        fr8010h_stack.lib(l2cc_pdu.o)
+    0x01015f58   0x000000bc   Code   RO            5    i.user_entry_after_ble_init  proj_main.o
+    0x01016014   0x000000a4   Code   RO            6    i.user_entry_before_ble_init  proj_main.o
+    0x010160b8   0x00000026   Code   RO         1739    i.user_init_static_memory  fr8010h_stack.lib(entry.o)
+    0x010160de   0x00000002   PAD
+    0x010160e0   0x000000e4   Code   RO            7    i.user_loop_callback  proj_main.o
+    0x010161c4   0x00000048   Code   RO          309    i.user_task_func    user_task.o
+    0x0101620c   0x00000018   Code   RO          310    i.user_task_init    user_task.o
+    0x01016224   0x00000008   Code   RO         1061    i.wdt_feed          driver_wdt.o
+    0x0101622c   0x0000007c   Code   RO         1062    i.wdt_init          driver_wdt.o
+    0x010162a8   0x00000028   Code   RO         1063    i.wdt_start         driver_wdt.o
+    0x010162d0   0x0000000c   Data   RO          214    .constdata          ble_simple_peripheral.o
+    0x010162dc   0x00000044   Data   RO          311    .constdata          user_task.o
+    0x01016320   0x00000400   Data   RO          477    .constdata          app_ota.o
+    0x01016720   0x00000002   Data   RO          541    .constdata          simple_gatt_service.o
+    0x01016722   0x00000011   Data   RO          542    .constdata          simple_gatt_service.o
+    0x01016733   0x00000011   Data   RO          543    .constdata          simple_gatt_service.o
+    0x01016744   0x00000011   Data   RO          544    .constdata          simple_gatt_service.o
+    0x01016755   0x00000003   PAD
+    0x01016758   0x00000150   Data   RO          545    .constdata          simple_gatt_service.o
+    0x010168a8   0x00000002   Data   RO          587    .constdata          hid_service.o
+    0x010168aa   0x00000002   PAD
+    0x010168ac   0x000003a4   Data   RO          588    .constdata          hid_service.o
+    0x01016c50   0x00000004   Data   RO         1686    .constdata          fr8010h_stack.lib(app.o)
+    0x01016c54   0x00000010   Data   RO         1930    .constdata          fr8010h_stack.lib(flash.o)
+    0x01016c64   0x000000d8   Data   RO         1965    .constdata          fr8010h_stack.lib(app_task.o)
+    0x01016d3c   0x0000000c   Data   RO         1966    .constdata          fr8010h_stack.lib(app_task.o)
+    0x01016d48   0x00000030   Data   RO         2124    .constdata          fr8010h_stack.lib(app_sec.o)
+    0x01016d78   0x00000008   Data   RO         2125    .constdata          fr8010h_stack.lib(app_sec.o)
+    0x01016d80   0x00000058   Data   RO         2269    .constdata          fr8010h_stack.lib(gapm.o)
+    0x01016dd8   0x00000024   Data   RO         2374    .constdata          fr8010h_stack.lib(gattm.o)
+    0x01016dfc   0x00000060   Data   RO         2396    .constdata          fr8010h_stack.lib(l2cc_task.o)
+    0x01016e5c   0x0000000c   Data   RO         2397    .constdata          fr8010h_stack.lib(l2cc_task.o)
+    0x01016e68   0x00000130   Data   RO         2606    .constdata          fr8010h_stack.lib(gapc_task.o)
+    0x01016f98   0x0000000c   Data   RO         2607    .constdata          fr8010h_stack.lib(gapc_task.o)
+    0x01016fa4   0x00000200   Data   RO         2702    .constdata          fr8010h_stack.lib(gapm_task.o)
+    0x010171a4   0x00000110   Data   RO         2703    .constdata          fr8010h_stack.lib(gapm_task.o)
+    0x010172b4   0x0000000c   Data   RO         2704    .constdata          fr8010h_stack.lib(gapm_task.o)
+    0x010172c0   0x00000019   Data   RO         2745    .constdata          fr8010h_stack.lib(smpc.o)
+    0x010172d9   0x00000003   PAD
+    0x010172dc   0x0000008c   Data   RO         2838    .constdata          fr8010h_stack.lib(atts.o)
+    0x01017368   0x000000e0   Data   RO         2899    .constdata          fr8010h_stack.lib(gattc_task.o)
+    0x01017448   0x0000000c   Data   RO         2900    .constdata          fr8010h_stack.lib(gattc_task.o)
+    0x01017454   0x00000008   Data   RO         2932    .constdata          fr8010h_stack.lib(gattm_task.o)
+    0x0101745c   0x0000000c   Data   RO         2933    .constdata          fr8010h_stack.lib(gattm_task.o)
+    0x01017468   0x00000114   Data   RO         2983    .constdata          fr8010h_stack.lib(l2cc_pdu.o)
+    0x0101757c   0x00000040   Data   RO         3003    .constdata          fr8010h_stack.lib(l2cc_sig.o)
+    0x010175bc   0x000000d8   Data   RO         3074    .constdata          fr8010h_stack.lib(gapc_hci.o)
+    0x01017694   0x00000018   Data   RO         3102    .constdata          fr8010h_stack.lib(gapc_sig.o)
+    0x010176ac   0x0000003c   Data   RO         3408    .constdata          fr8010h_stack.lib(smpc_util.o)
+    0x010176e8   0x0000003c   Data   RO         3409    .constdata          fr8010h_stack.lib(smpc_util.o)
+    0x01017724   0x00000070   Data   RO         3456    .constdata          fr8010h_stack.lib(attc.o)
+    0x01017794   0x000001a5   Data   RO          312    .conststring        user_task.o
+    0x01017939   0x00000003   PAD
+    0x0101793c   0x0000002f   Data   RO         2525    .conststring        fr8010h_stack.lib(mesh_api.o)
+    0x0101796b   0x00000001   PAD
+    0x0101796c   0x0000006d   Data   RO         2984    .conststring        fr8010h_stack.lib(l2cc_pdu.o)
 
 
     Execution Region ER_BOOT (Base: 0x20000000, Size: 0x00000080, Max: 0xffffffff, ABSOLUTE)
@@ -11348,12 +11349,12 @@ Image component sizes
        652        246        934          9         40       6480   hid_service.o
       1714        374          0         16        928       7445   lte_protocol.o
       1116         52          0        256         24      30930   patch.o
-       788        170         12          8          0      46486   proj_main.o
+       804        168         12          8          0      46526   proj_main.o
        380        132        389          2         12       4997   simple_gatt_service.o
         96         38        489          2          0       3912   user_task.o
 
     ----------------------------------------------------------------------
-     12696       2218       2996        388       1256     156880   Object Totals
+     12712       2216       2996        388       1256     156920   Object Totals
       1670          0          0          0          0          0   (incl. Generated)
          8          0          8         44          0          0   (incl. Padding)
 
@@ -11464,15 +11465,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-    101888       7172       6120       1084       4448     177960   Grand Totals
-    101888       7172       6120       1084       4448     177960   ELF Image Totals
-    101888       7172       6120       1084          0          0   ROM Totals
+    101904       7170       6120       1084       4448     178000   Grand Totals
+    101904       7170       6120       1084       4448     178000   ELF Image Totals
+    101904       7170       6120       1084          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)               108008 ( 105.48kB)
+    Total RO  Size (Code + RO Data)               108024 ( 105.49kB)
     Total RW  Size (RW Data + ZI Data)              5532 (   5.40kB)
-    Total ROM Size (Code + RO Data + RW Data)     109092 ( 106.54kB)
+    Total ROM Size (Code + RO Data + RW Data)     109108 ( 106.55kB)
 
 ==============================================================================
 

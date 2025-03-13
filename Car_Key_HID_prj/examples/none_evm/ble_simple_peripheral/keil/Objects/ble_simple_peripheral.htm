@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\ble_simple_peripheral.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\ble_simple_peripheral.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Thu Feb 20 10:34:55 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Sat Mar 08 11:37:49 2025
 <BR><P>
 <H3>Maximum Stack Usage =        592 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -3291,7 +3291,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[24d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gap_security_param_init
 </UL>
 
-<P><STRONG><a name="[222]"></a>ble_send_cmd</STRONG> (Thumb, 222 bytes, Stack size 64 bytes, lte_protocol.o(i.ble_send_cmd))
+<P><STRONG><a name="[222]"></a>ble_send_cmd</STRONG> (Thumb, 224 bytes, Stack size 64 bytes, lte_protocol.o(i.ble_send_cmd))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = ble_send_cmd &rArr; co_delay_100us
 </UL>
 <BR>[Calls]<UL><LI><a href="#[22e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;co_delay_100us (via Veneer)
@@ -3303,6 +3303,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[219]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ble_protol_process
 <LI><a href="#[3ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dev_rssi_send_event (via Veneer)
 <LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;user_loop_callback
+<LI><a href="#[17e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;user_entry_after_ble_init
 </UL>
 
 <P><STRONG><a name="[239]"></a>ble_send_data</STRONG> (Thumb, 92 bytes, Stack size 272 bytes, lte_protocol.o(i.ble_send_data))
@@ -7343,7 +7344,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_main
 </UL>
 
-<P><STRONG><a name="[17e]"></a>user_entry_after_ble_init</STRONG> (Thumb, 78 bytes, Stack size 16 bytes, proj_main.o(i.user_entry_after_ble_init))
+<P><STRONG><a name="[17e]"></a>user_entry_after_ble_init</STRONG> (Thumb, 86 bytes, Stack size 16 bytes, proj_main.o(i.user_entry_after_ble_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = user_entry_after_ble_init &rArr; simple_peripheral_init &rArr; gap_bond_manager_delete_all &rArr; ble_bond_clr_all_info &rArr; flash_write &rArr; flash_protect_enable &rArr; co_delay_100us
 </UL>
 <BR>[Calls]<UL><LI><a href="#[22d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdt_feed
@@ -7353,6 +7354,7 @@ Global Symbols
 <LI><a href="#[360]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;os_user_loop_event_set
 <LI><a href="#[3ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_SDK_compile_date_time
 <LI><a href="#[17f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;co_printf (via Veneer)
+<LI><a href="#[222]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ble_send_cmd
 <LI><a href="#[22b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_otas_get_curr_firmwave_version
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_reset_complete_ind_func
@@ -7390,7 +7392,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_main
 </UL>
 
-<P><STRONG><a name="[2c]"></a>user_loop_callback</STRONG> (Thumb, 178 bytes, Stack size 16 bytes, proj_main.o(i.user_loop_callback))
+<P><STRONG><a name="[2c]"></a>user_loop_callback</STRONG> (Thumb, 188 bytes, Stack size 16 bytes, proj_main.o(i.user_loop_callback))
 <BR><BR>[Stack]<UL><LI>Max Depth = 312<LI>Call Chain = user_loop_callback &rArr; ble_rcv_parse &rArr; ble_protol_process &rArr; ota_data_check &rArr; flash_read
 </UL>
 <BR>[Calls]<UL><LI><a href="#[22d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdt_feed
