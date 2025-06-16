@@ -1,0 +1,8 @@
+../code/proj_main.c:212:6:user_loop_callback	16	static
+../code/proj_main.c:52:43:rtc_isr_ram	0	static
+../code/proj_main.c:65:43:pmu_gpio_isr_ram	8	static
+../code/proj_main.c:89:6:user_custom_parameters	16	static
+../code/proj_main.c:122:43:user_entry_before_sleep_imp	8	static
+../code/proj_main.c:146:43:user_entry_after_sleep_imp	8	static
+../code/proj_main.c:173:6:user_entry_before_ble_init	8	static
+../code/proj_main.c:263:6:user_entry_after_ble_init	16	static

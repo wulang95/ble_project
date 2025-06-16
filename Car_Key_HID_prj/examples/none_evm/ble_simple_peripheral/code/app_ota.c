@@ -72,7 +72,7 @@ const int crc_table[256] = { 0x00000000, 0x77073096, 0xee0e612c, 0x990951ba,
 
 				
 
-
+/*
 __attribute__((section("ram_code")))unsigned int GetCrc32_cum(const unsigned char* pData, unsigned int Len, unsigned int CRC32) 
 {
     for(unsigned int i=0; i<Len; ++i)
@@ -106,9 +106,75 @@ unsigned int ota_data_check(uint32_t firmware_length,uint32_t new_bin_addr)
 				CRC32 = GetCrc32_cum(data, read_len, CRC32);
 				total_len -= read_len;
 				offset += read_len;
+				wdt_feed();
 		}
 		co_printf("CRC32:%0x\r\n", CRC32);
 		return CRC32;
+}*/
+__attribute__((section("ram_code")))uint32_t Crc32CalByByte(int crc,uint8_t* ptr, int len)
+{
+    int i = 0;
+    while(len-- != 0)
+    {
+        int high = crc/256;
+        crc <<= 8;
+        crc ^= crc_table[(high^ptr[i])&0xff];
+        crc &= 0xFFFFFFFF;
+        i++;
+    }
+    return crc&0xFFFFFFFF;
+}
+
+__attribute__((section("ram_code")))uint8_t app_otas_crc_cal(uint32_t firmware_length,uint32_t new_bin_addr,uint32_t crc_data_t)
+{   
+    uint32_t crc_data = 0,i = 0;
+    uint16_t crc_packet_num = (firmware_length-256)/256;
+    uint32_t crc32_check_addr = new_bin_addr+256;
+    uint8_t * crc_check_data = os_malloc(256);
+    uint8_t ret = 0;
+    co_printf("crc32_check_addr: 0x%x\r\n",crc32_check_addr);
+    
+    uint32_t current_remap_address, remap_size;
+    for( i = 0;i < crc_packet_num;i++){
+        current_remap_address = system_regs->remap_virtual_addr;
+        remap_size = system_regs->remap_length;
+
+        GLOBAL_INT_DISABLE();
+        system_regs->remap_virtual_addr = 0;
+        system_regs->remap_length = 0;
+        disable_cache();
+        flash_read((crc32_check_addr+256*i),256,crc_check_data);
+        enable_cache(true);
+        system_regs->remap_virtual_addr = current_remap_address;
+        system_regs->remap_length = remap_size;
+        GLOBAL_INT_RESTORE();
+        crc_data =  Crc32CalByByte(crc_data, crc_check_data, 256);
+    }
+    firmware_length -= (256*(crc_packet_num+1));
+    if(firmware_length > 0){
+        //uint32_t current_remap_address, remap_size;
+        current_remap_address = system_regs->remap_virtual_addr;
+        remap_size = system_regs->remap_length;
+
+        GLOBAL_INT_DISABLE();
+        system_regs->remap_virtual_addr = 0;
+        system_regs->remap_length = 0;
+        disable_cache();
+        flash_read((crc32_check_addr+256*i),firmware_length,crc_check_data);
+        enable_cache(true);
+        system_regs->remap_virtual_addr = current_remap_address;
+        system_regs->remap_length = remap_size;
+        GLOBAL_INT_RESTORE();
+        crc_data =  Crc32CalByByte(crc_data, crc_check_data, firmware_length);
+    }
+    // crc_data =  crc32(crc_data, (const unsigned char *)new_bin_base, cmd_hdr->cmd.fir_crc_data.firmware_length);
+    co_printf("crc_data= %x, crc_data_t=%x\r\n",crc_data, crc_data_t);	
+
+    os_free(crc_check_data);
+    if(crc_data_t == crc_data)
+        ret = 1;
+
+    return ret;
 }
 
 __attribute__((section("ram_code"))) void app_otas_flash_read(uint32_t dest, uint8_t *src, uint32_t len)
@@ -138,6 +204,49 @@ uint32_t app_otas_get_curr_firmwave_version(void)
     }
     else        // part A
         return jump_table_a->firmware_version;
+}
+
+
+__attribute__((section("ram_code"))) void app_otas_save_data(uint32_t dest, uint8_t *src, uint32_t len)
+{
+    uint32_t current_remap_address, remap_size;
+    current_remap_address = system_regs->remap_virtual_addr;
+    remap_size = system_regs->remap_length;
+
+    GLOBAL_INT_DISABLE();
+    //*(volatile uint32_t *)0x500a0000 = 0x3c;
+    //while(((*(volatile uint32_t *)0x500a0004) & 0x03) != 0x00);
+    //if(__jump_table.system_option & SYSTEM_OPTION_ENABLE_CACHE)
+    //{
+    //    system_set_cache_config(0x60, 10);
+    //}
+    system_regs->remap_virtual_addr = 0;
+    system_regs->remap_length = 0;
+
+    flash_write(dest, len, src);
+
+    system_regs->remap_virtual_addr = current_remap_address;
+    system_regs->remap_length = remap_size;
+    //*(volatile uint32_t *)0x500a0000 = 0x3d;
+    //while(((*(volatile uint32_t *)0x500a0004) & 0x03) != 0x02);
+    //if(__jump_table.system_option & SYSTEM_OPTION_ENABLE_CACHE)
+    //{
+    //    system_set_cache_config(0x61, 10);
+    //}
+    GLOBAL_INT_RESTORE();
+    /*
+        uint8_t *buffer = (uint8_t *)ke_malloc(len, KE_MEM_NON_RETENTION);
+        flash_read(dest, len, buffer);
+        for(uint32_t i = 0; i<len; i++ )
+        {
+            if( buffer[i] != src[i] )
+            {
+                co_printf("err check[%d]\r\n",i);
+                while(1);
+            }
+        }
+        ke_free((void *)buffer);
+    */
 }
 
 __attribute__((section("ram_code")))void app_otas_save_first_pkt(uint32_t dest,uint8_t *src,uint32_t len)
@@ -193,24 +302,24 @@ __attribute__((section("ram_code"))) void app_set_ota_state(uint8_t state_flag)
         ota_state = 0;
 }
 
-__attribute__((section("ram_code"))) void app_otas_save_data(uint32_t dest, uint8_t *src, uint32_t len)
-{
-    uint32_t current_remap_address, remap_size;
-    current_remap_address = system_regs->remap_virtual_addr;
-    remap_size = system_regs->remap_length;
+//__attribute__((section("ram_code"))) void app_otas_save_data(uint32_t dest, uint8_t *src, uint32_t len)
+//{
+//    uint32_t current_remap_address, remap_size;
+//    current_remap_address = system_regs->remap_virtual_addr;
+//    remap_size = system_regs->remap_length;
 
-    GLOBAL_INT_DISABLE();
+//    GLOBAL_INT_DISABLE();
 
-    system_regs->remap_virtual_addr = 0;
-    system_regs->remap_length = 0;
+//    system_regs->remap_virtual_addr = 0;
+//    system_regs->remap_length = 0;
 
-    flash_write(dest, len, src);
+//    flash_write(dest, len, src);
 
-    system_regs->remap_virtual_addr = current_remap_address;
-    system_regs->remap_length = remap_size;
+//    system_regs->remap_virtual_addr = current_remap_address;
+//    system_regs->remap_length = remap_size;
 
-    GLOBAL_INT_RESTORE();
-}
+//    GLOBAL_INT_RESTORE();
+//}
 
 void app_ota_erase(uint32_t adr, uint32_t len)
 {

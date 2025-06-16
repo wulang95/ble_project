@@ -17,7 +17,7 @@ Library Manager: ArmAr.exe V5.06 update 3 (build 300)
 Hex Converter:   FromElf.exe V5.06 update 3 (build 300)
 CPU DLL:         SARMCM3.DLL V5.21a
 Dialog DLL:      DCM.DLL V1.13.8.0
-Target DLL:      Segger\JL2CM3.dll V2.99.23.0
+Target DLL:      Segger\JL2CM3.dll V2.99.26.0
 Dialog DLL:      TCM.DLL V1.14.14.0
  
 <h2>Project:</h2>
@@ -27,88 +27,9 @@ Project File Date:  01/08/2025
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 3 (build 300)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'ble_simple_peripheral'
-compiling simple_gatt_service.c...
-..\code\lte_protocol.h(54): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\..\..\..\components\ble\profiles\ble_simple_profile\simple_gatt_service.c: 1 warning, 0 errors
-compiling lte_protocol.c...
-..\code\lte_protocol.h(54): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\code\app_ota.h(29): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\code\lte_protocol.c(27): warning:  #1295-D: Deprecated declaration adv_disconnect - give arg types
-  extern void adv_disconnect();
-..\code\lte_protocol.c(30): warning:  #1295-D: Deprecated declaration adv_stop - give arg types
-  extern void adv_stop();
-..\code\lte_protocol.c(58): warning:  #177-D: variable "i" was declared but never referenced
-  		uint16_t lenth = 0, i;
-..\code\lte_protocol.c(133): warning:  #1182-D: a declaration cannot have a label
-  				mac_addr_t addr;
-..\code\lte_protocol.c(188): warning:  #68-D: integer conversion resulted in a change of sign
-  					res = 
-_FAIL;
-..\code\lte_protocol.c(201): warning:  #68-D: integer conversion resulted in a change of sign
-  						res = 
-_FAIL;
-..\code\lte_protocol.c(243): warning:  #1182-D: a declaration cannot have a label
-  				struct adv_param_s adv_p;		
-..\code\lte_protocol.c(245): warning:  #68-D: integer conversion resulted in a change of sign
-  						res = 
-_FAIL;
-..\code\lte_protocol.c(255): warning:  #1182-D: a declaration cannot have a label
-  				struct adv_con_param_s adv_con_p;
-..\code\lte_protocol.c(257): warning:  #68-D: integer conversion resulted in a change of sign
-  						res = 
-_FAIL;
-..\code\lte_protocol.c(286): warning:  #68-D: integer conversion resulted in a change of sign
-  				ble_ota_control.last_num = -1;
-..\code\lte_protocol.c: 13 warnings, 0 errors
-compiling proj_main.c...
-..\code\lte_protocol.h(54): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\code\app_ota.h(29): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\code\proj_main.c(72): warning:  #167-D: argument of type "void (*)(void *)" is incompatible with parameter of type "void (*)(void)"
-  		os_user_loop_event_set(&user_loop_callback);
-..\code\proj_main.c(289): warning:  #167-D: argument of type "void (*)(void *)" is incompatible with parameter of type "void (*)(void)"
-  		os_user_loop_event_set(&user_loop_callback);
-..\code\proj_main.c: 4 warnings, 0 errors
-compiling car_key_protocol.c...
-..\code\lte_protocol.h(54): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\code\car_key_protocol.c(189): warning:  #177-D: variable "open_or_close_door" was declared but never referenced
-      uint8_t open_or_close_door = 0;
-..\code\car_key_protocol.c(190): warning:  #177-D: variable "during_time" was declared but never referenced
-      uint32_t during_time = 0;
-..\code\car_key_protocol.c(93): warning:  #177-D: variable "dev_con_flag" was declared but never referenced
-  static uint8_t dev_con_flag = 0,dev_con_ready = 0;
-..\code\car_key_protocol.c(95): warning:  #177-D: variable "rssi_cur" was declared but never referenced
-  static int rssi_cur = 0;
-..\code\car_key_protocol.c(96): warning:  #177-D: variable "rssi_change_trend" was declared but never referenced
-  static uint8_t rssi_change_trend = RSSI_TREND_INIT; // 1--keep away from car  2--close to car
-..\code\car_key_protocol.c(97): warning:  #550-D: variable "rssi_forward_cnt" was set but never used
-  static uint8_t rssi_forward_cnt = 0,rssi_backward_cnt = 0;
-..\code\car_key_protocol.c(97): warning:  #550-D: variable "rssi_backward_cnt" was set but never used
-  static uint8_t rssi_forward_cnt = 0,rssi_backward_cnt = 0;
-..\code\car_key_protocol.c(98): warning:  #550-D: variable "car_door_open_flag" was set but never used
-  static uint8_t car_door_open_flag = 0; // 0-close 1-open
-..\code\car_key_protocol.c(99): warning:  #177-D: variable "rssi_change_time" was declared but never referenced
-  static uint32_t rssi_change_time = 0;
-..\code\car_key_protocol.c(100): warning:  #177-D: variable "rssi_car_door_task_id" was declared but never referenced
-  static uint16_t rssi_car_door_task_id;
-..\code\car_key_protocol.c: 11 warnings, 0 errors
-compiling ble_simple_peripheral.c...
-..\code\lte_protocol.h(54): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\code\ble_simple_peripheral.c(450): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "const uint8_t *"
-  		uart_put_data_noint(
-ART0, mac_str, sizeof(mac_str));
-..\code\ble_simple_peripheral.c: 2 warnings, 0 errors
-linking...
-Program Size: Code=101904 RO-data=6120 RW-data=1084 ZI-data=4448  
 After Build - User command #1: fromelf.exe  --text  -c -o Output/ble_simple_peripheral.txt  Objects/ble_simple_peripheral.axf
 After Build - User command #2: fromelf.exe  --bin -o Output/ble_simple_peripheral.bin  Objects/ble_simple_peripheral.axf
-".\Objects\ble_simple_peripheral.axf" - 0 Error(s), 31 Warning(s).
+".\Objects\ble_simple_peripheral.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -126,7 +47,7 @@ Package Vendor: ARM
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:4.3.0
-Build Time Elapsed:  00:00:03
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

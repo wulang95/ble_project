@@ -24,7 +24,7 @@ struct ble_adv_con_param_s {
 		struct adv_param_s adv_param;
 		struct adv_con_param_s adv_con_param;
 };
-
+extern uint8_t dft_gpio_flag;
 extern uint8_t key_close_open_flag;
 enum {
 	LTE_SET_ADV_DATA = 0x0C,
@@ -47,6 +47,7 @@ enum {
 	LTE_OTA_END = 0X12,
 	CMD_BLE_SIGN = 0X13,
 	CMD_BLE_HEART = 0X14,               /*0X14*/
+	DFT_CMD_BLE_CONN_GPIO = 0x15,
 };
 void ble_rcv_parse(void);
 void ble_send_cmd(uint8_t cmd, uint8_t ok);

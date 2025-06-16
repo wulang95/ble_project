@@ -145,6 +145,7 @@ void ble_send_cmd(uint8_t cmd, uint8_t ok)
 			break;
 			case LTE_CLOSE_KEY:
 			case LTE_OPEN_KEY:
+			case DFT_CMD_BLE_CONN_GPIO:
 				data[lenth++] = 0x00;
 				data[lenth++] = 0x00;
 			break;	
@@ -175,8 +176,10 @@ struct ble_ota_control_stu{
 		uint8_t data_save[256];
 		uint32_t ota_adress; 
 };
+uint8_t dft_gpio_flag;
 struct ble_ota_config_stu ble_ota_config;
 struct ble_ota_control_stu ble_ota_control;
+uint8_t gb_delete_wl;
 void ble_protol_process(uint8_t cmd, uint8_t *data, uint16_t len)
 {
 		co_printf("cmd:%02x\r\n", cmd);
@@ -266,9 +269,13 @@ void ble_protol_process(uint8_t cmd, uint8_t *data, uint16_t len)
 				ble_send_cmd(LTE_CON_PARAM, res);
 				break;		
 			case LTE_DELETE_BONDE:
+				co_printf("gap_bond_manager_delete_all\r\n");
+				gb_delete_wl = 1;
+				adv_disconnect();
 				gap_bond_manager_delete_all();
 				res = R_OK;
 				ble_send_cmd(LTE_DELETE_BONDE, res);
+				gap_stop_advertising();
 			break;
 			case LTE_ENTER_SLEEP:
 				res = R_OK;
@@ -321,20 +328,32 @@ void ble_protol_process(uint8_t cmd, uint8_t *data, uint16_t len)
 				}
 			break;
 			case LTE_OTA_END:
-				if(ota_data_check(ble_ota_config.total - 256, ble_ota_control.ota_adress + 256) == ble_ota_config.ota_crc){
+				if(app_otas_crc_cal(ble_ota_config.total, ble_ota_control.ota_adress, ble_ota_config.ota_crc)){
+	//			if(ota_data_check(ble_ota_config.total - 256, ble_ota_control.ota_adress + 256) == ble_ota_config.ota_crc){
 						co_printf("BLE OTA IS OK\r\n");
 						res = R_OK;
 						ble_send_cmd(LTE_OTA_END, res);
 						wdt_feed();
 						co_delay_100us(1000);
-						app_otas_save_first_pkt(ble_ota_control.ota_adress, ble_ota_control.data_save, 256);
+						app_otas_save_data(ble_ota_control.ota_adress, ble_ota_control.data_save, 256);
+					//		app_otas_save_first_pkt(ble_ota_control.ota_adress, ble_ota_control.data_save, 256);
 						
 				} else {
 						co_printf("CRC is fail!\r\n");
 						res = 1;
-						app_set_ota_state(0);
 						ble_send_cmd(LTE_OTA_END, res);
+						co_delay_100us(1000);
 				}
+				app_set_ota_state(0);
+				uart_finish_transfers(UART1_BASE);
+				platform_reset_patch(0);
+			break;
+			case DFT_CMD_BLE_CONN_GPIO:
+				res = R_OK;
+				ble_send_cmd(DFT_CMD_BLE_CONN_GPIO, res);
+				pmu_set_gpio_value(GPIO_PORT_D, BIT(5), 0);
+				printf("DFT_CMD_BLE_CONN_GPIO\r\n");
+				dft_gpio_flag = 1;
 			break;
 		}
 }

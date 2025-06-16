@@ -1,0 +1,390 @@
+
+;; Function user_loop_callback (user_loop_callback, funcdef_no=94, decl_uid=8355, cgraph_uid=104, symbol_order=107)
+
+Removing basic block 15
+Removing basic block 16
+Removing basic block 17
+Removing basic block 18
+Removing basic block 19
+Removing basic block 20
+Removing basic block 21
+Removing basic block 22
+Removing basic block 23
+user_loop_callback (void * arg)
+{
+  unsigned char week_flag.0_1;
+  long unsigned int _2;
+  long unsigned int cur_time.1_3;
+  long unsigned int _4;
+  long unsigned int _5;
+  unsigned char _6;
+  long unsigned int _7;
+  long unsigned int _8;
+  long unsigned int _9;
+  long unsigned int _10;
+  long unsigned int _11;
+  unsigned char _12;
+  unsigned char _13;
+  unsigned char _14;
+  long unsigned int _15;
+  long unsigned int _16;
+  long unsigned int _17;
+  long unsigned int _18;
+  long unsigned int _19;
+  unsigned char _20;
+  unsigned char _21;
+  unsigned char _22;
+
+  <bb 2> [local count: 1073741824]:
+  # DEBUG BEGIN_STMT
+  week_flag.0_1 = week_flag;
+  if (week_flag.0_1 == 1)
+    goto <bb 3>; [20.24%]
+  else
+    goto <bb 4>; [79.76%]
+
+  <bb 3> [local count: 217325344]:
+  # DEBUG BEGIN_STMT
+  week_flag = 0;
+  # DEBUG BEGIN_STMT
+  pmu_set_pin_to_CPU (0, 3);
+  # DEBUG BEGIN_STMT
+  system_set_port_pull (1, 1);
+  # DEBUG BEGIN_STMT
+  system_set_port_mux (0, 0, 5);
+  # DEBUG BEGIN_STMT
+  system_set_port_mux (0, 1, 5);
+  # DEBUG BEGIN_STMT
+  uart_init (1342504960, 8);
+  # DEBUG BEGIN_STMT
+  printf ("cat1 is week");
+
+  <bb 4> [local count: 1073741824]:
+  # DEBUG BEGIN_STMT
+  ble_rcv_parse ();
+  # DEBUG BEGIN_STMT
+  _2 = system_get_curr_time ();
+  cur_time.1_3 = cur_time;
+  _4 = _2 - cur_time.1_3;
+  if (_4 > 3000)
+    goto <bb 5>; [33.00%]
+  else
+    goto <bb 6>; [67.00%]
+
+  <bb 5> [local count: 354334800]:
+  # DEBUG BEGIN_STMT
+  co_printf ("ble heart\r\n");
+  # DEBUG BEGIN_STMT
+  _5 = system_get_curr_time ();
+  cur_time = _5;
+  # DEBUG BEGIN_STMT
+  ble_send_cmd (20, 0);
+
+  <bb 6> [local count: 1073741824]:
+  # DEBUG BEGIN_STMT
+  _6 = car_key_con.flag;
+  if (_6 == 1)
+    goto <bb 7>; [20.24%]
+  else
+    goto <bb 11>; [79.76%]
+
+  <bb 7> [local count: 217325344]:
+  # DEBUG BEGIN_STMT
+  _7 = system_get_curr_time ();
+  _8 = car_key_con.cur_time;
+  _9 = _7 - _8;
+  _10 = car_key_con.time;
+  if (_9 > _10)
+    goto <bb 9>; [33.00%]
+  else
+    goto <bb 8>; [67.00%]
+
+  <bb 8> [local count: 1029909319]:
+  goto <bb 14>; [100.00%]
+
+  <bb 9> [local count: 71717363]:
+  # DEBUG BEGIN_STMT
+  _11 = system_get_curr_time ();
+  car_key_con.cur_time = _11;
+  # DEBUG BEGIN_STMT
+  ble_send_cmd (7, 0);
+  # DEBUG BEGIN_STMT
+  _12 = car_key_con.t;
+  _13 = _12 + 1;
+  car_key_con.t = _13;
+  # DEBUG BEGIN_STMT
+  _14 = car_key_con.cnt;
+  if (_13 == _14)
+    goto <bb 10>; [34.00%]
+  else
+    goto <bb 8>; [66.00%]
+
+  <bb 10> [local count: 43832506]:
+  # DEBUG BEGIN_STMT
+  car_key_con.flag = 0;
+  goto <bb 14>; [100.00%]
+
+  <bb 11> [local count: 856416481]:
+  # DEBUG BEGIN_STMT
+  if (_6 == 2)
+    goto <bb 12>; [20.24%]
+  else
+    goto <bb 8>; [79.76%]
+
+  <bb 12> [local count: 173338695]:
+  # DEBUG BEGIN_STMT
+  _15 = system_get_curr_time ();
+  _16 = car_key_con.cur_time;
+  _17 = _15 - _16;
+  _18 = car_key_con.time;
+  if (_17 > _18)
+    goto <bb 13>; [33.00%]
+  else
+    goto <bb 8>; [67.00%]
+
+  <bb 13> [local count: 57201769]:
+  # DEBUG BEGIN_STMT
+  _19 = system_get_curr_time ();
+  car_key_con.cur_time = _19;
+  # DEBUG BEGIN_STMT
+  ble_send_cmd (8, 0);
+  # DEBUG BEGIN_STMT
+  _20 = car_key_con.t;
+  _21 = _20 + 1;
+  car_key_con.t = _21;
+  # DEBUG BEGIN_STMT
+  _22 = car_key_con.cnt;
+  if (_21 == _22)
+    goto <bb 10>; [34.00%]
+  else
+    goto <bb 8>; [66.00%]
+
+  <bb 14> [local count: 1073741824]:
+  # DEBUG BEGIN_STMT
+  wdt_feed (); [tail call]
+  return;
+
+}
+
+
+
+;; Function rtc_isr_ram (rtc_isr_ram, funcdef_no=88, decl_uid=8362, cgraph_uid=98, symbol_order=100)
+
+__attribute__((section ("ram_code")))
+rtc_isr_ram (uint8_t rtc_idx)
+{
+  <bb 2> [local count: 1073741824]:
+  # DEBUG BEGIN_STMT
+  # DEBUG BEGIN_STMT
+  # DEBUG BEGIN_STMT
+  # DEBUG BEGIN_STMT
+  return;
+
+}
+
+
+
+;; Function pmu_gpio_isr_ram (pmu_gpio_isr_ram, funcdef_no=89, decl_uid=8365, cgraph_uid=99, symbol_order=101)
+
+__attribute__((section ("ram_code")))
+pmu_gpio_isr_ram ()
+{
+  <bb 2> [local count: 1073741824]:
+  # DEBUG BEGIN_STMT
+  week_flag = 1;
+  # DEBUG BEGIN_STMT
+  os_user_loop_event_set (user_loop_callback);
+  # DEBUG BEGIN_STMT
+  pmu_port_wakeup_func_clear (268435456);
+  # DEBUG BEGIN_STMT
+  pmu_port_wakeup_func_clear (1);
+  # DEBUG BEGIN_STMT
+  rtc_disalarm (0); [tail call]
+  return;
+
+}
+
+
+
+;; Function user_custom_parameters (user_custom_parameters, funcdef_no=90, decl_uid=8368, cgraph_uid=100, symbol_order=102)
+
+user_custom_parameters ()
+{
+  struct chip_unique_id_t id_data;
+  unsigned char _1;
+  unsigned char _2;
+
+  <bb 2> [local count: 1073741824]:
+  # DEBUG BEGIN_STMT
+  # DEBUG BEGIN_STMT
+  efuse_get_chip_unique_id (&id_data);
+  # DEBUG BEGIN_STMT
+  # DEBUG BEGIN_STMT
+  # DEBUG BEGIN_STMT
+  # DEBUG BEGIN_STMT
+  # DEBUG BEGIN_STMT
+  # DEBUG BEGIN_STMT
+  # DEBUG BEGIN_STMT
+  _1 = id_data.unique_id[5];
+  _2 = _1 | 192;
+  id_data.unique_id[5] = _2;
+  # DEBUG BEGIN_STMT
+  MEM <unsigned char[6]> [(char * {ref-all})&__jump_table + 82B] = MEM <unsigned char[6]> [(char * {ref-all})&id_data];
+  # DEBUG BEGIN_STMT
+  __jump_table.system_clk = 3;
+  # DEBUG BEGIN_STMT
+  jump_table_set_static_keys_store_offset (520192);
+  # DEBUG BEGIN_STMT
+  ble_set_addr_type (0);
+  # DEBUG BEGIN_STMT
+  retry_handshake ();
+  id_data ={v} {CLOBBER};
+  return;
+
+}
+
+
+
+;; Function user_entry_before_sleep_imp (user_entry_before_sleep_imp, funcdef_no=91, decl_uid=8372, cgraph_uid=101, symbol_order=103)
+
+__attribute__((section ("ram_code")))
+user_entry_before_sleep_imp ()
+{
+  <bb 2> [local count: 1073741824]:
+  # DEBUG BEGIN_STMT
+  uart_putc_noint_no_wait (1342537728, 115);
+  # DEBUG BEGIN_STMT
+  pmu_set_pin_pull (3, 16, 1);
+  # DEBUG BEGIN_STMT
+  pmu_port_wakeup_func_set (268435456);
+  # DEBUG BEGIN_STMT
+  pmu_set_pin_pull (0, 1, 1);
+  # DEBUG BEGIN_STMT
+  pmu_port_wakeup_func_set (1);
+  # DEBUG BEGIN_STMT
+  wdt_feed ();
+  # DEBUG BEGIN_STMT
+  rtc_alarm (0, 12000); [tail call]
+  return;
+
+}
+
+
+
+;; Function user_entry_after_sleep_imp (user_entry_after_sleep_imp, funcdef_no=92, decl_uid=8375, cgraph_uid=102, symbol_order=104)
+
+__attribute__((section ("ram_code")))
+user_entry_after_sleep_imp ()
+{
+  <bb 2> [local count: 1073741824]:
+  # DEBUG BEGIN_STMT
+  system_set_port_mux (0, 3, 6);
+  # DEBUG BEGIN_STMT
+  uart_init (1342537728, 8);
+  # DEBUG BEGIN_STMT
+  uart_putc_noint_no_wait (1342537728, 119);
+  # DEBUG BEGIN_STMT
+  wdt_feed ();
+  # DEBUG BEGIN_STMT
+  NVIC_EnableIRQ (11); [tail call]
+  return;
+
+}
+
+
+
+;; Function user_entry_before_ble_init (user_entry_before_ble_init, funcdef_no=93, decl_uid=8357, cgraph_uid=103, symbol_order=105)
+
+user_entry_before_ble_init ()
+{
+  <bb 2> [local count: 1073741824]:
+  # DEBUG BEGIN_STMT
+  pmu_set_sys_power_mode (0);
+  # DEBUG BEGIN_STMT
+  flash_protect_enable (1);
+  # DEBUG BEGIN_STMT
+  pmu_enable_irq (733);
+  # DEBUG BEGIN_STMT
+  NVIC_EnableIRQ (11);
+  # DEBUG BEGIN_STMT
+  pmu_set_port_mux (3, 5, 0);
+  # DEBUG BEGIN_STMT
+  pmu_set_pin_to_PMU (3, 32);
+  # DEBUG BEGIN_STMT
+  pmu_set_pin_dir (3, 32, 0);
+  # DEBUG BEGIN_STMT
+  pmu_set_pin_pull (3, 32, 0);
+  # DEBUG BEGIN_STMT
+  pmu_set_gpio_value (3, 32, 0);
+  # DEBUG BEGIN_STMT
+  wdt_init (0, 16);
+  # DEBUG BEGIN_STMT
+  wdt_start ();
+  # DEBUG BEGIN_STMT
+  system_set_port_pull (1, 1);
+  # DEBUG BEGIN_STMT
+  system_set_port_mux (0, 0, 5);
+  # DEBUG BEGIN_STMT
+  system_set_port_mux (0, 1, 5);
+  # DEBUG BEGIN_STMT
+  uart_init (1342504960, 8);
+  # DEBUG BEGIN_STMT
+  rtc_init ();
+  # DEBUG BEGIN_STMT
+  system_set_port_mux (0, 3, 6);
+  # DEBUG BEGIN_STMT
+  uart_init (1342537728, 8);
+  # DEBUG BEGIN_STMT
+  wdt_feed (); [tail call]
+  return;
+
+}
+
+
+
+;; Function user_entry_after_ble_init (user_entry_after_ble_init, funcdef_no=95, decl_uid=8385, cgraph_uid=105, symbol_order=108)
+
+user_entry_after_ble_init ()
+{
+  char * time;
+  char * data;
+  char * data.2_1;
+  char * time.3_2;
+  long unsigned int _3;
+
+  <bb 2> [local count: 1073741824]:
+  # DEBUG BEGIN_STMT
+  co_printf ("BLE Peripheral\r\n");
+  # DEBUG BEGIN_STMT
+  # DEBUG BEGIN_STMT
+  get_SDK_compile_date_time (&data, &time);
+  # DEBUG BEGIN_STMT
+  data.2_1 = data;
+  time.3_2 = time;
+  co_printf ("SDK Version:%s,%s\r\n", data.2_1, time.3_2);
+  # DEBUG BEGIN_STMT
+  co_printf ("DATA TIME:%s_%s", "Apr 19 2025", "13:54:22");
+  # DEBUG BEGIN_STMT
+  _3 = app_otas_get_curr_firmwave_version ();
+  co_printf ("ver:%0x\r\n", _3);
+  # DEBUG BEGIN_STMT
+  system_sleep_disable ();
+  # DEBUG BEGIN_STMT
+  user_task_init ();
+  # DEBUG BEGIN_STMT
+  week_flag = 0;
+  # DEBUG BEGIN_STMT
+  simple_peripheral_init ();
+  # DEBUG BEGIN_STMT
+  wdt_feed ();
+  # DEBUG BEGIN_STMT
+  os_user_loop_event_set (user_loop_callback);
+  # DEBUG BEGIN_STMT
+  ble_send_cmd (19, 0);
+  data ={v} {CLOBBER};
+  time ={v} {CLOBBER};
+  return;
+
+}
+
+

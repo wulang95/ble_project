@@ -70,7 +70,7 @@ __attribute__((section("ram_code"))) void pmu_gpio_isr_ram(void)
 //		}
 		week_flag = 1;
 		os_user_loop_event_set(&user_loop_callback);
-		pmu_port_wakeup_func_clear(GPIO_PD4);
+		pmu_port_wakeup_func_clear(GPIO_PA0);
 		rtc_disalarm(RTC_A);
 }
 
@@ -121,8 +121,8 @@ void user_custom_parameters(void)
 __attribute__((section("ram_code"))) void user_entry_before_sleep_imp(void)
 {
 	uart_putc_noint_no_wait(UART1, 's');
-	pmu_set_pin_pull(GPIO_PORT_D, (1<<GPIO_BIT_4), true);
-	pmu_port_wakeup_func_set(GPIO_PD4);
+	pmu_set_pin_pull(GPIO_PORT_A, (1<<GPIO_BIT_0), true);
+	pmu_port_wakeup_func_set(GPIO_PA0);
 	wdt_feed();
 	rtc_alarm(RTC_A,12000);
 }
@@ -190,6 +190,15 @@ void user_entry_before_ble_init(void)
 		wdt_init(WDT_ACT_RST_CHIP, 16);
 		wdt_start();
 		
+		
+		system_set_port_mux(GPIO_PORT_D, GPIO_BIT_4, PORTD4_FUNC_D4);
+		pmu_set_pin_to_PMU(GPIO_PORT_D, BIT(4));
+		pmu_set_pin_dir(GPIO_PORT_D, BIT(4), GPIO_DIR_IN);
+
+		pmu_set_pin_pull(GPIO_PORT_D, BIT(4), false);
+		
+		
+		
 	  system_set_port_pull(GPIO_PA0, true);
     system_set_port_mux(GPIO_PORT_A, GPIO_BIT_0, PORTA0_FUNC_UART0_RXD);
     system_set_port_mux(GPIO_PORT_A, GPIO_BIT_1, PORTA1_FUNC_UART0_TXD);
@@ -210,14 +219,24 @@ void user_loop_callback(void *arg)
 {
 		if(week_flag == 1){
 				week_flag = 0;
+				pmu_set_pin_to_CPU(GPIO_PORT_A, GPIO_PA0 | GPIO_PA1);
 				system_set_port_pull(GPIO_PA0, true);
 				system_set_port_mux(GPIO_PORT_A, GPIO_BIT_0, PORTA0_FUNC_UART0_RXD);
 				system_set_port_mux(GPIO_PORT_A, GPIO_BIT_1, PORTA1_FUNC_UART0_TXD);
 				uart_init(UART0, BAUD_RATE_115200); 
 				printf("cat1 is week");
 		}
+		
+		
+		if(dft_gpio_flag == 1){
+				if(pmu_get_gpio_value(GPIO_PORT_D, GPIO_BIT_4) == 1) {
+					 pmu_set_gpio_value(GPIO_PORT_D, BIT(5), 1);
+						dft_gpio_flag = 0;	
+						printf("PD5 OUT 1");
+				}
+		}
 		ble_rcv_parse();	
-		if(system_get_curr_time() - cur_time > 10000) {
+		if(system_get_curr_time() - cur_time > 3000) {
 			co_printf("ble heart\r\n");
 			cur_time = system_get_curr_time();
 			ble_send_cmd(CMD_BLE_HEART, 0);
@@ -259,6 +278,7 @@ void user_loop_callback(void *arg)
 void user_entry_after_ble_init(void)
 {
     co_printf("BLE Peripheral\r\n");
+		co_printf("OTATEST\r\n");
     char *data, *time;
     get_SDK_compile_date_time(&data, &time);
     co_printf("SDK Version:%s,%s\r\n",data,time);
@@ -282,6 +302,7 @@ void user_entry_after_ble_init(void)
     // User task initialization, for buttons.
     user_task_init();
 		week_flag = 0;
+		dft_gpio_flag = 0;
     // Application layer initialization, can included bond manager init, 
     // advertising parameters init, scanning parameter init, GATT service adding, etc.    
     simple_peripheral_init();

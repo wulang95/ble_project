@@ -89,7 +89,7 @@ static struct adv_data_s{
 }adv_s;
 
 uint8_t bond_flag;
-
+extern uint8_t gb_delete_wl;
 void set_dev_data(uint8_t *data, uint16_t len)
 {
 		uint16_t i = 0;
@@ -215,12 +215,18 @@ void adv_stop()
  */
 void app_gap_evt_cb(gap_event_t *p_event)
 {
+		co_printf("tpye:%d\r\n", p_event->type);
     switch(p_event->type)
     {
         case GAP_EVT_ADV_END:
         {
             co_printf("adv_end,status:0x%02x\r\n",p_event->param.adv_end.status);
-            
+					  if(gb_delete_wl == 1) {
+								gb_delete_wl = 0;
+								sp_start_adv();
+								gap_bond_manager_delete_all();
+						}
+						
         }
         break;
         
@@ -244,7 +250,7 @@ void app_gap_evt_cb(gap_event_t *p_event)
 							bond_flag = 0;
 						}
 						hid_unlock_flag = 1;
-            gap_security_req(p_event->param.slave_connect.conidx);
+      //      gap_security_req(p_event->param.slave_connect.conidx);
         }
         break;
 
@@ -336,7 +342,7 @@ void sp_start_adv(void)
         memcpy(&ral_set[0].addr, &info.peer_addr, sizeof(gap_mac_addr_t));
         memcpy(ral_set[0].peer_irk, info.peer_irk, 16);
         gap_set_ral(&ral_set[0], 1);
-        adv_param.adv_filt_policy = GAP_ADV_ALLOW_SCAN_WLST_CON_WLST;
+        adv_param.adv_filt_policy = GAP_ADV_ALLOW_SCAN_ANY_CON_WLST;
     }
     else
         adv_param.adv_filt_policy = GAP_ADV_ALLOW_SCAN_ANY_CON_ANY;
@@ -387,6 +393,7 @@ void sp_start_adv(void)
 void simple_peripheral_init(void)
 {
 		char mac_str[24] = {0};
+		gb_delete_wl = 0;
     // set local device name
     os_timer_init( &update_param_timer,param_timer_func,NULL);
 		ble_adv_param_init();
@@ -440,7 +447,7 @@ void simple_peripheral_init(void)
 		//enable bond manage module, which will record bond key and peer service info into flash. 
 		//and read these info from flash when func: "gap_bond_manager_init" executes.
     gap_bond_manager_init(BLE_BONDING_INFO_SAVE_ADDR, BLE_REMOTE_SERVICE_SAVE_ADDR, 1, true);
-    gap_bond_manager_delete_all();
+//    gap_bond_manager_delete_all();
     gap_set_dev_appearance(GAP_APPEARE_GENERIC_HID);
     mac_addr_t addr;
     gap_address_get(&addr);
