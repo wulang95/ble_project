@@ -27,9 +27,21 @@ Project File Date:  01/08/2025
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 3 (build 300)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'ble_simple_peripheral'
+compiling proj_main.c...
+..\code\lte_protocol.h(55): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\code\app_ota.h(29): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\code\proj_main.c(72): warning:  #167-D: argument of type "void (*)(void *)" is incompatible with parameter of type "void (*)(void)"
+  		os_user_loop_event_set(&user_loop_callback);
+..\code\proj_main.c(310): warning:  #167-D: argument of type "void (*)(void *)" is incompatible with parameter of type "void (*)(void)"
+  		os_user_loop_event_set(&user_loop_callback);
+..\code\proj_main.c: 4 warnings, 0 errors
+linking...
+Program Size: Code=102400 RO-data=6120 RW-data=1076 ZI-data=4448  
 After Build - User command #1: fromelf.exe  --text  -c -o Output/ble_simple_peripheral.txt  Objects/ble_simple_peripheral.axf
 After Build - User command #2: fromelf.exe  --bin -o Output/ble_simple_peripheral.bin  Objects/ble_simple_peripheral.axf
-".\Objects\ble_simple_peripheral.axf" - 0 Error(s), 0 Warning(s).
+".\Objects\ble_simple_peripheral.axf" - 0 Error(s), 4 Warning(s).
 
 <h2>Software Packages used:</h2>
 

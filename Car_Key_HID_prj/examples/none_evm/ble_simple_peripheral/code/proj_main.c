@@ -120,7 +120,7 @@ void user_custom_parameters(void)
  */
 __attribute__((section("ram_code"))) void user_entry_before_sleep_imp(void)
 {
-	uart_putc_noint_no_wait(UART1, 's');
+//	uart_putc_noint_no_wait(UART1, 's');
 	pmu_set_pin_pull(GPIO_PORT_A, (1<<GPIO_BIT_0), true);
 	pmu_port_wakeup_func_set(GPIO_PA0);
 	wdt_feed();
@@ -149,7 +149,7 @@ __attribute__((section("ram_code"))) void user_entry_after_sleep_imp(void)
     
     uart_init(UART1, BAUD_RATE_115200);
     //NVIC_EnableIRQ(UART1_IRQn);
-		uart_putc_noint_no_wait(UART1, 'w');
+	//	uart_putc_noint_no_wait(UART1, 'w');
     // Do some things here, can be uart print
 		wdt_feed();
     NVIC_EnableIRQ(PMU_IRQn);
@@ -236,7 +236,7 @@ void user_loop_callback(void *arg)
 				}
 		}
 		ble_rcv_parse();	
-		if(system_get_curr_time() - cur_time > 3000) {
+		if(system_get_curr_time() - cur_time > 2800) {
 			co_printf("ble heart\r\n");
 			cur_time = system_get_curr_time();
 			ble_send_cmd(CMD_BLE_HEART, 0);

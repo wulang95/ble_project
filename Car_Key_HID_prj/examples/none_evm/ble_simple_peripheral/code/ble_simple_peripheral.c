@@ -87,7 +87,7 @@ static struct adv_data_s{
 		uint8_t data_s[31];
 		uint16_t len;
 }adv_s;
-
+uint8_t g_connect_flag;
 uint8_t bond_flag;
 extern uint8_t gb_delete_wl;
 void set_dev_data(uint8_t *data, uint16_t len)
@@ -116,8 +116,8 @@ static struct ble_adv_con_param_s ble_adv_con_param;
 void ble_adv_param_init()
 {
 	
-		ble_adv_con_param.adv_param.adv_intv_min = 600;
-		ble_adv_con_param.adv_param.adv_intv_max = 600;
+		ble_adv_con_param.adv_param.adv_intv_min = 1000;
+		ble_adv_con_param.adv_param.adv_intv_max = 1000;
 		ble_adv_con_param.adv_con_param.min_intv = 12;
 		ble_adv_con_param.adv_con_param.max_intv = 12;
 		ble_adv_con_param.adv_con_param.slave_latency = 0;
@@ -242,6 +242,7 @@ void app_gap_evt_cb(gap_event_t *p_event)
             //gatt_mtu_exchange_req(p_event->param.slave_connect.conidx);
             os_timer_start(&update_param_timer,2000,0);
 						pmu_set_gpio_value(GPIO_PORT_D, BIT(5), 1);
+						g_connect_flag = 1;
 						gap_bond_info_t info;
 						gap_bond_manager_get_info(0, &info);
 						if(info.bond_flag) {
@@ -262,6 +263,7 @@ void app_gap_evt_cb(gap_event_t *p_event)
 						pmu_set_gpio_value(GPIO_PORT_D, BIT(5), 0);
 						os_timer_stop(&update_param_timer);
 						sp_start_adv();
+						g_connect_flag = 0;
         }
         break;
 
@@ -439,6 +441,7 @@ void simple_peripheral_init(void)
         .password = 0,
     };
 #endif
+		g_connect_flag = 0;
 		// Initialize security related settings.
     gap_security_param_init(&param);
     gap_set_cb_func(app_gap_evt_cb);
@@ -447,7 +450,6 @@ void simple_peripheral_init(void)
 		//enable bond manage module, which will record bond key and peer service info into flash. 
 		//and read these info from flash when func: "gap_bond_manager_init" executes.
     gap_bond_manager_init(BLE_BONDING_INFO_SAVE_ADDR, BLE_REMOTE_SERVICE_SAVE_ADDR, 1, true);
-//    gap_bond_manager_delete_all();
     gap_set_dev_appearance(GAP_APPEARE_GENERIC_HID);
     mac_addr_t addr;
     gap_address_get(&addr);
@@ -459,6 +461,10 @@ void simple_peripheral_init(void)
     // Adding services to database
     sp_gatt_add_service();  
     hid_gatt_add_service();
+		#if 0
+		sp_start_adv();
+		gap_bond_manager_delete_all();
+		#endif
 }
 
 
